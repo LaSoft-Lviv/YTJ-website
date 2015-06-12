@@ -17,9 +17,8 @@
 //= require angular-route
 //= require angular-resource
 
-//= require app.js
-//= require_tree templates
-//= require_tree controllers
-//= require_tree services
+//= require ./app
+//= require_tree ../templates
+//= require_tree ./controllers
 
 //= require_tree .

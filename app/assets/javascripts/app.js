@@ -1,14 +1,11 @@
-'use strict'
-console.log('app')
-var app = angular
-    .module('ytj', [
-        'templates',
-        'services',
-        'controllers',
-        'ngAnimate',
-        'ngRoute',
-        'ngResource'
-    ]);
+"use strict"
+
+var app = angular.module('ytj', [
+    'templates',
+    'ngRoute',
+    'ngAnimate',
+    'controllers'
+]);
 
 app.config(['$httpProvider', function($httpProvider){
     var interceptor = ['$q', '$location', '$rootScope', function($q, $location, $rootScope) {
@@ -41,26 +38,20 @@ app.config(['$httpProvider', function($httpProvider){
             }
         };
     }];
+
     $httpProvider.interceptors.push(interceptor);
 }]);
 
-
 app.config(['$routeProvider',  function ($routeProvider) {
-    console.log("signup");
     $routeProvider
         .when('/', {
-            templateUrl: 'home.html',
+            templateUrl: 'main.html',
             controller: 'HomeController',
             data: {
-                authorizedRoles: Permissions.access.open
-            }
-        })
-        .when('/signup', {
-            templateUrl: 'accounts/signup.html',
-            controller: 'AccountSignupController',
-            data: {
-
+               user: 'vasyl'
             }
         })
         .otherwise({redirectTo: '/'});
 }]);
+
+angular.module('controllers', []);

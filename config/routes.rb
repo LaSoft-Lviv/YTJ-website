@@ -1,29 +1,30 @@
 Rails.application.routes.draw do
-  resources :admins
+	root 'sessions#new'
+#  resources :admins
 
-  get 'sessions/new'
-  get 'sessions/crreate'
+#  get 'sessions/new'
+#  get 'sessions/crreate'
 
-  get 'signup' => 'accounts#create'
-  get 'accounts/create'
-  get 'accounts/edit'=>'accounts#edit'
-  get 'accounts/:id/name' => 'accounts#name'
+#  get 'signup' => 'accounts#create'
+#  get 'accounts/create'
+#  get 'accounts/edit'=>'accounts#edit'
+#  get 'accounts/:id/name' => 'accounts#name'
   #get 'accounts/update'
  # post 'accounts/update' => 'accounts#update'
  # patch "accounts/update" => "accounts#update"
  # put "accounts/update" => "accounts#update"
   #PATCH/PUT '/admins/:id' => 'accounts#update'
-  patch "accounts/update" => "accounts#update", :as => "accounts/update"
-  get 'accounts/email'
-  get 'accounts/password'
-  get 'accounts/name'
+#  patch "accounts/update" => "accounts#update", :as => "accounts/update"
+#  get 'accounts/email'
+#  get 'accounts/password'
+#  get 'accounts/name'
 
-  get 'accounts/show'
-  post "accounts/create"    => "accounts#create"
-  post 'login' => 'sessions#create'
-  get 'login' =>'sessions#new'
-  delete 'logout' => 'sessions#destroy'
-  get 'logout' => 'sessions#destroy'
+#  get 'accounts/show'
+#  post "accounts/create"    => "accounts#create"
+#  post 'login' => 'sessions#create'
+#  get 'login' =>'sessions#new'
+#  delete 'logout' => 'sessions#destroy'
+#  get 'logout' => 'sessions#destroy'
 
 
 
