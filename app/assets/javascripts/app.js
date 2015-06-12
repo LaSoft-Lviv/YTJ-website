@@ -25,13 +25,13 @@ app.config(['$httpProvider', function($httpProvider){
 }]);
 
 app.config(['$httpProvider', function($httpProvider){
-    var interceptor = ['$q', '$location', '$rootScope', 'messageCenterService', function($q, $location, $rootScope, messageCenterService) {
+    var interceptor = ['$q', '$location', '$rootScope', function($q, $location, $rootScope) {
         return {
             'responseError': function(rejection) {
                 if (rejection.status == 403) {
                     $rootScope.$broadcast('auth-not-authorized');
                     window.history.back();
-                    messageCenterService.add('danger', 'You are not authorized to perform that action.', { timeout: 2000, html: true, status: messageCenterService.status.permanent });
+                    //messageCenterService.add('danger', 'You are not authorized to perform that action.', { timeout: 2000, html: true, status: messageCenterService.status.permanent });
                     return $q.reject(rejection);
                 }
                 return $q.reject(rejection);
