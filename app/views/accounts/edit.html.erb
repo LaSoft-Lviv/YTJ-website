@@ -1,0 +1,27 @@
+<h1>Edit </h1>
+
+<%= form_for @admin , :url => {:action => "update" }  do |f| %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+    </div>
+    <div>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </div>
+
+    <div>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+
+
+
+    <%= f.submit "Save changes"  %>
+    <% end %>

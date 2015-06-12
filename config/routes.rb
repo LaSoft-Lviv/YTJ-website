@@ -1,4 +1,34 @@
 Rails.application.routes.draw do
+  resources :admins
+
+  get 'sessions/new'
+  get 'sessions/crreate'
+
+  get 'signup' => 'accounts#create'
+  get 'accounts/create'
+  get 'accounts/edit'=>'accounts#edit'
+  get 'accounts/:id/name' => 'accounts#name'
+  #get 'accounts/update'
+ # post 'accounts/update' => 'accounts#update'
+ # patch "accounts/update" => "accounts#update"
+ # put "accounts/update" => "accounts#update"
+  #PATCH/PUT '/admins/:id' => 'accounts#update'
+  patch "accounts/update" => "accounts#update", :as => "accounts/update"
+  get 'accounts/email'
+  get 'accounts/password'
+  get 'accounts/name'
+
+  get 'accounts/show'
+  post "accounts/create"    => "accounts#create"
+  post 'login' => 'sessions#create'
+  get 'login' =>'sessions#new'
+  delete 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
+
+
+
+
+  #match '/admins' => 'accounts#create', via: :post;
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -48,9 +78,9 @@ Rails.application.routes.draw do
   #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
+  #   namespace :accounts do
+  #     # Directs /accounts/products/* to Admin::ProductsController
+  #     # (app/controllers/accounts/products_controller.rb)
   #     resources :products
   #   end
 end
