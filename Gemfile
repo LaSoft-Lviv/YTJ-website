@@ -6,7 +6,7 @@ gem 'pg' # sudo apt-get install libpq-dev
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
