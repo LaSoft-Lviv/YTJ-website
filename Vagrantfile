@@ -72,6 +72,6 @@ Vagrant.configure(2) do |config|
 	config.vm.provision :shell, :path => "install-tools.sh"
 end
 # If you need password
-# vagrant ssh (default pwd = ‘vagrant’]
+# vagrant ssh (default pwd = ‘vagrant’, pwd = 123456]
 # Start server in the virtual box
 # rails s -b 0.0.0.0
