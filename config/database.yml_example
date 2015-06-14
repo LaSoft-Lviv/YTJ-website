@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: YTJ_development
+  username: vasyl
+  password:
+
+test:
+  <<: *default
+  database: YTJ_test
+  username: vasyl
+  password:
+
+production:
+  <<: *default
+  database: YTJ_production
+  username: YTJ
+  password: <%= ENV['YTJ_DATABASE_PASSWORD'] %>
