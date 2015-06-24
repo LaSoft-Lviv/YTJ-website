@@ -18,14 +18,16 @@ gem 'angularjs-rails'
 gem 'angular-rails-templates'
 gem 'rails-assets-angular-route'
 gem 'rails-assets-angular'
-
+gem 'rails-assets-ngstorage'
 gem 'sprockets', '2.12.3'
 gem 'sprockets-rails', '2.2.1'
+gem 'angular_rails_csrf'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails'
+  gem 'pry'
 end
 

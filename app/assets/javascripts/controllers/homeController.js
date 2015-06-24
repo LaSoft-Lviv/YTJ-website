@@ -1,3 +1,5 @@
 angular.module('controllers')
-  .controller('HomeController', ['$scope', '$routeParams', '$location', function ($scope, $routeParams, $location) {
+  .controller('HomeController', ['$scope','$location', function ($scope,  $location) {
+
+            $scope.test = 'Hello world!';
 }]);
