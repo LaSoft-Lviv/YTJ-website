@@ -1,48 +1,34 @@
 class AccountsController < ApplicationController
-  before_action :set_admin, only: [:show, :edit, :update, :destroy]
-  def index
-    respond_with Admin.all
+  before_action :authenticate, except: :create
+
+  def index #Need delete
+    render json: { admins: Admin.all }
   end
-
-
-  def create
-    @admin = Admin.new()
-
-    if @admin.save
-      render :json => @admin;
-      #session[:user_id] = @admin.id
-     # respond_with @admin
-     # redirect_to '/'
-    else
-      #redirect_to '/signup'
-    end
-
-  end
-
-  def update
-    if @admin.update_attributes(user_params)
-      flash[:success] = "Profile updated"
-      respond_with @admin
-      redirect_to '/'
-    else
-      render 'edit'
-    end
-  end
-
-  private
-
-  def user_params
-    params.require(:accounts).permit(:name, :email, :password, :password_confirmation)
-  end
-
-
-
 
   def show
   end
 
+  def create
+    @admin = Admin.new(account_params)
+
+    if @admin.save
+      render json: { status: 'success' }
+    else
+      render json: { status: 'false', errors: @admin.errors }
+    end
+  end
+
+  def update
+    if @current_admin.update_attributes(account_params)
+      render :json: { user: @admin, status: 'success'}
+    else
+      render :json: { status: 'false', :errors => @admin.errors }
+    end
+  end
+
   private
-  def set_admin
-    @admin = current_admin
+
+  def account_params
+    params.require(:account).permit(:name, :email, :password, :password_confirmation)
   end
 end

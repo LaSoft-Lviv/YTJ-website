@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 	root 'sessions#new'
-#  resources :admins
+
+  #resources :admins
+  post "accounts" => "accounts#create"
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  patch "accounts" => "accounts#update", :as => "accounts/update"
 
 #  get 'sessions/new'
 #  get 'sessions/crreate'
@@ -20,7 +25,7 @@ Rails.application.routes.draw do
 #  get 'accounts/name'
 
 #  get 'accounts/show'
-#  post "accounts/create"    => "accounts#create"
+
 #  post 'login' => 'sessions#create'
 #  get 'login' =>'sessions#new'
 #  delete 'logout' => 'sessions#destroy'
