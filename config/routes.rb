@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-	root 'sessions#new'
+
+	root 'home#index'
 
   #resources :admins
   post "accounts" => "accounts#create"
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   patch "accounts" => "accounts#update", :as => "accounts/update"
-
+  get 'home/index'
 #  get 'sessions/new'
 #  get 'sessions/crreate'
 

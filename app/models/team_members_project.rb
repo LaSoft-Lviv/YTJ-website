@@ -1,4 +1,4 @@
 class TeamMembersProject < ActiveRecord::Base
-  belongs_to :team_members
-  belongs_to :projects
+  belongs_to :team_member
+  belongs_to :project
 end

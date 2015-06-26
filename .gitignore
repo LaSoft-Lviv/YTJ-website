@@ -14,3 +14,4 @@
 /.idea
 /log
 /.rspec
+/config/database.yml

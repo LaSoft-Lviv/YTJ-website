@@ -1,5 +1,5 @@
 class Admin < ActiveRecord::Base
-  before_create :set_auth_token
+  #before_create :set_auth_token
   has_secure_password
 
   validates :name, presence: true, length:{ maximum: 16 }
