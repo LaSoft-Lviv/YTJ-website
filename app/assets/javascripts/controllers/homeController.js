@@ -6,8 +6,10 @@ angular.module('controllers')
         $scope.titleProject="Projects";
 
         DataService.getAll().then(function (data) {
-            $scope.projects = data
+            $scope.projects = data.projects
+            $scope.team = data.team
             console.log($scope.projects)
+            console.log($scope.team)
 
         });
 

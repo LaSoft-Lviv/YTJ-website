@@ -1,0 +1,89 @@
+.container-contact-main {
+  background-image: image-url("map1366.png");
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 */
+  background-position: center;  /* Internet Explorer 7/8 */
+}
+
+.main-form {
+  background-color: #6A1B9A;
+  z-index: 1;
+}
+
+.form-group {
+  padding: 0px 15px;
+}
+
+.name-input, .email-input, .theme-input, .message-input {
+  border-radius: 0px;
+}
+
+.name-input:focus, .email-input:focus, .theme-input:focus, .message-input:focus {
+  border: 2px solid green;
+}
+
+textarea {
+  max-width: 100%;
+  rows:6;
+}
+
+
+.help {
+  color: white;
+  font-style: italic;
+}
+
+.button-input {
+  color: white;
+  background-color: #4A148C;
+  border-color: #4A148C;
+  margin: 0px 0px 15px 15px;
+}
+
+.button-input:hover {
+  background-color: #4A148C;
+  color: white;
+  border: 1px solid white;
+}
+
+.contact-headline {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+
+.contact-headline p {
+  font-family: Roboto, sans-serif;;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.frame-google-map {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .container-contact-main {
+    background-image: url("../images/map768.png");
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container-contact-main {
+    //background-image: none;
+  }
+  .help {
+    font-size: 75%;
+  }
+  .contact-headline {
+    padding-top: 25px;
+    padding-bottom: 20px;
+  }
+
+  .frame-google-map {
+    display: none;
+  }
+}

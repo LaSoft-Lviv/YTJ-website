@@ -1,0 +1,224 @@
+* {
+    transition: 2s;
+}
+
+body {
+    box-sizing: border-box;
+}
+/*
+@font-face {
+    font-family: Roboto;
+    src: url(Roboto/Roboto-Light.eot);
+    src: local('Bq+@');
+    src: url(Roboto/Roboto-Light.woff) format('woff');
+    src: url(Roboto/Roboto-Light.svg) format('svg');
+    src: url(Roboto/Roboto-Light.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(Roboto/Roboto-Medium.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(Roboto/Roboto-Thin.ttf);
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(Roboto/Roboto-Regular.ttf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(Roboto/Roboto-Bold.ttf);
+    font-weight: 600;
+}
+*/
+
+.header-container {
+    height: 100px;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    background: white;
+    text-align: center;
+    transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -o-transition: height 0.5s;
+}
+
+.header-left {
+    float: left;
+    text-align: center;
+    top: 19px;
+}
+
+.header-left a {
+    display: block;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 19px;
+    margin-top: 5px;
+    text-shadow: 4px 4px 3px black;
+    text-decoration: none;
+}
+
+.header-left p {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    color: grey;
+}
+
+.main-logo-box {
+    top: 10%;
+    text-align: center;
+    perspective: 300px;
+    -webkit-perspective: 300px;
+}
+
+.main-logo {
+    width: 100px;
+    height: 80px;
+    display: inline-block;
+
+    animation: mainLogoAnim 3s infinite;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+
+    -webkit-animation: mainLogoAnim 3s infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 1s;
+}
+
+@keyframes mainLogoAnim {
+    from {transform: rotateY(0deg);}
+    to {transform: rotateY(360deg);}
+}
+
+@-webkit-keyframes mainLogoAnim {
+    from {-webkit-transform: rotateY(0deg);}
+    to {-webkit-transform: rotateY(360deg);}
+}
+
+
+.header-right {
+    text-align: center;
+    top: 34px;
+}
+
+.header-right ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.header-right ul li a {
+    display: inline;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+#navbar-main {
+    background-color: #4A148C;
+    border: none;
+    border-radius: 0px;
+    margin-bottom: 0px;
+}
+
+.navbar-left > li >a {
+    font-family: Roboto, sans-serif;
+    font-weight: normal;
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 4px;
+}
+
+.navbar-left > li >a:hover {
+    font-size: 17px;
+}
+
+.navbar-left > li >a:active {
+    font-size: 17px;
+}
+
+.navbar-right > li >a {
+    font-family: Roboto, sans-serif;
+    font-weight: normal;
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 4px;
+}
+
+.navbar-right > li >a:hover {
+    background-color: #000000;
+    font-size: 17px;
+}
+
+.navbar-right > li >a:active {
+    font-size: 17px;
+}
+
+#nav-button {
+    float: left;
+    margin-left: 15px;
+    color: white;
+}
+
+button.navbar-toggle {
+    color: white;
+}
+
+.collapsed {
+    border: none;
+}
+
+@media screen and (max-width: 992px) {
+    .navbar-left > li >a {
+        font-size: 14px;
+        letter-spacing: 0px;
+    }
+
+    .navbar-left > li >a:hover {
+        font-size: 15px;
+        letter-spacing: 0px;
+    }
+    .navbar-right > li >a {
+        font-size: 14px;
+        letter-spacing: 0px;
+    }
+    .navbar-right > li >a:hover {
+        font-size: 15px;
+        letter-spacing: 0px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    img.main-logo {
+        display: none;
+    }
+    .header-right {
+        display: none;
+    }
+    .header-left {
+        float: none;
+    }
+    #nav-li-hide {
+        display: none;
+    }
+    a.navbar-button {
+        color: white;
+    }
+}

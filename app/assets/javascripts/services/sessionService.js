@@ -30,7 +30,7 @@ angular.module('services')
                      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization':'Token token='+service.currentUser.auth_token},
 
                 }).success(function(data) {
-                  alert('logout')
+
                   service.currentUser = null;
                   $location.path('/#');
                 }).error(function(data) {
