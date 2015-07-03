@@ -1,0 +1,41 @@
+<div class="container-fluid container-contact-main" >
+<div class="row-fluit" id="row-main-form">
+  <div class="col-sm-5 col-sm-offset-6  col-xs-8 col-xs-offset-2" id="id-col">
+    <div class="main-form">
+      <div class="contact-headline">
+        <p>КОНТАКТ</p>
+        </div>
+      <div ng-controller="ContactFormController as contact_form">
+        <form role="form" name="orderform" ng-submit="submitContact(contact_mail)" role="form" ng-init="contact_mail = {}">
+          <div class="form-group">
+            <input type="text" class="form-control name-input" id="name-input" name="name" placeholder="Ваше ім'я" maxlength="50" ng-model="contact_mail.name" onblur="validateNonEmpty(this, document.getElementById('name_help'))">
+            <span id="name_help" class="help"></span>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control email-input" id="email-input" name="email" placeholder="Ваша пошта" maxlength="50" ng-model="contact_mail.email" onblur="validateEmail(this, document.getElementById('email_help'))">
+            <span id="email_help" class="help"></span>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control theme-input" id="theme-input" name="subject" placeholder="Тема повідомлення" maxlength="50" ng-model="contact_mail.subject" onblur="validateNonEmpty(this, document.getElementById('theme_help'))">
+            <span id="theme_help" class="help"></span>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control message-input" id="message-input" rows="6" name="message" placeholder="Текст повідомлення" maxlength="1000" ng-model="contact_mail.message" onblur="validateLength(1, 1000, this, document.getElementById('message_help'))"></textarea>
+            <span id="message_help" class="help"></span>
+          </div>
+          <button type="submit" class="btn btn-default button-input">Відправити</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row-fluit">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="frame-google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.0105654332215!2d24.023011999999998!3d49.842259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add73c5664763%3A0x1c6af25550c0aa45!2z0JzQntCb0J7QlNCsINCU0J4g0IbQodCj0KHQkA!5e0!3m2!1suk!2s!4v1434102639290" width="400" height="400" frameborder=""></iframe>
+    </div>
+  </div>
+</div>
+

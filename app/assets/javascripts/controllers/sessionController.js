@@ -3,11 +3,11 @@ angular.module('controllers')
         $scope.signedIn = SessionService.isAuthenticated;
 
         $scope.submitLogin = function(loginData){
+
               SessionService.login(loginData).then(function(data) {
 
                   $scope.currentUser = SessionService.currentUser
                   localStorage.setItem('auth_token',  $scope.currentUser.auth_token);
-                  //console.log( localStorage.getItem('auth_token'));
 
                   $('#username').text($scope.currentUser.name)
             });
@@ -20,7 +20,7 @@ angular.module('controllers')
             //console.log(currentUser)
             SessionService.logout('#/').then(function(data) {
 
-
+                localStorage.setItem('auth_token', "1");
             });
         }
     }]);

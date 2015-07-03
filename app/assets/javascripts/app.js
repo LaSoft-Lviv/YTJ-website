@@ -48,10 +48,6 @@ app.config(['$httpProvider', function($httpProvider){
 
 app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$locationProvider) {
     $routeProvider
-       /* .when('/', {
-            templateUrl: 'main.html',
-          controller: 'HomeController',
-        })*/
         .when('/signup', {
             templateUrl: 'accounts/signup.html',
             controller: 'SignupController',

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626164312) do
+ActiveRecord::Schema.define(version: 20150630113133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150626164312) do
     t.string   "facebook_link"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.boolean  "is_initiative"
   end
 
   create_table "team_members_projects", force: :cascade do |t|
