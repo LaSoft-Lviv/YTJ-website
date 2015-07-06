@@ -18,7 +18,7 @@ gem 'angularjs-rails'
 gem 'angular-rails-templates'
 gem 'rails-assets-angular-route'
 gem 'rails-assets-angular'
-
+gem 'material_icons'
 gem 'sprockets', '2.12.3'
 gem 'sprockets-rails', '2.2.1'
 gem 'angular_rails_csrf'

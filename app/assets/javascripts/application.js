@@ -21,9 +21,13 @@
 // require ngstorage
 //= require angular-rails-templates
 
-//= require bootstrap.min
+
+//= require materialize.min
+// = require bootstrap.min
 //= require ripples.min
-//= require material.min
+//- require material.min
+
+
 
 //= require ./app
 //= require_tree ./controllers

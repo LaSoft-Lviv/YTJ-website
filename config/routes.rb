@@ -3,30 +3,30 @@ Rails.application.routes.draw do
 	root 'home#index'
 
   #resources :admins
-  post 'accounts' => 'accounts#create'
+  post 'account' => 'account#create'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  patch 'accounts' => 'accounts#update', :as => 'accounts/update'
+  patch 'account' => 'account#update', :as => 'account/update'
   get 'home/index'
   post 'contact' => 'contact#create'
 #  get 'sessions/new'
 #  get 'sessions/crreate'
 
-#  get 'signup' => 'accounts#create'
-#  get 'accounts/create'
-#  get 'accounts/edit'=>'accounts#edit'
-#  get 'accounts/:id/name' => 'accounts#name'
-  #get 'accounts/update'
- # post 'accounts/update' => 'accounts#update'
- # patch "accounts/update" => "accounts#update"
- # put "accounts/update" => "accounts#update"
-  #PATCH/PUT '/admins/:id' => 'accounts#update'
-#  patch "accounts/update" => "accounts#update", :as => "accounts/update"
-#  get 'accounts/email'
-#  get 'accounts/password'
-#  get 'accounts/name'
+#  get 'signup' => 'account#create'
+#  get 'account/create'
+#  get 'account/edit'=>'account#edit'
+#  get 'account/:id/name' => 'account#name'
+  #get 'account/update'
+ # post 'account/update' => 'account#update'
+ # patch "account/update" => "account#update"
+ # put "account/update" => "account#update"
+  #PATCH/PUT '/admins/:id' => 'account#update'
+#  patch "account/update" => "account#update", :as => "account/update"
+#  get 'account/email'
+#  get 'account/password'
+#  get 'account/name'
 
-#  get 'accounts/show'
+#  get 'account/show'
 
 #  post 'login' => 'sessions#create'
 #  get 'login' =>'sessions#new'
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
 
 
-  #match '/admins' => 'accounts#create', via: :post;
+  #match '/admins' => 'account#create', via: :post;
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -86,9 +86,9 @@ Rails.application.routes.draw do
   #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:
-  #   namespace :accounts do
-  #     # Directs /accounts/products/* to Admin::ProductsController
-  #     # (app/controllers/accounts/products_controller.rb)
+  #   namespace :account do
+  #     # Directs /account/products/* to Admin::ProductsController
+  #     # (app/controllers/account/products_controller.rb)
   #     resources :products
   #   end
 end
