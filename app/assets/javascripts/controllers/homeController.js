@@ -1,9 +1,7 @@
 angular.module('controllers')
   .controller('HomeController', ['$scope','$location','DataService', function ($scope,  $location, DataService) {
 
-        console.log("home")
-
-        $scope.titleProject="Projects";
+        $scope.titleProject="Проекти"
 
         DataService.getAll().then(function (data) {
             $scope.projects = data.projects

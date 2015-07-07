@@ -49,11 +49,11 @@ app.config(['$httpProvider', function($httpProvider){
 app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$locationProvider) {
     $routeProvider
         .when('/signup', {
-            templateUrl: 'accounts/signup.html',
+            templateUrl: 'account/signup.html',
             controller: 'SignupController',
         })
         .when('/settings', {
-            templateUrl: 'accounts/update.html',
+            templateUrl: 'account/update.html',
             controller: 'UpdateAccountController',
         })
         .when('/login', {
@@ -61,6 +61,15 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$loc
             controller: 'SessionController',
 
         })
+        .when('/project', {
+            templateUrl: 'project/add_project.html',
+            controller: 'ProjectController',
+
+        })
+
+
+
+
         .otherwise({redirectTo: '/'});
 }]);
 
