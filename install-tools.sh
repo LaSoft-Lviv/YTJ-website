@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "Add vagrant user to rvm group"
+sudo usermod -a -G rvm vagrant
+
 echo "Provisioning virtual machine..."
 
 echo "Installing nodejs"
