@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
 
+
+
+  get 'team_members/destroy'
+
+  get 'team_members/update'
+
+  get 'team_members/create'
+
+  get 'projects/index'
+
+
+  get 'projects/del'
+
 	root 'home#index'
 
   #resources :admins
@@ -9,31 +22,8 @@ Rails.application.routes.draw do
   patch 'account' => 'account#update', :as => 'account/update'
   get 'home/index'
   post 'contact' => 'contact#create'
-#  get 'sessions/new'
-#  get 'sessions/crreate'
-
-#  get 'signup' => 'account#create'
-#  get 'account/create'
-#  get 'account/edit'=>'account#edit'
-#  get 'account/:id/name' => 'account#name'
-  #get 'account/update'
- # post 'account/update' => 'account#update'
- # patch "account/update" => "account#update"
- # put "account/update" => "account#update"
-  #PATCH/PUT '/admins/:id' => 'account#update'
-#  patch "account/update" => "account#update", :as => "account/update"
-#  get 'account/email'
-#  get 'account/password'
-#  get 'account/name'
-
-#  get 'account/show'
-
-#  post 'login' => 'sessions#create'
-#  get 'login' =>'sessions#new'
-#  delete 'logout' => 'sessions#destroy'
-#  get 'logout' => 'sessions#destroy'
-
-
+  get 'team_members' => 'team_members#index'
+  post 'project' => 'projects#create'
 
 
   #match '/admins' => 'account#create', via: :post;
