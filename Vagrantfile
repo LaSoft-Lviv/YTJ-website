@@ -61,7 +61,7 @@ Vagrant.configure(2) do |config|
   #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
   # end
 
-	config.vm.synced_folder "~/Projects/LaSoft/YTJ-website", "/home/vagrant/YTJ-website"
+	config.vm.synced_folder "~/YTJ-website", "/home/vagrant/YTJ-website", create: true
 
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
