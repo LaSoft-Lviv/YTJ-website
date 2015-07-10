@@ -10,8 +10,6 @@ class AccountsController < ApplicationController
 
   def create
     @admin = Admin.new(account_params)
-  puts :name
-
     if @admin.save
       render json: { status: 'success' }
     else

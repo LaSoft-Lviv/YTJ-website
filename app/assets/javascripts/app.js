@@ -1,11 +1,13 @@
 "use strict"
 
 var app = angular.module('ytj', [
+    'angularFileUpload',
     'ngResource',
     'ngRoute',
     'templates',
     'controllers',
     'services'
+
 ]);
 
 
