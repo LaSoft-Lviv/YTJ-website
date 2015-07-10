@@ -15,5 +15,5 @@
 /log
 /.rspec
 /config/database.yml
-Vagrant
-/.vagrnat
+Vagrantfile
+/.vagrant
