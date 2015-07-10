@@ -16,10 +16,10 @@ Rails.application.routes.draw do
 	root 'home#index'
 
   #resources :admins
-  post 'account' => 'account#create'
+  post 'accounts' => 'accounts#create'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  patch 'account' => 'account#update', :as => 'account/update'
+  patch 'accounts' => 'accounts#update', :as => 'account/update'
   get 'home/index'
   post 'contact' => 'contact#create'
   get 'team_members' => 'team_members#index'

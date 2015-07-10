@@ -1,50 +1,41 @@
-<div style="font-size:18px; margin: 20px 0 100px 0">
-<div class="page-header">
-    <h1>{{titleProject}}</h1>
-</div>
 
-<form ng-submit="addProject()">
+<!--
+<form ng-submit="addProject(project)" ng-init="project = {}">
     <div class="input-group">
-        <i>Імя</i>
-        <input type="text"  placeholder="проект" name="name" ng-model="project.name" />
+        <label for='name'>Імя</label>
+        <input type="text" class="form-control" placeholder="проект" name="name" ng-model="project.name" />
    </div>
     <div class="input-group">
-        <i for='description'>Опис</i>
+        <label for='description'>Опис</label>
         <textarea class="form-control" placeholder="опис" name="description" ng-model="project.description" />
     </div>
+    <div>
+        <input type="file" nv-file-select uploader="uploader" ng-model="project.image" /><br/>
+    </div>
     <div class="input-group">
-        <i for='teams' >Організатори</i>
-        <select name="team" class="form-control" ng-model="project.team_member_id">
-            <option ng-repeat="member in team" value="{{member.id}}">{{member.name}}  {{member.surname}}</option>
+        <label for='teams' >Організатори</label>
+        <select name="teams" class="form-control" ng-model="project.team">
+            <option  ng-repeat="team_member in team" value="{{team_member.id}}">
+                     {{team_member.name}}  {{team_member.surname}}
+            </option>
         </select>
     </div>
-    <div class="input-group">
-
-        <input type="file" nv-file-select uploader="uploader"/>
-    </div>
-    <br/>
-    <br/>
-    <br/>
-    <div class="input-group">
-        <input type="submit" class="btn btn-default" value="додати проект"/>
-    </div>
+    <input type="submit" class="btn btn-default" value="додати проект">
 </form>
-</div>
-<!--
+-->
+<form ng-submit="addProject(null)" >
 <div ng-controller="ProjectController">
     <div class="page-header">
-        <h1>{{titleProject}}</h1>
-    </div>
-    <form >
-        <input type="file" nv-file-select nv-file-select uploader="uploader"/>
-        <ul>
-            <li ng-repeat="item in uploader.queue">
-                Name: <span ng-bind="item.file.name"></span><br/>
-                <button ng-click="item.upload()">upload</button>
-            </li>
-        </ul>
-        <div class="input-group">
-            <input type="submit" class="btn btn-default" value="додати проект"/>
-        </div>
-    </form>
-</div>-->
+    <h1>{{titleProject}}</h1>
+</div>
+    <input type="file" nv-file-select  uploader="uploader"  ng-file-select= /><br/>
+    <ul>
+        <li ng-repeat="item in uploader.queue">
+
+            Name: <span ng-bind="item.url"></span><br/>
+            <button ng-click="item.upload()">upload</button>
+        </li>
+    </ul>
+</div>
+    <input type="submit" value="send" />
+</form>

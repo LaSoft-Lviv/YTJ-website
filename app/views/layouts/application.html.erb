@@ -19,40 +19,7 @@
 <body ng-app="ytj" style="position:relative;min-width:100%;max-width:1600px;top:0px">
 
 <div>
-  <div>
-    <%= render 'layouts/header' %>
 
-    <%= render 'layouts/slider' %>
-  </div>
-
-
-
-  <%= yield %>
-
-  <div>
-    <%= render 'layouts/foto' %>
-  </div>
-
-  <div style="padding-top: 100px">
-    <%= render 'layouts/video' %>
-   </div>
-
-  <div style="padding-top: 100px">
-    <%= render 'layouts/contact_form' %>
-  </div>
-
-<div>
-
-  <ul  style="background-color: navy" class="nav nav-pills pull-right"  ng-controller="SessionController as session">
-    <li role="presentation"><a href="#/">Home</a></li>
-    <li ng-show="signedIn()"><a href="#/" id="username"></a></li>
-    <li role="presentation" ng-hide="signedIn()"><a href="#/login">Sign In</a></li>
-    <li role="presentation" ng-show="signedIn()"><a href="#/project"><span class="glyphicon glyphicon-plus"></span></a></li>
-    <li role="presentation" ng-show="signedIn()"><a href="#/settings">Settings</a></li>
-    <li role="presentation" ng-show="signedIn()"><a href ="" ng-click="submitLogout()">Logout</a></li>
-  </ul>
-
-</div>
 <div class="col-md-6 col-md-offset-3">
   <div ng-view></div>
 </div>
