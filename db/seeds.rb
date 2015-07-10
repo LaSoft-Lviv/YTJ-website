@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
+#admin = Admin.create(name: "test1", email: "test1@gmail.com", password_digest: '1111')
 #projects = Project.create([{ name: 'project1', description: 'some description1', date_of: '22/07/2015', image: '1.jpeg'},
 #                           { name: 'project2', description: 'some description2', date_of: '22/07/2015', image: '2.jpg'},
 #                           { name: 'project3', description: 'some description3', date_of: '22/07/2015', image: '1.jpeg'},

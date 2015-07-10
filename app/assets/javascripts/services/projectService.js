@@ -16,7 +16,7 @@ angular.module('services')
 
             addProject: function(project){
 
-                return $http.post('/project',{project: project},
+                return $http.post('/project',{project: project, image:uploader},
                     { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json',
                       'Authorization':'Token token='+localStorage.getItem('auth_token')}}).then(this.handleSuccess,this.handleError);
 

@@ -15,7 +15,11 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    project = Project.new(name:'image', description: 'image')
 
+    project.image = params[:file]
+    project.save
+    render json: { status: true }
   end
 
 
@@ -26,9 +30,5 @@ class ProjectsController < ApplicationController
 
   end
 
-  private
 
-  def project_params1
-     params.require(:project).permit(:name, :description, :team_member_id, :image)
-  end
 end
