@@ -4,6 +4,7 @@ var app = angular.module('ytj', [
     'angularFileUpload',
     'ngResource',
     'ngRoute',
+    'directives',
     'templates',
     'controllers',
     'services'
@@ -74,6 +75,6 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$loc
 
         .otherwise({redirectTo: '/'});
 }]);
-
+angular.module('directives',[]);
 angular.module('controllers', []);
 angular.module('services', []);

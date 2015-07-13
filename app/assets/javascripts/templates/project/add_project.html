@@ -1,6 +1,4 @@
-
-<!--
-<form ng-submit="addProject(project)" ng-init="project = {}">
+<form ng-submit="addProject(project)">
     <div class="input-group">
         <label for='name'>Імя</label>
         <input type="text" class="form-control" placeholder="проект" name="name" ng-model="project.name" />
@@ -9,8 +7,18 @@
         <label for='description'>Опис</label>
         <textarea class="form-control" placeholder="опис" name="description" ng-model="project.description" />
     </div>
-    <div>
-        <input type="file" nv-file-select uploader="uploader" ng-model="project.image" /><br/>
+    <br>
+
+
+        <!--    <input type="file" file-upload  ng-model="project.image" multiple /></br>-->
+    <div mg-file-upload="projectFoto"  ng-model="project.image">
+
+
+        <div class="drop-area">
+
+            <input type="file" class="js-progress-files" />
+            <img  width="100%" ng-src="{{project.image.src}}" title="{{project.image.title}}" id="{{image.id}}"/>
+        </div>
     </div>
     <div class="input-group">
         <label for='teams' >Організатори</label>
@@ -21,21 +29,4 @@
         </select>
     </div>
     <input type="submit" class="btn btn-default" value="додати проект">
-</form>
--->
-<form ng-submit="addProject(null)" >
-<div ng-controller="ProjectController">
-    <div class="page-header">
-    <h1>{{titleProject}}</h1>
-</div>
-    <input type="file" nv-file-select  uploader="uploader"  ng-file-select= /><br/>
-    <ul>
-        <li ng-repeat="item in uploader.queue">
-
-            Name: <span ng-bind="item.url"></span><br/>
-            <button ng-click="item.upload()">upload</button>
-        </li>
-    </ul>
-</div>
-    <input type="submit" value="send" />
 </form>

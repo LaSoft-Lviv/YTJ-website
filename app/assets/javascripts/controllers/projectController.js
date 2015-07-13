@@ -1,28 +1,33 @@
 angular.module('controllers')
     .controller('ProjectController', ['$scope','$location','ProjectService','FileUploader','$http', function ($scope,  $location, ProjectService, FileUploader, $http) {
 
-        $scope.titleProject="Проекти"
+        $scope.titleProject="Проекти";
+        $scope.project = {
+                image : {},
+                name : "",
+                description: "",
+                team : ""
+        };
 
         ProjectService.getAllTeamMembers().then(function (data) {
             $scope.team = data.team;
         });
 
-        $scope.project = {image:  $scope.uploader = new FileUploader({url: 'project'}) ,
-            description:'333'
-
-        };
+       /* $scope.file= {};
+        //listen for the file selected event
+        $scope.$on("fileSelected", function (event, args) {
+            console.log("fileSelected")
+            $scope.$apply(function () {
+                //add the file object to the scope's files collection
+                console.log(args)
+                $scope.file = args.file;
+            });
+        });
+        */
 
         $scope.addProject = function(project){
-
-           console.log($scope.sp);
-            $http.post('/project', $scope.sp )
-                .success ( function onLink ( response) {
-                    alert(4)
-            })
-                .error ( function onLink ( response ) {
-                console.log(response)
-            }); /**/
-           /*ProjectService.addProject(project,uploader).then(function(data) {
+            var form = collectFormData();
+         ProjectService.addProject(form).then(function(data) {
 
                if(data.status){
                  //  $location.path('#/')
@@ -31,49 +36,42 @@ angular.module('controllers')
                    console.log(data)
                }
 
-            })*/
+            })
         }
 
+        $scope.projectFoto = {
+            add: function(file) {
 
-     // $scope.uploader = new FileUploader({url: "/project"}) ;
+                if (file.type.match('image.*')) {
+                    console.log('ss');
+                    var reader = new FileReader();
+                    reader.onload = function (event) {
+                        $scope.project.image = {id: (new Date()).getTime(), title: file.name, src: event.target.result, file: file, fresh: true};
+                        $scope.$apply();
+                    };
+
+                    reader.readAsDataURL(file);
+                }
+                }
+            };
 
 
-// CALLBACKS
-        var uploader = $scope.project.image
-        uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/, filter, options) {
-            console.info('onWhenAddingFileFailed', item, filter, options);
-        };
-        uploader.onAfterAddingFile = function(fileItem) {
-            console.info('onAfterAddingFile', fileItem);
-        };
-        uploader.onAfterAddingAll = function(addedFileItems) {
-            console.info('onAfterAddingAll', addedFileItems);
-        };
-        uploader.onBeforeUploadItem = function(item) {
-            console.info('onBeforeUploadItem', item);
-        };
-        uploader.onProgressItem = function(fileItem, progress) {
-            console.info('onProgressItem', fileItem, progress);
-        };
-        uploader.onProgressAll = function(progress) {
-            console.info('onProgressAll', progress);
-        };
-        uploader.onSuccessItem = function(fileItem, response, status, headers) {
-            console.info('onSuccessItem', fileItem, response, status, headers);
-        };
-        uploader.onErrorItem = function(fileItem, response, status, headers) {
-            console.info('onErrorItem', fileItem, response, status, headers);
-        };
-        uploader.onCancelItem = function(fileItem, response, status, headers) {
-            console.info('onCancelItem', fileItem, response, status, headers);
-        };
-        uploader.onCompleteItem = function(fileItem, response, status, headers) {
-            console.info('onCompleteItem', fileItem, response, status, headers);
-        };
-        uploader.onCompleteAll = function() {
-            console.info('onCompleteAll');
+
+        var collectFormData = function() {
+            var form = new FormData();
+
+            form.append('name', $scope.project.name);
+            form.append('description', $scope.project.description);
+            form.append('team_member_id', $scope.project.team);
+
+            // gather images and files
+            if ($scope.project.image.fresh) {
+                console.log($scope.project.image)
+                form.append('file', $scope.project.image.file);
+            }
+            return form;
         };
 
-        console.info('uploader', uploader);
+
 
     }]);
