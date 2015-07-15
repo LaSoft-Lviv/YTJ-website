@@ -1,5 +1,5 @@
 angular.module('controllers')
-    .controller('ProjectController', ['$scope','$location','ProjectService','FileUploader','$http', function ($scope,  $location, ProjectService, FileUploader, $http) {
+    .controller('ProjectController', ['$scope','$location','ProjectService','$http', function ($scope,  $location, ProjectService, $http) {
 
         $scope.titleProject="Проекти";
         $scope.project = {
@@ -10,7 +10,7 @@ angular.module('controllers')
         };
 
         ProjectService.getAllTeamMembers().then(function (data) {
-            $scope.team = data.team;
+            $scope.team = data.data.team;
         });
 
        /* $scope.file= {};
@@ -28,12 +28,15 @@ angular.module('controllers')
         $scope.addProject = function(project){
             var form = collectFormData();
          ProjectService.addProject(form).then(function(data) {
-
-               if(data.status){
-                 //  $location.path('#/')
+              if(data.data.success){
+                   $location.path('#/')
                }
                 else{
-                   console.log(data)
+                 if(data.data.errors)
+                        for(error  in data.data.errors)
+                                   alert(error + " "+data.data.errors[error])
+                  else
+                   alert(data.statusText)
                }
 
             })
