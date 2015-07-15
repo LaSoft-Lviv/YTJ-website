@@ -3,7 +3,7 @@ angular.module('services')
         return {
             // private functions
             handleSuccess: function(data) {
-                return data.data
+                return data;
             },
 
             handleError: function(error) {
@@ -19,12 +19,7 @@ angular.module('services')
                 return   $http.post("project/", form, {
                     headers: { 'Content-Type': undefined ,'Authorization':'Token token='+localStorage.getItem('auth_token')},
                     transformRequest: angular.identity
-                }).success(function(data) {
-                    console.log("success")
-                })
-                    .error(function(data) {
-                        console.log("error")
-                    });
+                }).then(this.handleSuccess,this.handleError);
 
             }
 

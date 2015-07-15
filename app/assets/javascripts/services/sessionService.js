@@ -42,8 +42,15 @@ angular.module('services')
             currentUser: null,
 
             isAuthenticated: function(){
-                return !!service.currentUser;
+                   return !!service.currentUser;
+            },
+
+            setUser: function(user){
+                if(user) {
+                    service.currentUser = user;
+                }
             }
+
 
         };
         return service;

@@ -6,7 +6,7 @@ angular.module('controllers')
 
             console.log(data)
 
-                if(data.data.status && data.data.status=='success')
+                if(data.data && data.data.status && data.data.status=='success')
                 {
                     $location.path('/#');
                 }

@@ -10,8 +10,8 @@
         <div class="col-xs-6 col-sm-4" ng-repeat="project in projects">
           <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-             <!-- <img ng-src={{"assets/projects"}}/{{project.image}} width="100"/>-->
-              <img class="activator" src="images/posmishka.jpg">
+             <img class="activator" ng-src={{project.image.url}} width="100"/>
+
             </div>
             <div class="card-content">
               <div class="card-title activator grey-text text-darken-4">
