@@ -1,8 +1,4 @@
-<div class="page-header">
-    <h1></h1>
-</div>
-
-<form ng-submit="addProject(project)" ng-init="project = {}">
+<form ng-submit="addProject(project)">
     <div class="input-group">
         <label for='name'>Імя</label>
         <input type="text" class="form-control" placeholder="проект" name="name" ng-model="project.name" />
@@ -11,9 +7,26 @@
         <label for='description'>Опис</label>
         <textarea class="form-control" placeholder="опис" name="description" ng-model="project.description" />
     </div>
+    <br>
+
+
+        <!--    <input type="file" file-upload  ng-model="project.image" multiple /></br>-->
+    <div mg-file-upload="projectFoto"  ng-model="project.image">
+
+
+        <div class="drop-area">
+
+            <input type="file" class="js-progress-files" />
+            <img  width="100%" ng-src="{{project.image.src}}" title="{{project.image.title}}" id="{{image.id}}"/>
+        </div>
+    </div>
     <div class="input-group">
         <label for='teams' >Організатори</label>
-        <select name="teams" class="form-control" ng-model="project.teams"></select>
+        <select name="teams" class="form-control" ng-model="project.team">
+            <option  ng-repeat="team_member in team" value="{{team_member.id}}">
+                     {{team_member.name}}  {{team_member.surname}}
+            </option>
+        </select>
     </div>
     <input type="submit" class="btn btn-default" value="додати проект">
 </form>
