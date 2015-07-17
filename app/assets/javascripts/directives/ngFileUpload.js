@@ -81,9 +81,9 @@ function mgFileUpload() {
              * @param event File drop or Input select event
              */
                 traverseFiles = function (event) {
-                    var files = event.dataTransfer ? event.dataTransfer.files : ((event.originalEvent && event.originalEvent.dataTransfer) ? event.originalEvent.dataTransfer.files : event.currentTarget.files);
 
-                    for (var i = 0; i < files.length; i++){
+                    var files = event.dataTransfer ? event.dataTransfer.files : ((event.originalEvent && event.originalEvent.dataTransfer) ? event.originalEvent.dataTransfer.files : event.currentTarget.files);
+                       for (var i = 0; i < files.length; i++){
                         var file = files[i];
 
                         if (typeof file !== "undefined") {

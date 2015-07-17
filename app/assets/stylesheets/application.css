@@ -12,12 +12,10 @@
  *
 
 
- *= require materialize
- *= require roboto.min
- *= require ripples.min
+
  *= require bootstrap.min
+ *= require materialize
  *= require material_icons
- * require material.min
  *= require_self
  *= require_tree .
  */

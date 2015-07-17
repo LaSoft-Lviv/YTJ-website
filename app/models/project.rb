@@ -6,8 +6,8 @@ class Project < ActiveRecord::Base
   validates :description, length: {maximum: 150}
   mount_uploader :image, ImageUploader
   def as_json(options={})
-    super(options.merge(:include => {:team_members => {:only => [:name, :surname, :position, :phone, :facebook_link, :coordinator]}},
-                        :only => [:name, :description, :date_of, :image]))
+    super(options.merge(:include => {:team_members => {:only => [:id, :name, :surname, :position, :phone, :facebook_link, :coordinator]}},
+                        :only => [:id, :name, :description, :date_of, :image]))
   end
 
 end

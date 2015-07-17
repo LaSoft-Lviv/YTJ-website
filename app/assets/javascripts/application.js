@@ -27,8 +27,7 @@
 
 //= require materialize.min
 // = require bootstrap.min
-//= require ripples.min
-//- require material.min
+
 
 
 

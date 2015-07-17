@@ -39,6 +39,9 @@
               <p></p>
             </div>
           </div>
+
+          <a  role="presentation" ng-show="signedIn()" class="btn btn-sm" href="#/project/edit?id={{project.id}}">update</a>
+          <a  role="presentation" ng-show="signedIn()" class="btn btn-sm" href="#"   data-ng-click="deleteProject(project.id)">delete</a>
         </div>
 
 

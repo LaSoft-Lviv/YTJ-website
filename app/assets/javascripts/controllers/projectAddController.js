@@ -1,5 +1,6 @@
 angular.module('controllers')
-    .controller('ProjectController', ['$scope','$location','ProjectService','$http', function ($scope,  $location, ProjectService, $http) {
+    .controller('ProjectAddController', ['$scope','$location','$http','$route','$routeParams','ProjectService',
+                                        function ($scope,  $location, $http, $route, $routeParams, ProjectService) {
 
         $scope.titleProject="Проекти";
         $scope.project = {
@@ -8,6 +9,7 @@ angular.module('controllers')
                 description: "",
                 team : ""
         };
+        var params = $route.current.params;
 
         ProjectService.getAllTeamMembers().then(function (data) {
             $scope.team = data.data.team;
@@ -25,27 +27,28 @@ angular.module('controllers')
         });
         */
 
-        $scope.addProject = function(project){
+        $scope.addProject = function(project) {
             var form = collectFormData();
-         ProjectService.addProject(form).then(function(data) {
-              if(data.data.success){
-                   $location.path('#/')
-               }
-                else{
-                 if(data.data.errors)
-                        for(error  in data.data.errors)
-                                   alert(error + " "+data.data.errors[error])
-                  else
-                   alert(data.statusText)
-               }
+            ProjectService.addProject(form).then(function (data) {
+                if (data.data.success) {
+                    $location.path('#/')
+                }
+                else {
+                    if (data.data.errors)
+                        for (error  in data.data.errors)
+                            alert(error + " " + data.data.errors[error])
+                    else
+                        alert(data.statusText)
+                }
 
             })
-        }
+        };
+
 
         $scope.projectFoto = {
             add: function(file) {
 
-                if (file.type.match('image.*')) {
+                if (file.type.match('image.*')) {;
                     console.log('ss');
                     var reader = new FileReader();
                     reader.onload = function (event) {

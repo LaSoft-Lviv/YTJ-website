@@ -64,9 +64,14 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$loc
             controller: 'SessionController',
 
         })
+        .when('/project/edit', {
+            templateUrl: 'project/edit.html',
+            controller: 'ProjectEditController',
+
+        })
         .when('/project', {
-            templateUrl: 'project/add_project.html',
-            controller: 'ProjectController',
+            templateUrl: 'project/add.html',
+            controller: 'ProjectAddController',
 
         })
 
