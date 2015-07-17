@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  #before_action :authenticate, except: :create
+  before_action :authenticate, except: :create
 
   def index #Need delete
     render json: { admins: Admin.all }
@@ -9,10 +9,8 @@ class AccountsController < ApplicationController
   end
 
   def create
-    @admin = Admin.new(account_params)
-  puts :name
-
-    if @admin.save
+    @current_admin = Admin.new(account_params)
+    if @current_admin.save
       render json: { status: 'success' }
     else
       render json: { status: 'false', errors: @admin.errors }
@@ -21,9 +19,9 @@ class AccountsController < ApplicationController
 
   def update
     if @current_admin.update_attributes(account_params)
-      render json: { user: @admin, status: 'success'}
+      render json: { user: @current_admin, status: 'success'}
     else
-      render json: { status: 'false', errors: @admin.errors }
+      render json: { status: 'false', errors: @current_admin.errors }
     end
   end
 

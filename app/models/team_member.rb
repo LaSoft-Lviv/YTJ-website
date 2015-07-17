@@ -6,5 +6,4 @@ class TeamMember< ActiveRecord::Base
   validates :facebook_link, format: { with: /\A(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-=\?]*)*\/?\z/}
   validates :phone, format: { with: /\A[0-9]+\z/ }, allow_blank: true
 
-
 end

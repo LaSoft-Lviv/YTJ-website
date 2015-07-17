@@ -1,17 +1,51 @@
 <div  ng-controller="HomeController">
-  <h2>{{titleProject}}</h2>
-  <ul ng-repeat="project in projects">
-   <img ng-src={{"assets/projects"}}/{{project.image}} width="100"/>
-    <li><span style="color: red; font-style: italic">Project Name:</span>   {{project.name}}</li>
-    <li><span style="color: red; font-style: italic">Project Date Of:</span> {{project.date_of}}</li>
-    <li><span style="color: red; font-style: italic">Project Description:</span> {{project.description}}</li>
-    <li ng-repeat="team_member in project.team_members" >Team member:
-      <ul >
-        <li><span style="color: blue; font-style: italic">Full Name:</span>   {{team_member.name}}  {{team_member.surname}} </li>
-        <li><span style="color: blue; font-style: italic">Coordinatorra:</span>   {{team_member.coordinator}}</li>
-        <li><span style="color: blue; font-style: italic">Position:</span> {{team_member.position}}</li>
-        <li><span style="color: blue; font-style: italic">Phone:</span> {{team_member.phone}}</li>
-      </ul>
-    </li>
-  </ul>
+
+  <div class="container-fluid container-projects-main">
+    <div class="row-fluid">
+      <div class="projects-headline">
+        <p>{{titleProject}}</p>
+      </div>
+      <div class="container-projects">
+
+        <div class="col-xs-6 col-sm-4" ng-repeat="project in projects">
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+             <img class="activator" ng-src={{project.image.url}} width="100"/>
+
+            </div>
+            <div class="card-content">
+              <div class="card-title activator grey-text text-darken-4">
+                <a class="facebook-link" href="https://www.facebook.com/posmishka.ua?fref=ts">
+                  <img class="project-facebook-logo img-responsive" src="images/facebook.png">
+                </a>
+                 <p class="project-name">{{project.name}}<i class="material-icons right">more_vert</i><p>
+              </div>
+              <div  ng-repeat="team_member in project.team_members" >
+                <div ng-if="team_member.coordinator == true">
+                    <div class="coordinator">
+                        <p> {{team_member.name}}  {{team_member.surname}} </p><p>{{team_member.phone}}</p>
+                    </div>
+                </div>
+                <div ng-if="team_member.coordinator == false">
+                  <div>
+                    <p> {{team_member.name}}  {{team_member.surname}} </p><p>{{team_member.phone}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+              <p>{{project.description}}</p>
+              <p></p>
+            </div>
+          </div>
+
+          <a  role="presentation" ng-show="signedIn()" class="btn btn-sm" href="#/project/edit?id={{project.id}}">update</a>
+          <a  role="presentation" ng-show="signedIn()" class="btn btn-sm" href="#"   data-ng-click="deleteProject(project.id)">delete</a>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
 </div>

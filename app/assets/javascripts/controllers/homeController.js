@@ -1,9 +1,10 @@
 angular.module('controllers')
-  .controller('HomeController', ['$scope','$location','DataService', function ($scope,  $location, DataService) {
+  .controller('HomeController', ['$scope','$location','DataService','SessionService','ProjectService', function ($scope,  $location, DataService,SessionService, ProjectService) {
 
-        console.log("home")
+        $scope.signedIn = SessionService.isAuthenticated;
 
-        $scope.titleProject="Projects";
+
+        $scope.titleProject="Проекти"
 
         DataService.getAll().then(function (data) {
             $scope.projects = data.projects
@@ -12,5 +13,13 @@ angular.module('controllers')
             console.log($scope.team)
 
         });
+        $scope.deleteProject= function(id){
+           console.log(id)
+
+           ProjectService.remove(id).then(function(data) {
+                   $location.url('#/');
+               }
+           );
+        };
 
 }]);

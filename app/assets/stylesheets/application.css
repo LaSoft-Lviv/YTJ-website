@@ -10,12 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+
+
+
  *= require bootstrap.min
- *= require roboto.min
- *= require material.min
- *= require ripples.min
-
-
+ *= require materialize
+ *= require material_icons
  *= require_self
  *= require_tree .
  */

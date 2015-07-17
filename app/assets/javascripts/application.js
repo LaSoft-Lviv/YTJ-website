@@ -17,16 +17,24 @@
 //= require angular-resource
 //= require angular-route
 // require angular-animate
-
+//= require angularjs-file-upload
 // require ngstorage
+// require ng-file-upload
 //= require angular-rails-templates
 
-//= require bootstrap.min
-//= require ripples.min
-//= require material.min
+
+//= require app.js
+
+//= require materialize.min
+// = require bootstrap.min
+
+
+
 
 //= require ./app
+//= require_tree ./directives
+//= require_tree ./services
 //= require_tree ./controllers
 //= require_tree ./templates
-//= require_tree ./services
+
 //= require_tree .

@@ -1,11 +1,14 @@
 "use strict"
 
 var app = angular.module('ytj', [
+    'angularFileUpload',
     'ngResource',
     'ngRoute',
+    'directives',
     'templates',
     'controllers',
     'services'
+
 ]);
 
 
@@ -49,11 +52,11 @@ app.config(['$httpProvider', function($httpProvider){
 app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$locationProvider) {
     $routeProvider
         .when('/signup', {
-            templateUrl: 'accounts/signup.html',
+            templateUrl: 'account/signup.html',
             controller: 'SignupController',
         })
         .when('/settings', {
-            templateUrl: 'accounts/update.html',
+            templateUrl: 'account/update.html',
             controller: 'UpdateAccountController',
         })
         .when('/login', {
@@ -61,8 +64,22 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$loc
             controller: 'SessionController',
 
         })
+        .when('/project/edit', {
+            templateUrl: 'project/edit.html',
+            controller: 'ProjectEditController',
+
+        })
+        .when('/project', {
+            templateUrl: 'project/add.html',
+            controller: 'ProjectAddController',
+
+        })
+
+
+
+
         .otherwise({redirectTo: '/'});
 }]);
-
+angular.module('directives',[]);
 angular.module('controllers', []);
 angular.module('services', []);

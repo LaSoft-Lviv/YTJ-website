@@ -15,3 +15,6 @@
 /log
 /.rspec
 /config/database.yml
+Vagrantfile
+/.vagrant
+/public/uploads
