@@ -1,0 +1,270 @@
+<!--Carousel-->
+<div class="container-fluid" style="padding:0px">
+    <div class="row-fluid">
+
+        <div id="carousel-example-generic" class="carousel slide embed-responsive-item" data-ride="carousel" data-interval="3000">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <!-- Обгортка для слайдів -->
+            <div class="carousel-inner" role="listbox" id="slidesBlock">
+                <div class="item active">
+                    <img src="assets/slider/1.jpg" alt="..." class="img-responsive">
+                    <div class="carousel-caption">
+                        Тут можуть бути надписи.
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="assets/slider/2.jpg" alt="...">
+                    <div class="carousel-caption">
+                        Тут можуть бути надписи.
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="assets/slider/3.jpg" alt="...">
+                    <div class="carousel-caption">
+                        Тут можуть бути надписи.
+                    </div>
+                </div>
+            </div>
+            <!-- Управління -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Попередній</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Наступний</span>
+            </a>
+        </div>
+
+    </div>
+</div>
+<!--Finish carousel-->
+<!-- About as -->
+<div class="container-fluid container-about-main">
+    <a name="about-link" style="position: absolute; top:-45px"></a>
+    <div class="row-fluid">
+        <div class="about-headline">
+            <p><!-- ABOUT -->ПРО НАС</p>
+        </div>
+        <div class="container-about">
+            <div class="col-sm-6 about-image">
+                <img src="assets/about.jpg" class="img-responsive">
+            </div>
+            <div class="col-sm-6 about-text">
+                <p class="about-slogan">Ми - Молодь,  яка розуміє, зрощує і практикує живу християнську віру!</p>
+                <p class="text-head">Коротка історія:</p>
+                Наша організація була заснована у 2006 році  американськими місіонерами Фредом і Стейсі Вендерверфами. У 2009 році в місії їх замінили Девід і Шенон Горани, яких, в свою чергу, у 2012 році замінили Майкл Ейргуд і Володимир Прокіп. Останній до сьогодні очолює організацію.<br>
+                <p class="text-head">Про відкритість:</p>
+                З 2006 року організація функціонує у вигляді міжконфесійної безплатної студентської комуни, з вільним доступом до комп’ютерів, інтернету та кухні. Студенський центр з 10:00 до 20:00 слугує місцем спілкування, навчання і проведення часу для молоді в християнській атмосфері.<br>
+                <p class="text-head">Пілігрими:</p>
+                Кожного четверга 18:30 відбуваються "Пілігрими" - молодіжне служіння для  студентів з обговоренням місця писання, прославленням, проповідю, молитвою і спілкуванням.
+                <p class="text-head">Про віру та відносини з іншими церквами:</p>
+                Ми віримо що Тіло Христове Його Церква не замкнена і не обмежена окремою конфесією чи деномінацією, Його тіло набагато ширше та об’ємніше, і вміщає в себе всіх хто вірить у те, що Ісус - Cпаситель і Христос їхнього життя та своїми  ділами підтверджують віру в Нього. Ми віримо в спілкування християн в Дусі Святому, незважаючи на відмінності традицій церков. Ми віримо в Апостольський символ віри.
+            </div>
+        </div>
+    </div>
+</div>
+<!--Finish about as-->
+
+<!--Projects-->
+<div class="container-fluid container-projects-main">
+    <a name="projects-link" style="position: absolute; top:-45px"></a>
+    <div class="row-fluid">
+        <div class="projects-headline">
+            <p>{{titleProject}}</p>
+        </div>
+        <div class="container-projects">
+
+            <div class="col-xs-6 col-sm-4"  ng-repeat="project in projects">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" ng-src={{project.image.url}} width="100"/>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="card-title activator grey-text text-darken-4">
+                            <a class="facebook-link" href="{{project.facebook_link}}">
+                                <img class="project-facebook-logo img-responsive" src="images/facebook.png">
+                            </a>
+                            <p class="project-name">{{project.name}}<i class="material-icons right">more_vert</i><p>
+                        </div>
+                        <div  ng-repeat="team_member in project.team_members" >
+                            <div ng-if="team_member.coordinator == true">
+                                <div class="coordinator">
+                                    <p> {{team_member.name}}  {{team_member.surname}} </p><p>{{team_member.phone}}</p>
+                                </div>
+                            </div>
+                            <div ng-if="team_member.coordinator == false">
+                                <div>
+                                    <p> {{team_member.name}}  {{team_member.surname}} </p><p>{{team_member.phone}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+                        <p>{{project.description}}</p>
+                        <p></p>
+                    </div>
+                </div>
+                <a  role="presentation" ng-show="signedIn()" class="btn btn-sm" href="#/project/edit?id={{project.id}}">update</a>
+                <a  role="presentation" ng-show="signedIn()" class="btn btn-sm" href="#"   data-ng-click="deleteProject(project.id)">delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--Finish projects-->
+
+<!--Team-->
+<div class="container-fluid container-team-main">
+    <a name="team-link" style="position: absolute; top:-45px"></a>
+    <div class="row-fluid">
+        <div class="team-headline">
+            <p>{{titleTeam}}</p>
+        </div>
+        <div class="container-team">
+
+            <div class="col-xs-6 col-sm-4"  ng-repeat="team_member in team">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator member-picture"  ng-src={{team_member.foto.url}} >
+                        <hr>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title activator grey-text text-darken-4">
+                            <a class="facebook-link" href="{{team_member.facebook_link}}">
+                                <img class="member-facebook-logo img-responsive" src="images/facebook.png"></a>
+                            <p class="member-name"> {{team_member.name}}  {{team_member.surname}}
+                                <i class="material-icons right more-vert">more_vert</i><p></div>
+                            <div class="description">
+                                {{team_member.position}} <br> {{team_member.phone}}  {{team_member.surname}}<br/>
+                                <span>{{team_member.email}}</span></div>
+                            </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            <i class="material-icons right close-quote">close</i>
+                        </span>
+                        <p class="quote-head">Що для мене "Молодь до Ісуса?"</p>
+                        <p class="quote-description">
+                        {{team_member.quote}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Finish team-->
+
+<!--Photo-->
+<div class="container-fluid container-photo-main">
+    <a name="photo-link" style="position: absolute; top:-45px"></a>
+    <div class="row-fluid">
+        <div class="photo-headline">
+            <p><!-- PHOTO -->ФОТО</p>
+        </div>
+        <div class="container-photo col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1">
+            <div class="photo">
+                <img class="img-responsive img-thumbnail img-photo" src="assets/photo/1.jpg" alt="">
+                <p>Поїздка в дитячий будинок</p>
+                <a href="http://www.cinco.ly/~AYJA5ssyqqE6#swipebox" target="_blank">&raquo; Всі фотографії</a>
+            </div>
+            <div class="photo">
+                <img class="img-responsive img-thumbnail img-photo" src="assets/photo/1.jpg" alt="">
+                <p>Поїздка в дитячий будинок</p>
+                <a href="http://www.cinco.ly/~AcKA5v8Ir2xC#swipebox" target="_blank">&raquo; Всі фотографії</a>
+            </div>
+            <div class="photo">
+                <img class="img-responsive img-thumbnail img-photo" src="assets/photo/1.jpg" alt="">
+                <p>Поїздка в дитячий будинок</p>
+                <a href="http://www.cinco.ly/~AwEAYsMFr-LF" target="_blank">&raquo; Всі фотографії</a>
+            </div>
+            <div class="photo">
+                <img class="img-responsive img-thumbnail img-photo" src="assets/photo/1.jpg" alt="">
+                <p>Поїздка в дитячий будинок</p>
+                <a href="http://www.cinco.ly/~AwEAYsMFr-LF" target="_blank">&raquo; Всі фотографії</a>
+            </div>
+            <div class="photo">
+                <img class="img-responsive img-thumbnail img-photo" src="assets/photo/1.jpg" alt="">
+                <p>Поїздка в дитячий будинок</p>
+                <a href="http://www.cinco.ly/~AwEAYsMFr-LF" target="_blank">&raquo; Всі фотографії</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Finish photo-->
+
+<!--Video-->
+<div class="container-fluid container-video-main">
+    <a name="video-link" style="position: absolute; top:-45px"></a>
+    <div class="row-fluid">
+        <div class="video-headline">
+            <p>ВІДЕО</p>
+        </div>
+        <div class="container-video col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1">
+            <div class="video-iframe-box">
+                <iframe width="480" height="360" src="https://www.youtube.com/embed/Z3bp-HETGI8" frameborder="0" allowfullscreen></iframe>
+                <p class="video-name-box">Нам 10 років</p>
+            </div>
+            <div class="video-iframe-box">
+                <iframe width="480" height="360" src="https://www.youtube.com/embed/Z3bp-HETGI8" frameborder="0" allowfullscreen></iframe>
+                <p class="video-name-box">Нам 10 років</p>
+            </div>
+            <div class="video-iframe-box">
+                <iframe width="480" height="360" src="https://www.youtube.com/embed/Z3bp-HETGI8" frameborder="0" allowfullscreen></iframe>
+                <p class="video-name-box">Нам 10 років</p>
+            </div>
+            <div class="video-iframe-box">
+                <iframe width="480" height="360" src="https://www.youtube.com/embed/Z3bp-HETGI8" frameborder="0" allowfullscreen></iframe>
+                <p class="video-name-box">Нам 10 років</p>
+            </div>
+            <div class="video-iframe-box">
+                <iframe width="480" height="360" src="https://www.youtube.com/embed/Z3bp-HETGI8" frameborder="0" allowfullscreen></iframe>
+                <p class="video-name-box">Нам 10 років</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--finish video-->
+
+<!--contact form-->
+<div class="container-fluid container-contact-main">
+    <a name="contact-link" style="position: absolute; top:-45px"></a>
+    <a href="https://www.google.com/maps/place/%D0%9C%D0%9E%D0%9B%D0%9E%D0%94%D0%AC+%D0%94%D0%9E+%D0%86%D0%A1%D0%A3%D0%A1%D0%90/@49.8422586,24.0230119,17z/data=!3m1!4b1!4m2!3m1!1s0x473add73c5664763:0x1c6af25550c0aa45" class="bg-contact-link" target="_blank"></a>
+    <div class="row-fluit" id="row-main-form">
+        <div class="col-sm-5 col-sm-offset-6  col-xs-8 col-xs-offset-2" id="id-col">
+            <div class="main-form" ng-controller="ContactFormController as contact_form">
+                <div class="contact-headline">
+                    <p><!-- QUICK CONTACT -->КОНТАКТ</p>
+                </div>
+                <form name="orderform" ng-submit="submitContact(contact_mail)" role="form" ng-init="contact_mail = {}">
+                    <div class="form-group">
+                        <input type="text" class="form-control name-input" id="name-input" name="name" placeholder="Ваше ім'я" maxlength="50" ng-model="contact_mail.name" onblur="validateNonEmpty(this, document.getElementById('name_help'))">
+                        <span id="name_help" class="help"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control email-input" id="email-input" name="email" placeholder="Ваша пошта" maxlength="50" ng-model="contact_mail.email" onblur="validateEmail(this, document.getElementById('email_help'))">
+                        <span id="email_help" class="help"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control theme-input" id="theme-input" name="subject" placeholder="Тема повідомлення" maxlength="50" ng-model="contact_mail.subject" onblur="validateNonEmpty(this, document.getElementById('theme_help'))">
+                        <span id="theme_help" class="help"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control message-input" id="message-input" rows="6" name="message" placeholder="Текст повідомлення" maxlength="1000" ng-model="contact_mail.message" onblur="validateLength(1, 1000, this, document.getElementById('message_help'))"></textarea>
+                        <span id="message_help" class="help"></span>
+                    </div>
+                    <button type="submit" class="btn btn-default button-input">Відправити</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--finish contact form-->
