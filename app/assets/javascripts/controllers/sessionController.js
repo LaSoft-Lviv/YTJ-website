@@ -39,7 +39,7 @@ angular.module('controllers')
 
         $scope.submitLogout = function(){
             //console.log(currentUser)
-            SessionService.logout('#/').then(function(data) {
+            SessionService.logout('/').then(function(data) {
 
                 localStorage.setItem('auth_token', "");
                 localStorage.setItem('name', "");

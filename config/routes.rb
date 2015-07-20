@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 	root 'home#index'
   resources :projects
+  resources :team_members
 
   post 'accounts' => 'accounts#create'
   post 'login' => 'sessions#create'
