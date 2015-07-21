@@ -6,7 +6,7 @@ angular.module('controllers')
 
             console.log('register')
             UserService.register(user).then(function (data) {
-
+console.log(data);
              if (data.data.status== "success") {
 
                     alert("OK");
