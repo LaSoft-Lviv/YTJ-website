@@ -1,0 +1,37 @@
+<form ng-submit="addTeamMember()">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Імя" name="name" ng-model="team_member.name" />
+    </div>
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Прізвище" name="surname" ng-model="team_member.surname" />
+    </div>
+    <div class="input-group">
+        <textarea class="form-control" placeholder="Цитата" name="quote" ng-model="team_member.quote" />
+    </div>
+    <br>
+    <div class="input-group">
+         <input type="text" class="form-control" placeholder="Телефон" name="phone" ng-model="team_member.phone" />
+    </div>
+    <div class="input-group">
+          <input type="email" placeholder="email" name="email" ng-model="team_member.email" />
+    </div>
+    <br>
+    <div class="input-group">
+
+        <input type="text" placeholder="facebook link" name="facebook_link" ng-model="team_member.facebook_link" />
+    </div>
+    <br>
+    <input type="checkbox" id="initiative"  ng-model="team_member.is_initiative" />
+    <label for="initiative">Ініціативна група</label></p>
+
+
+    <!--    <input type="file" file-upload  ng-model="project.image" multiple /></br>-->
+    <div mg-file-upload="teamFoto"  ng-model="team_member.foto">
+        <div class="drop-area">
+            <input type="file" class="js-progress-files" />
+            <img  width="50%" ng-src="{{team_member.foto.src}}" title="{{team_member.foto.title}}" id="{{team_member.foto.id}}"/>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-default" value="додати">
+    <br/>
+</form>

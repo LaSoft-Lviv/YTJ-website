@@ -1,20 +1,25 @@
-
+<!--Header-->
 <div class="container-fluid header-container">
   <div class="col-sm-5 header-left">
     <a href="#">Youth To Jesus</a>
     <p>Молодіжна християнська громадська організація</p>
   </div>
   <div class="col-sm-2 main-logo-box">
-    <%= image_tag("logo2.jpg", :alt => "logo", :class => "main-logo") %>
+    <img src="assets/logo2.jpg" class="main-logo">
   </div>
   <div class="col-sm-5 header-right">
     <ul>
-      <li><a href="#">Контакт</a></li>
+      <li><a href="#contact-link">Контакт</a></li>
       <li><a href="#">Біблія</a></li>
       <li><a href="#">Допомогти</a></li>
       <li><a href="#" title="Search"><span class="glyphicon glyphicon-search"></span></a></li>
     </ul>
   </div>
+  <ul class="lang-after-collapse">
+    <li><a href="#">ua</a></li>
+    <li><a href="#">|</a></li>
+    <li><a href="#">eng</a></li>
+  </ul>
 </div>
 
 <nav class="navbar navbar-inverse" role="navigation" id="navbar-main">
@@ -26,39 +31,34 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="">
-        <a href="#" title="Search" class="navbar-button"><span class="glyphicon glyphicon-search"></span></a>
-      </button>
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="">
-        <a href="#" title="Bible" class="navbar-button"><span class="glyphicon glyphicon-book"></span></a>
-      </button>
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="">
-        <a href="#" title="Donate" class="navbar-button"><span class="glyphicon glyphicon-piggy-bank"></span></a>
-      </button>
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="">
-        <a href="#" title="Translate" class="navbar-button"><span class="glyphicon glyphicon-globe"></span></a>
-      </button>
+      <ul class="button-after-collapse">
+        <li><a href="#" title="Translate" class="navbar-button"><span class="glyphicon glyphicon-globe"></span></a></li>
+        <li><a href="#" title="Donate" class="navbar-button"><span class="glyphicon glyphicon-piggy-bank"></span></a></li>
+        <li><a href="#" title="Bible" class="navbar-button"><span class="glyphicon glyphicon-book"></span></a></li>
+        <li><a href="#" title="Search" class="navbar-button"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+
     </div>
 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav topnav navbar-left">
         <li>
-          <a href="#" class="active" title="About">ПРО НАС</a>
+          <a href="#about-link" class="active" title="About">ПРО НАС</a>
         </li>
         <li>
           <a href="#" title="Piligrims">ПІЛІГРИМИ</a>
         </li>
         <li>
-          <a href="#" title="Projects">ПРОЕКТИ</a>
+          <a href="#projects-link" title="Projects">ПРОЕКТИ</a>
         </li>
         <li>
-          <a href="#" title="Team">КОМАНДА</a>
+          <a href="#team-link" title="Team">КОМАНДА</a>
         </li>
         <li>
-          <a href="#" title="Team">ВІДЕО</a>
+          <a href="#photo-link" title="Photo">ФОТО</a>
         </li>
         <li>
-          <a href="#" title="Team">ФОТО</a>
+          <a href="#video-link" title="Video">ВІДЕО</a>
         </li>
       </ul>
 
@@ -75,3 +75,4 @@
     </div>
   </div>
 </nav>
+<!--Finish header-->

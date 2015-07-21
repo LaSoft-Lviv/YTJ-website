@@ -23,12 +23,13 @@
 //= require angular-rails-templates
 
 
-//= require app.js
+
+//= require app
+//= require app.init
 
 //= require materialize.min
-// = require bootstrap.min
-//= require ripples.min
-//- require material.min
+//= require bootstrap.min
+//= require slick.min
 
 
 

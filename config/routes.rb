@@ -1,21 +1,9 @@
 Rails.application.routes.draw do
 
-
-
-  get 'team_members/destroy'
-
-  get 'team_members/update'
-
-  get 'team_members/create'
-
-  get 'projects/index'
-
-
-  get 'projects/del'
-
 	root 'home#index'
+  resources :projects
+  resources :team_members
 
-  #resources :admins
   post 'accounts' => 'accounts#create'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
@@ -23,8 +11,7 @@ Rails.application.routes.draw do
   get 'home/index'
   post 'contact' => 'contact#create'
   get 'team_members' => 'team_members#index'
-  post 'project' => 'projects#create'
-
+  post 'projects' => 'projects#create'
 
   #match '/admins' => 'account#create', via: :post;
   # The priority is based upon order of creation: first created -> highest priority.

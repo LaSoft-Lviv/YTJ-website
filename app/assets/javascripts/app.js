@@ -51,6 +51,10 @@ app.config(['$httpProvider', function($httpProvider){
 
 app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$locationProvider) {
     $routeProvider
+        .when('/', {
+            templateUrl: 'home.html',
+            controller: 'HomeController',
+        })
         .when('/signup', {
             templateUrl: 'account/signup.html',
             controller: 'SignupController',
@@ -64,16 +68,22 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$loc
             controller: 'SessionController',
 
         })
-        .when('/project', {
-            templateUrl: 'project/add_project.html',
-            controller: 'ProjectController',
+        .when('/project/edit', {
+            templateUrl: 'project/edit.html',
+            controller: 'ProjectEditController',
 
         })
+        .when('/project', {
+            templateUrl: 'project/add.html',
+            controller: 'ProjectAddController',
 
+        })
+        .when('/team/add', {
+            templateUrl: 'team/add.html',
+            controller: 'TeamAddController',
 
-
-
-        .otherwise({redirectTo: '/'});
+        })
+    .   otherwise({ redirectTo: '/' });
 }]);
 angular.module('directives',[]);
 angular.module('controllers', []);
