@@ -105,7 +105,6 @@ $(document).ready(function() {
 
 
     $('#myNavbar, .footer-left').on('click', 'a', function(event) {
-      debugger;
 
       event.preventDefault();
 
