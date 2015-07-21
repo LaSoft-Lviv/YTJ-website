@@ -37,7 +37,6 @@ angular.module('services')
             add: function (form) {
 
                 var url = teamUrl()
-                alert(url)
                 return $http.post(url, form, {
                     headers: {
                         'Content-Type': undefined,

@@ -66,7 +66,7 @@ angular.module('controllers')
                 form.append('email', $scope.team_member.email);
                 form.append('phone', $scope.team_member.phone);
                 form.append('is_initiative', $scope.team_member.is_initiative);
-                alert($scope.team_member.is_initiative)
+
                 form.append('facebook_link', $scope.team_member.facebook_link);
 
                 // gather images and files
