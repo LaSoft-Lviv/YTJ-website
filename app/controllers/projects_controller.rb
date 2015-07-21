@@ -24,8 +24,14 @@ class ProjectsController < ApplicationController
   end
 
 
+  def destroy
+ 	@project = Project.find(params[:id])
+    @project.destroy();
+    render json:  {success: true, project: @project }
+  end
+
   def update
-    @project = Project.find(params[:id]);
+ 	@project = Project.find(params[:id]);
     @project.update(name: params[:name], description: params[:description], image: params[:file]);
 
     if(params[:team_member_prev_id])
@@ -33,19 +39,11 @@ class ProjectsController < ApplicationController
                                         .update(team_member_id: params[:team_member_id])
     end
     render json: {status:true, success: true, info: "project add"}
+  
   end
-
-  def destroy
-    @project = Project.find(params[:id])
-    @project.destroy();
-    render json:  {success: true, project: @project }
-  end
-
-  private
+ private
   def project_params
     params.require(:project).permit(:name, :description, :file)
   end
-
-
 
 end
