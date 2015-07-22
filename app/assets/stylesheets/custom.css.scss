@@ -5,7 +5,7 @@
 body {
   box-sizing: border-box;
 }
-/*
+
 @font-face {
   font-family: Roboto;
   src: url(Roboto/Roboto-Light.eot);
@@ -39,7 +39,7 @@ body {
   font-family: Roboto;
   src: url(Roboto/Roboto-Bold.ttf);
   font-weight: 600;
-}*/
+}
 
 /*Header*/
 
@@ -925,3 +925,30 @@ textarea {
 }
 
 /*Finish footer*/
+
+/*Signup*/
+
+.signup-headline p {
+  text-align: center;
+  margin-top: 5%;
+  font-family: Roboto, sans-serif;
+}
+
+.signup-submit-input {
+  font-family: Roboto, sans-serif;
+  color: #ffffff;
+}
+
+.signup-submit-input:hover {
+  color: #ffffff;
+}
+
+.signup-submit-input:active {
+  color: #ffffff;
+}
+
+.signup-submit-input:focus {
+  color: #ffffff;
+}
+
+/*Finish signup*/
