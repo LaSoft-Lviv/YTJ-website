@@ -4,30 +4,30 @@
     <form class="col s12" ng-submit="register(user)" ng-init="user = {}">
      <div class="row">
         <div class="input-field col s8 offset-s2 signup-headline">
-          <p class="flow-text">Форма реєстрації адміністратора</p>
+          <p class="flow-text">ФОРМА РЕЄСТРАЦІЇ АДМІНІСТРАТОРА</p>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8 offset-s2">
-          <input id="username" type="text" class="validate" ng-model="user.name">
+          <input id="username" type="text" class="validate signup-username" ng-model="user.name">
           <label for="username"><!-- Username -->І'мя користувача</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8 offset-s2">
-          <input id="email" type="email" class="validate" ng-model="user.email">
+          <input id="email" type="email" class="validate signup-email" ng-model="user.email">
           <label for="email"><!-- Email -->Електронна пошта</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8 offset-s2">
-          <input id="password" type="password" class="validate" ng-model="user.password">
+          <input id="password" type="password" class="validate signup-password" ng-model="user.password">
           <label for="password"><!-- Password -->Пароль</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s8 offset-s2">
-          <input id="password" type="password" class="validate" ng-model="user.password_confirmation">
+          <input id="password" type="password" class="validate signup-password-confirm" ng-model="user.password_confirmation">
           <label for="password"><!-- Password confirmation -->Підтвердити пароль</label>
         </div>
       </div>

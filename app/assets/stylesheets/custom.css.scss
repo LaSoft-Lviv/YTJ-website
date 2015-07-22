@@ -948,6 +948,8 @@ textarea {
   text-align: center;
   margin-top: 5%;
   font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .signup-submit-input {
@@ -965,6 +967,14 @@ textarea {
 
 .signup-submit-input:focus {
   color: #ffffff;
+}
+
+.signup-username:focus, .signup-email:focus, .signup-password:focus, .signup-password-confirm:focus, {
+  border-bottom-color: #4a148c !important;
+}
+
+label.active {
+  color: #4a148c !important;
 }
 
 @media screen and (max-width: 400px) {
