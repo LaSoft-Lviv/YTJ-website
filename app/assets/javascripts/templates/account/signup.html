@@ -1,40 +1,67 @@
 
 
 <div class="row container-signup-main">
-    <form class="col s12" ng-submit="register(user)" ng-init="user = {}">
+    <form name="contactForm" novalidate class="col s12" ng-submit="register(user)" ng-init="user = {}">
+
      <div class="row">
-        <div class="input-field col s8 offset-s2 signup-headline">
+        <div class="col s8 offset-s2 signup-headline">
           <p class="flow-text">ФОРМА РЕЄСТРАЦІЇ АДМІНІСТРАТОРА</p>
         </div>
       </div>
+
       <div class="row">
         <div class="input-field col s8 offset-s2">
-          <input id="username" type="text" class="validate signup-username" ng-model="user.name">
+          <input type="text" name="userName" class="signup-input signup-username" required ng-pattern="userNamePattern" ng-model="user.name">
           <label for="username"><!-- Username -->І'мя користувача</label>
+          <p class="error" ng-show="contactForm.userName.$invalid && contactForm.userName.$dirty">
+            {{getError(contactForm.userName.$error)}}
+          </p>
         </div>
       </div>
+
       <div class="row">
         <div class="input-field col s8 offset-s2">
-          <input id="email" type="email" class="validate signup-email" ng-model="user.email">
+          <input type="email" name="userEmail" class="signup-input signup-email" required ng-model="user.email">
           <label for="email"><!-- Email -->Електронна пошта</label>
+          <p class="error" ng-show="contactForm.userEmail.$invalid && contactForm.userEmail.$dirty">
+            {{getError(contactForm.userEmail.$error)}}
+          </p>
         </div>
       </div>
+      
       <div class="row">
         <div class="input-field col s8 offset-s2">
-          <input id="password" type="password" class="validate signup-password" ng-model="user.password">
+          <input type="password" name="userPassword" class="signup-input signup-password" required ng-model="user.password">
           <label for="password"><!-- Password -->Пароль</label>
+          <p class="error" ng-show="contactForm.userPassword.$invalid && contactForm.userPassword.$dirty">
+            {{getError(contactForm.userPassword.$error)}}
+          </p>
         </div>
       </div>
+
       <div class="row">
         <div class="input-field col s8 offset-s2">
-          <input id="password" type="password" class="validate signup-password-confirm" ng-model="user.password_confirmation">
+          <input type="password" name="userPasswordConfirm" class="signup-input signup-password-confirm" required ng-model="user.password_confirmation">
           <label for="password"><!-- Password confirmation -->Підтвердити пароль</label>
+          <p class="error" ng-show="contactForm.userPasswordConfirm.$invalid && contactForm.userPasswordConfirm.$dirty">
+            {{getError(contactForm.userPasswordConfirm.$error)}}
+          </p>
         </div>
       </div>
+
+       <div class="row">
+        <div class="checkbox col s8 offset-s2">
+          <input type="checkbox" name="userAgreed" id="signup-checkbox" required ng-model="user.agreed">
+            <label for="signup-checkbox">Я підтверджую введені дані
+          <label>
+        </div>
+      </div>
+
       <div class="row">
        <div class="col s8 offset-s2 signup-submit-input">
-         <input type="submit" class="btn btn-default waves- effect purple darken-4 signup-submit-input" value="Зареєструватись">
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="contactForm.$invalid">OK</button>
         </div>
       </div> 
+
     </form>
   </div>

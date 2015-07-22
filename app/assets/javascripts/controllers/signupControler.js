@@ -17,4 +17,18 @@ console.log(data);
             });
         }
 
-    }]);
+        $scope.userNamePattern = new RegExp("[a-z]");
+
+        $scope.getError = function (error) {
+            if (angular.isDefined(error)) {
+                if (error.required) {
+                    return "Поле не повинно бути пустим";
+                } else if (error.email) {
+                    return "Введіть правильний email";
+                  } else if (error.pattern) {
+                      return "Введіть правильне ім'я";
+                    }
+            }
+        }
+
+}]);
