@@ -1,6 +1,6 @@
-* {
+/** {
   transition: 1s;
-}
+}*/
 
 body {
   box-sizing: border-box;
@@ -801,23 +801,39 @@ p.quote-description {
   padding: 0px 15px;
 }
 
+.form-control {
+  color: #ffffff;
+  margin-bottom: 3px !important;
+}
+
 .name-input, .email-input, .theme-input, .message-input {
   border-radius: 0px;
 }
 
-.name-input:focus, .email-input:focus, .theme-input:focus, .message-input:focus {
-  border: 2px solid green;
+.name-input:focus, .email-input:focus, .theme-input:focus {
+  border-bottom: 2px solid #4a148c !important;
+}
+
+.name-input:focus, .email-input:focus, .theme-input:focus {
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+}
+
+.message-input:focus {
+  border: 2px solid #4a148c;
 }
 
 textarea {
   max-width: 100%;
   rows:6;
+  font-size: 14px;
 }
 
-
 .help {
-  color: white;
+  color: red;
   font-style: italic;
+  font-size: 12px;
 }
 
 .button-input {
@@ -949,6 +965,12 @@ textarea {
 
 .signup-submit-input:focus {
   color: #ffffff;
+}
+
+@media screen and (max-width: 400px) {
+  .signup-submit-input {
+  font-size: 12px;
+  }
 }
 
 /*Finish signup*/

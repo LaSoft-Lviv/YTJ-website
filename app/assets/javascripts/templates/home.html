@@ -251,7 +251,7 @@
                         <input type="text" class="form-control theme-input" id="theme-input" name="subject" placeholder="Тема повідомлення" maxlength="50" ng-model="contact_mail.subject" onblur="validateNonEmpty(this, document.getElementById('theme_help'))">
                         <span id="theme_help" class="help"></span>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group message-text">
                         <textarea class="form-control message-input" id="message-input" rows="6" name="message" placeholder="Текст повідомлення" maxlength="1000" ng-model="contact_mail.message" onblur="validateLength(1, 1000, this, document.getElementById('message_help'))"></textarea>
                         <span id="message_help" class="help"></span>
                     </div>

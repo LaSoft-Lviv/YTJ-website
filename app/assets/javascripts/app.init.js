@@ -1,4 +1,6 @@
 
+/* Start Functions for validate client form */
+
 function validateRegEx (regex, input, helpText, helpMessage) {
     if (!regex.test(input)) {
         if (helpText != null)
@@ -51,8 +53,10 @@ function placeOrder(form) {
         alert(/*"I'm sorry but there is something wrong with the order information."*/"Перепрошуємо, але деякі дані форми введено неправильно.");
     }
 }
+/* finish functions */
 
-function remoAttr() {
+/* Start Functions for change client form */
+function remoAttrRows() {
     if (document.body.clientWidth < 480) {
         var tag = document.getElementById('message-input');
         tag.removeAttribute('rows');
@@ -60,7 +64,7 @@ function remoAttr() {
 }
 
 
-function getAttr() {
+function addAttr() {
     if (document.body.clientWidth < 480) {
         var tag = document.getElementById('id-col');
         tag.removeAttribute('class');
@@ -84,6 +88,7 @@ function getAttrBack() {
         tag2.setAttributeNode(att2);
     }
 }
+/* finish functions */
 
 
 $(document).ready(function() {
@@ -168,22 +173,22 @@ $(document).ready(function() {
    // $.material.init();
 
     document.body[window.addEventListener ? 'addEventListener' : 'attachEvent'](
-        window.addEventListener ? "load" : "onload", remoAttr, false);
+        window.addEventListener ? "load" : "onload", remoAttrRows, true);
 
     document.body[window.addEventListener ? 'addEventListener' : 'attachEvent'](
-        window.addEventListener ? "load" : "onload", getAttr, false)
+        window.addEventListener ? "load" : "onload", addAttr, true)
 
     document.body[window.addEventListener ? 'addEventListener' : 'attachEvent'](
-        window.addEventListener ? "load" : "onload", getAttrBack, false)
+        window.addEventListener ? "load" : "onload", getAttrBack, true)
 
     document.body[window.addEventListener ? 'addEventListener' : 'attachEvent'](
-        window.addEventListener ? "resize" : "onresize", remoAttr, false);
+        window.addEventListener ? "resize" : "onresize", remoAttrRows, true);
 
     document.body[window.addEventListener ? 'addEventListener' : 'attachEvent'](
-        window.addEventListener ? "resize" : "onresize", getAttr, false)
+        window.addEventListener ? "resize" : "onresize", addAttr, true)
 
     document.body[window.addEventListener ? 'addEventListener' : 'attachEvent'](
-        window.addEventListener ? "resize" : "onresize", getAttrBack, false)
+        window.addEventListener ? "resize" : "onresize", getAttrBack, true)
 });
 
 
