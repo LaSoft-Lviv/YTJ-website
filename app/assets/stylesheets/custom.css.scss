@@ -969,12 +969,36 @@ textarea {
   color: #ffffff;
 }
 
-.signup-username:focus, .signup-email:focus, .signup-password:focus, .signup-password-confirm:focus, {
-  border-bottom-color: #4a148c !important;
+.signup-input {
+  margin-bottom: 5px !important;
 }
+
+/*.signup-username:focus, .signup-email:focus, .signup-password:focus, .signup-password-confirm:focus, {
+  border-bottom-color: #4a148c !important;
+}*/
 
 label.active {
   color: #4a148c !important;
+}
+
+form .ng-pristine {
+  border-bottom: 1px dotted gray;
+}
+
+        
+form .ng-invalid.ng-dirty {
+  border-bottom: 2px solid red;
+}
+
+        
+form .ng-valid.ng-dirty {
+  border-bottom: 2px solid lightgreen;
+}
+
+p.error {
+  color: red;
+  font-weight: bold;
+  font-style: italic;
 }
 
 @media screen and (max-width: 400px) {
