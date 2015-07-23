@@ -1,7 +1,7 @@
 
 
 <div class="row container-signup-main">
-    <form name="contactForm" novalidate class="col s12" ng-submit="register(user)" ng-init="user = {}">
+    <form name="contactForm" novalidate class="col s12" ng-submit="register(user)">
 
      <div class="row">
         <div class="col s8 offset-s2 signup-headline">
@@ -11,10 +11,10 @@
 
       <div class="row">
         <div class="input-field col s8 offset-s2">
-          <input type="text" name="userName" class="signup-input signup-username" required ng-pattern="userNamePattern" ng-model="user.name">
+          <input type="text" name="userName" class="signup-input signup-username" required ng-minlength="3" ng-maxlength="16" ng-pattern="userNamePattern" ng-model="user.name">
           <label for="username"><!-- Username -->І'мя користувача</label>
           <p class="error" ng-show="contactForm.userName.$invalid && contactForm.userName.$dirty">
-            {{getError(contactForm.userName.$error)}}
+            {{getErrorName(contactForm.userName.$error)}}
           </p>
         </div>
       </div>
@@ -24,17 +24,17 @@
           <input type="email" name="userEmail" class="signup-input signup-email" required ng-model="user.email">
           <label for="email"><!-- Email -->Електронна пошта</label>
           <p class="error" ng-show="contactForm.userEmail.$invalid && contactForm.userEmail.$dirty">
-            {{getError(contactForm.userEmail.$error)}}
+            {{getErrorEmail(contactForm.userEmail.$error)}}
           </p>
         </div>
       </div>
       
       <div class="row">
         <div class="input-field col s8 offset-s2">
-          <input type="password" name="userPassword" class="signup-input signup-password" required ng-model="user.password">
+          <input type="password" name="userPassword" class="signup-input signup-password" required minlength="4" ng-model="user.password">
           <label for="password"><!-- Password -->Пароль</label>
           <p class="error" ng-show="contactForm.userPassword.$invalid && contactForm.userPassword.$dirty">
-            {{getError(contactForm.userPassword.$error)}}
+            {{getErrorPassword(contactForm.userPassword.$error)}}
           </p>
         </div>
       </div>
@@ -43,8 +43,9 @@
         <div class="input-field col s8 offset-s2">
           <input type="password" name="userPasswordConfirm" class="signup-input signup-password-confirm" required ng-model="user.password_confirmation">
           <label for="password"><!-- Password confirmation -->Підтвердити пароль</label>
-          <p class="error" ng-show="contactForm.userPasswordConfirm.$invalid && contactForm.userPasswordConfirm.$dirty">
-            {{getError(contactForm.userPasswordConfirm.$error)}}
+          <p class="error" ng-show="user.password !=  user.password_confirmation">
+         <!--    {{getErrorConfirm(contactForm.userPasswordConfirm.$error)}} -->
+            {{getErrorConfirm1()}}
           </p>
         </div>
       </div>
@@ -59,7 +60,7 @@
 
       <div class="row">
        <div class="col s8 offset-s2 signup-submit-input">
-        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="contactForm.$invalid">OK</button>
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="contactForm.$invalid || user.password !=  user.password_confirmation">OK</button>
         </div>
       </div> 
 
