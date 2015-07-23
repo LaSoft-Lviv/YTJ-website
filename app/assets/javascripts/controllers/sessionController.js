@@ -28,12 +28,14 @@ angular.module('controllers')
 
         $scope.submitLogin = function(loginData){
 
-              SessionService.login(loginData).then(function(data) {
+              SessionService.login(loginData).then(function(response) {
 
-                  $scope.currentUser = SessionService.currentUser
-                  localStorage.setItem('auth_token',  $scope.currentUser.auth_token);
-                  localStorage.setItem('name', $scope.currentUser.name)
-                  $('#username').text($scope.currentUser.name)
+                  if (response.data.user) {
+                      $scope.currentUser = SessionService.currentUser;
+                      $('#username').text($scope.currentUser.name)
+                      $location.path('/#');
+                  }
+
             });
         };
 

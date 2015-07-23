@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
     render json:  {success: true, project: @project }
   end
 
+
   def destroy
  	  @project = Project.find(params[:id])
     @project.destroy();
