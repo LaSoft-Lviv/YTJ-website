@@ -10,7 +10,7 @@ class AccountsController < ApplicationController
     if @current_admin.save
       render json: { status: 'success' }
     else
-      render json: { status: 'false', errors: @admin.errors }
+      render json: { status: 'false', errors: @current_admin.errors }
     end
   end
 
