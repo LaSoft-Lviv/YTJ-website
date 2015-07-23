@@ -1,23 +1,19 @@
 class SessionsController < ApplicationController
   before_action :authenticate, except: [:create]
+
   def create
     @admin = Admin.find_by(email: params[:session][:email])
-    @admin.set_auth_token
-
-    if @admin.authenticate(params[:session][:password])
+    if @admin && @admin.authenticate(params[:session][:password])
+      @admin.set_auth_token
       render :json => { :user => @admin, :status => 'success' }
-    else
-      render :json => { status: 'false', errors: @admin.errors }
+      else
+      render :json => { status: false, errors: 'Invalid email or password' }
     end
   end
 
   def destroy
     @current_admin.set_null_auth_token
-    render :status => 200,
-           :json => { :success => true,
-                      :info => "Logged out",
-           }
-
+    render :json => { :status => 'success'  }
   end
 
 end

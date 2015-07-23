@@ -14,15 +14,23 @@ angular.module('services')
 
            login : function(user) {
 
-                  return $http.post('/login', {session: {email:user.email, password:user.password} })
-                        .then(function(response) {
-                            service.currentUser = response.data.user;
-                          console.log(service.currentUser)
-                            if (service.isAuthenticated()) {
-                                  $location.path('/#');
+              return $http.post('/login', {
+                        session: {email:user.email, password:user.password}
+                   }).success(function(response) {
 
-                            }
-                        });
+                   if (response.status) {
+                       service.currentUser = response.user;
+                       if (service.isAuthenticated()) {
+                           localStorage.setItem('auth_token', service.currentUser.auth_token);
+                           localStorage.setItem('name', service.currentUser.name)
+                       }
+                   }
+                   else {
+                       alert(response.errors)
+                   }
+               }).error(function(error) {
+                         return error
+               });
                 },
             logout: function(redirectUrl) {
                  console.log(service.currentUser);
@@ -30,8 +38,7 @@ angular.module('services')
                      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization':'Token token='+service.currentUser.auth_token},
 
                 }).success(function(data) {
-
-                  service.currentUser = null;
+                     service.currentUser = null;
                      $location.url(redirectUrl);
                 }).error(function(data) {
                  alert('Error while logout!');
