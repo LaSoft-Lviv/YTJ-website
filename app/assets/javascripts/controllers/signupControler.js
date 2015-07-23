@@ -20,7 +20,7 @@ angular.module('controllers')
             });
         }
 
-        $scope.userNamePattern = new RegExp("^[a-z ,.'-]+$");
+        $scope.userNamePattern = new RegExp("^[a-z ,.'-]+$", "i");
 
         $scope.getErrorName = function (error) {
             if (angular.isDefined(error)) {
@@ -57,7 +57,7 @@ angular.module('controllers')
         }
 
         $scope.getErrorConfirm = function () {
-         return "Паролі повинні співпадати";
+         return "Паролі повинні співпадати!";
         }
 
 }]);
