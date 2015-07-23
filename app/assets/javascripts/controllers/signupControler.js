@@ -17,7 +17,7 @@ angular.module('controllers')
                         } else {
                             alert(response.statusText);
                           }
-                 }
+                  }
             })
         }
 
