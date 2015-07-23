@@ -63,8 +63,8 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$loc
             templateUrl: 'account/update.html',
             controller: 'UpdateAccountController',
         })
-        .when('/login', {
-            templateUrl: 'session/login.html',
+        .when('/signin', {
+            templateUrl: 'session/signin.html',
             controller: 'SessionController',
 
         })

@@ -2,22 +2,23 @@ angular.module('controllers')
     .controller('SignupController', ['$scope','$location','UserService', function ($scope,  $location, UserService) {
 
 
-        $scope.register = function(user){
-           UserService.register(user).then(function (data) {
-                console.log(data);
-             if (data.data.status== "success") {
-                    alert("OK");
-                    $location.path('#/')
-                } else {
-                    alert("NOT OK");
-                 if (data.data.errors)
-                     for (error  in data.data.errors)
-                         alert(error + " " + data.data.errors[error])
-                 else
-                     alert(data.statusText)
-                }
-              //  callback(response);
-            });
+        $scope.registerUser = function(user) {
+            UserService.register(user).then(function (response) {
+                console.log(response);
+                if (response.data.status == "success") {
+                    alert("Вас успішно зареєстровано!");
+                    $location.path('/signin');
+                } else { 
+                    alert("Вас не було зареєстровано!");
+                        if (response.data.errors) {
+                            for (error in response.data.errors) {
+                                alert(error + " " + response.data.errors[error]);
+                            } 
+                        } else {
+                            alert(response.statusText);
+                          }
+                 }
+            })
         }
 
         $scope.userNamePattern = new RegExp("^[a-z ,.'-]+$", "i");
