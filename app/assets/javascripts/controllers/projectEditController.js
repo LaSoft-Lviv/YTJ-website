@@ -7,19 +7,20 @@ angular.module('controllers')
         var params = $route.current.params;
         ProjectService.edit(params).then(function(data) {
             console.log(data)
-
             console.log(data.team_members)
             $scope.project.name = data.name;
             $scope.project.description = data.description;
-            $scope.project.team_member_prev_id = data.team_members[0].id;
-            $scope.project.image = data.image;
-            for(var i=0;i<data.team_members.length;++i)
-            {
-                if(data.team_members[i].coordinator){
-                $scope.project.team = data.team_members[i]
-                }
-            }
 
+            if(data.team_members.length>0) {
+
+                $scope.project.team_member_prev_id = data.team_members[0].id;
+
+            }
+            else
+            {
+                $scope.project.team = null;
+            }
+            $scope.project.image = data.image;
             ProjectService.getAllTeamMembers().then(function (data) {
 
                $scope.team = data.data.team;
@@ -66,15 +67,21 @@ angular.module('controllers')
             var form = new FormData();
             form.append('name', $scope.project.name);
             form.append('description', $scope.project.description);
-            form.append('team_member_id', $scope.project.team);
 
-               if($scope.project.team_member_prev_id != $scope.project.team)
-               {
-                   form.append('team_member_prev_id', $scope.project.team_member_prev_id);
-               }
+
+
+             if( $scope.project.team && $scope.project.team_member_prev_id &&$scope.project.team_member_prev_id != $scope.project.team)
+             {
+                 form.append('team_member_id', $scope.project.team);
+                form.append('team_member_prev_id', $scope.project.team_member_prev_id);
+             }
+             else if(!$scope.project.team_member_prev_id && $scope.project.team)
+             {
+                 form.append('team_member_id', $scope.project.team);
+             }
              // gather images and files
              if ($scope.project.image.fresh) {
-                form.append('file', $scope.project.image.file);
+                form.append('image', $scope.project.image.file);
                 }
                return form;
            };

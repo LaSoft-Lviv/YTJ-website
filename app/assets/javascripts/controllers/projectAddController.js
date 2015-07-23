@@ -73,7 +73,7 @@ angular.module('controllers')
             // gather images and files
             if ($scope.project.image.fresh) {
                 console.log($scope.project.image)
-                form.append('file', $scope.project.image.file);
+                form.append('image', $scope.project.image.file);
             }
             return form;
         };

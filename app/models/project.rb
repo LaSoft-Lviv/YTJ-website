@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  has_many :team_members_projects
+  has_many :team_members_projects,  dependent: :destroy
   has_many :team_members, -> { select 'team_members.*, team_members_projects.coordinator as coordinator' }, :through => :team_members_projects
   validates :name, :description , presence: true, length:{ minimum: 3 }
   validates :name, length: {maximum: 50}

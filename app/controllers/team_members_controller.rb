@@ -1,20 +1,12 @@
 class TeamMembersController < ApplicationController
-  before_action :authenticate, only: [:create]
+  before_action :authenticate, only: [:create, :edit, :destroy, :update ]
 
   def index
     render json: {team: TeamMember.all}
   end
 
-  def destroy
-  end
-
-  def update
-  end
-
   def create
-    @team_member = TeamMember.new( name: params[:name], surname: params[:surname], quote:  params[:quote], foto:  params[:file],
-                                   phone: params[:phone], phone: params[:phone], facebook_link:  params[:facebook_link],
-                                   is_initiative: params[:is_initiative])
+    @team_member = TeamMember.new(team_member_params)
     if @team_member.save
       render status: 200,
              json: { success: true, team_member: @team_member, info: 'team member add'}
@@ -24,7 +16,27 @@ class TeamMembersController < ApplicationController
     end
   end
 
+  def edit
+    @team_member = TeamMember.find(params[:id]);
+    render json: { success: true, team_member: @team_member}
+  end
+
+  def update
+    @team_member = TeamMember.find(params[:id])
+   if  @team_member.update(team_member_params)
+    render json: {success: true, team_member: @team_member}
+   else
+     render json: {success: false, errors: @team_member.errors.full_messages}
+   end
+  end
+
+  def destroy
+    @team_member = TeamMember.find(params[:id])
+    @team_member.destroy
+    render json:  {success: true, team_member: @team_member}
+  end
+
   def team_member_params
-    #params.permit(:name, :surname, :email, :quote, :foto)
+    params.permit(:name, :surname, :email, :quote, :foto, :phone, :facebook_link, :is_initiative)
   end
 end

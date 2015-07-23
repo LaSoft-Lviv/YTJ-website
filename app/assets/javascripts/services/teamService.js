@@ -45,6 +45,57 @@ angular.module('services')
                     transformRequest: angular.identity
                 }).then(this.handleSuccess, this.handleError);
 
+            },
+
+            remove: function (id) {
+                var deferred = $q.defer(), url = teamUrl();
+                url += "/" + id;
+                $http.delete(url, {
+                    headers: {
+                        'Accept': 'application/json', 'Content-Type': 'application/json',
+                        'Authorization': 'Token token=' + localStorage.getItem('auth_token')}
+                }).success(function (data) {
+                    deferred.resolve(data);
+                }).error(function (data) {
+                    deferred.reject('Error while deleting article!');
+                })
+
+                return deferred.promise;
+            },
+            edit: function(params){
+
+                var deferred = $q.defer(),
+                    url = editTeamUrl(params);
+                $http.get(url, {headers: { 'Accept': 'application/json', 'Content-Type': 'application/json',
+                    'Authorization':'Token token='+localStorage.getItem('auth_token')}
+                })
+                    .success(function(data) {
+                        deferred.resolve(data.team_member);
+                    })
+                    .error(function(data) {
+                        deferred.reject('Error while deleting team member!');
+                    })
+
+                return deferred.promise;
+            },
+
+            update: function(form,params) {
+
+                var deferred = $q.defer(),
+                    url = updateTeamUrl(params);
+
+                $http.put(url, form, {
+                    headers: {
+                        'Content-Type': undefined,
+                        'Authorization': 'Token token=' + localStorage.getItem('auth_token')
+                    },
+                    transformRequest: angular.identity
+                }).success(function (data) {
+                    deferred.resolve(data);
+                }).error(function (data) {
+                    deferred.reject('Error while updating team member!');
+                });
+                return deferred.promise;
             }
         }
     }

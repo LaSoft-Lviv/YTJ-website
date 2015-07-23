@@ -5,15 +5,12 @@ class AccountsController < ApplicationController
     render json: { admins: Admin.all }
   end
 
-  def show
-  end
-
   def create
     @current_admin = Admin.new(account_params)
     if @current_admin.save
       render json: { status: 'success' }
     else
-      render json: { status: 'false', errors: @admin.errors }
+      render json: { status: 'false', errors: @current_admin.errors }
     end
   end
 
@@ -26,7 +23,6 @@ class AccountsController < ApplicationController
   end
 
   private
-
   def account_params
     params.require(:account).permit(:name, :email, :password, :password_confirmation)
   end

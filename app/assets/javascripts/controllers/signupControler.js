@@ -3,15 +3,18 @@ angular.module('controllers')
 
 
         $scope.register = function(user){
-
-            console.log('register')
-            UserService.register(user).then(function (data) {
-console.log(data);
+           UserService.register(user).then(function (data) {
+                console.log(data);
              if (data.data.status== "success") {
-
                     alert("OK");
+                    $location.path('#/')
                 } else {
                     alert("NOT OK");
+                 if (data.data.errors)
+                     for (error  in data.data.errors)
+                         alert(error + " " + data.data.errors[error])
+                 else
+                     alert(data.statusText)
                 }
               //  callback(response);
             });
