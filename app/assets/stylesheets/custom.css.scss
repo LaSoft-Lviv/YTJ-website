@@ -1,11 +1,11 @@
-* {
+/** {
   transition: 1s;
-}
+}*/
 
 body {
   box-sizing: border-box;
 }
-/*
+
 @font-face {
   font-family: Roboto;
   src: url(Roboto/Roboto-Light.eot);
@@ -39,7 +39,7 @@ body {
   font-family: Roboto;
   src: url(Roboto/Roboto-Bold.ttf);
   font-weight: 600;
-}*/
+}
 
 /*Header*/
 
@@ -801,23 +801,39 @@ p.quote-description {
   padding: 0px 15px;
 }
 
+.form-control {
+  color: #ffffff;
+  margin-bottom: 3px !important;
+}
+
 .name-input, .email-input, .theme-input, .message-input {
   border-radius: 0px;
 }
 
-.name-input:focus, .email-input:focus, .theme-input:focus, .message-input:focus {
-  border: 2px solid green;
+.name-input:focus, .email-input:focus, .theme-input:focus {
+  border-bottom: 2px solid #4a148c !important;
+}
+
+.name-input:focus, .email-input:focus, .theme-input:focus {
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+}
+
+.message-input:focus {
+  border: 2px solid #4a148c;
 }
 
 textarea {
   max-width: 100%;
   rows:6;
+  font-size: 14px;
 }
 
-
 .help {
-  color: white;
+  color: red;
   font-style: italic;
+  font-size: 12px;
 }
 
 .button-input {
@@ -925,3 +941,70 @@ textarea {
 }
 
 /*Finish footer*/
+
+/*Signup*/
+
+.signup-headline p {
+  text-align: center;
+  margin-top: 5%;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.signup-submit-input {
+  font-family: Roboto, sans-serif;
+  color: #ffffff;
+}
+
+.signup-submit-input:hover {
+  color: #ffffff;
+}
+
+.signup-submit-input:active {
+  color: #ffffff;
+}
+
+.signup-submit-input:focus {
+  color: #ffffff;
+}
+
+.signup-input {
+  margin-bottom: 5px !important;
+}
+
+/*.signup-username:focus, .signup-email:focus, .signup-password:focus, .signup-password-confirm:focus, {
+  border-bottom-color: #4a148c !important;
+}*/
+
+label.active {
+  color: #4a148c !important;
+}
+
+form .ng-pristine {
+  border-bottom: 1px dotted gray;
+}
+
+        
+form .ng-invalid.ng-dirty {
+  border-bottom: 2px solid red;
+}
+
+        
+form .ng-valid.ng-dirty {
+  border-bottom: 2px solid lightgreen;
+}
+
+p.error {
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+}
+
+@media screen and (max-width: 400px) {
+  .signup-submit-input {
+  font-size: 12px;
+  }
+}
+
+/*Finish signup*/

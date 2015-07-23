@@ -1,19 +1,67 @@
-<div class="page-header">
-    <h1><Signup></h1>
-</div>
 
-<form ng-submit="register(user)" ng-init="user = {}">
-    <div class="input-group">
-        <input type="email" class="form-control" placeholder="Email" ng-model="user.email">
-    </div>
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="Username" ng-model="user.name">
-    </div>
-    <div class="input-group">
-        <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
-    </div>
-    <div class="input-group">
-        <input type="password" class="form-control" placeholder="Password confirmation" ng-model="user.password_confirmation">
-    </div>
-    <input type="submit" class="btn btn-default" value="Register">
-</form>
+
+<div class="row container-signup-main">
+    <form name="contactForm" novalidate class="col s12" ng-submit="register(user)" ng-init="user = {}">
+
+     <div class="row">
+        <div class="col s8 offset-s2 signup-headline">
+          <p class="flow-text">ФОРМА РЕЄСТРАЦІЇ АДМІНІСТРАТОРА</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <input type="text" name="userName" class="signup-input signup-username" required ng-pattern="userNamePattern" ng-model="user.name">
+          <label for="username"><!-- Username -->І'мя користувача</label>
+          <p class="error" ng-show="contactForm.userName.$invalid && contactForm.userName.$dirty">
+            {{getError(contactForm.userName.$error)}}
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <input type="email" name="userEmail" class="signup-input signup-email" required ng-model="user.email">
+          <label for="email"><!-- Email -->Електронна пошта</label>
+          <p class="error" ng-show="contactForm.userEmail.$invalid && contactForm.userEmail.$dirty">
+            {{getError(contactForm.userEmail.$error)}}
+          </p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <input type="password" name="userPassword" class="signup-input signup-password" required ng-model="user.password">
+          <label for="password"><!-- Password -->Пароль</label>
+          <p class="error" ng-show="contactForm.userPassword.$invalid && contactForm.userPassword.$dirty">
+            {{getError(contactForm.userPassword.$error)}}
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <input type="password" name="userPasswordConfirm" class="signup-input signup-password-confirm" required ng-model="user.password_confirmation">
+          <label for="password"><!-- Password confirmation -->Підтвердити пароль</label>
+          <p class="error" ng-show="contactForm.userPasswordConfirm.$invalid && contactForm.userPasswordConfirm.$dirty">
+            {{getError(contactForm.userPasswordConfirm.$error)}}
+          </p>
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="checkbox col s8 offset-s2">
+          <input type="checkbox" name="userAgreed" id="signup-checkbox" required ng-model="user.agreed">
+            <label for="signup-checkbox">Я підтверджую введені дані
+          <label>
+        </div>
+      </div>
+
+      <div class="row">
+       <div class="col s8 offset-s2 signup-submit-input">
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="contactForm.$invalid">OK</button>
+        </div>
+      </div> 
+
+    </form>
+  </div>
