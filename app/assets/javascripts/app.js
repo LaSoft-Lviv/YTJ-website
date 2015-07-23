@@ -73,7 +73,7 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$loc
             controller: 'ProjectEditController',
 
         })
-        .when('/project', {
+        .when('/project/add', {
             templateUrl: 'project/add.html',
             controller: 'ProjectAddController',
 
@@ -83,7 +83,12 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$loc
             controller: 'TeamAddController',
 
         })
-    .   otherwise({ redirectTo: '/' });
+        .when('/team/edit', {
+            templateUrl: 'team/edit.html',
+            controller: 'TeamEditController',
+
+        })
+        .otherwise({ redirectTo: '/' });
 }]);
 angular.module('directives',[]);
 angular.module('controllers', []);

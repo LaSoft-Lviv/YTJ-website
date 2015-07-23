@@ -1,8 +1,8 @@
 angular.module('controllers')
-  .controller('HomeController', ['$scope','$location','DataService','SessionService','ProjectService', function ($scope,  $location, DataService,SessionService, ProjectService) {
+  .controller('HomeController', ['$scope','$location','DataService','SessionService','ProjectService', 'TeamService',
+                                function ($scope,  $location, DataService, SessionService, ProjectService, TeamService) {
 
         $scope.signedIn = SessionService.isAuthenticated;
-
 
         $scope.titleProject="Проекти";
         $scope.titleTeam="Команда"
@@ -59,13 +59,21 @@ angular.module('controllers')
 
 
         });
+
         $scope.deleteProject= function(id){
            console.log(id)
-
            ProjectService.remove(id).then(function(data) {
-                   $location.url('#/');
+                   $location.url('/');
                }
            );
+        };
+
+        $scope.deleteTeamMember= function(id){
+            console.log(id)
+            TeamService.remove(id).then(function(data) {
+                    $location.url('/');
+                }
+            );
         };
 
 }]);

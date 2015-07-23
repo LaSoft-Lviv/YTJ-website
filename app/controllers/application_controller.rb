@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_token
+
     #params[:auth_token].present? && Admin.find_by(auth_token: params[:auth_token])
     authenticate_with_http_token do |token, options|
       @current_admin = Admin.find_by(auth_token: token)

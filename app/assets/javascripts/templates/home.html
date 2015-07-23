@@ -153,6 +153,9 @@
                         {{team_member.quote}}
                         </p>
                     </div>
+                    <a  role="presentation" ng-show="signedIn()" class="btn btn-sm" href="#/team/edit?id={{team_member.id}}">update</a>
+                    <a  role="presentation" ng-show="signedIn()" class="btn btn-sm" href="#"   data-ng-click="deleteTeamMember(team_member.id)">delete</a>
+
                 </div>
             </div>
         </div>

@@ -74,7 +74,7 @@ angular.module('services')
                 }).success(function (data) {
                     deferred.resolve(data);
                 }).error(function (data) {
-                    deferred.reject('Error while updating article!');
+                    deferred.reject('Error while updating project!');
                 });
                 return deferred.promise;
             },
@@ -84,11 +84,13 @@ angular.module('services')
                 url += "/" + id;
                 $http.delete(url, {
                     headers: {
-                        'Accept': 'application/json', 'Content-Type': 'application/json'     }
+                        'Accept': 'application/json', 'Content-Type': 'application/json',
+                        'Authorization': 'Token token=' + localStorage.getItem('auth_token')
+                    }
                 }).success(function (data) {
                     deferred.resolve(data);
                 }).error(function (data) {
-                    deferred.reject('Error while deleting article!');
+                    deferred.reject('Error while deleting project!');
                 })
 
                 return deferred.promise;

@@ -1,32 +1,36 @@
 angular.module('controllers')
-    .controller('TeamAddController', ['$scope','$location','$http','$route','$routeParams','TeamService',
+    .controller('TeamEditController', ['$scope','$location','$http','$route','$routeParams','TeamService',
         function ($scope,  $location, $http, $route, $routeParams, TeamService) {
 
             $scope.titleTeam = "Проекти";
-            $scope.team_member = {
-                foto: {},
-                name: "",
-                surname: "",
-                email: "",
-                quote: "",
-                phone: "",
-                facebook_link: "",
-                is_initiative: false
-            };
+            $scope.team_member = {};
             var params = $route.current.params;
 
-            $scope.addTeamMember = function () {
+            TeamService.edit(params).then(function(data) {
+                $scope.team_member.name = data.name;
+                $scope.team_member.surname = data.surname;
+                $scope.team_member.email = data.email;
+                $scope.team_member.quote = data.quote;
+                $scope.team_member.phone = data.phone;
+                $scope.team_member.foto = data.foto;
+                $scope.team_member.facebook_link = data.facebook_link;
+                $scope.team_member.is_initiative = data.is_initiative;
+
+            });
+            $scope.updateTeamMember = function(team_member) {
                 var form = collectFormData();
-                TeamService.add(form).then(function (data) {
-                    if (data.data.success) {
+                TeamService.update(form,params).then(function (response) {
+
+                    console.log(response)
+                  if (response.team_member) {
                         $location.path('#/')
                     }
                     else {
-                        if (data.data.errors)
-                            for (error  in data.data.errors)
-                                alert(error + " " + data.data.errors[error])
+                        if (response.data.errors)
+                            for (error  in response.data.errors)
+                                alert(error + " " + response.data.errors[error])
                         else
-                            alert(data.statusText)
+                            alert(response.statusText)
                     }
 
                 })
@@ -35,10 +39,7 @@ angular.module('controllers')
 
             $scope.teamFoto = {
                 add: function (file) {
-
                     if (file.type.match('image.*')) {
-
-                        console.log('ss');
                         var reader = new FileReader();
                         reader.onload = function (event) {
                             $scope.team_member.foto = {
@@ -50,25 +51,23 @@ angular.module('controllers')
                             };
                             $scope.$apply();
                         };
-
                         reader.readAsDataURL(file);
                     }
+
                 }
-            }
+            };
 
 
             var collectFormData = function () {
                 var form = new FormData();
-
+                form.append('id', $scope.team_member.id);
                 form.append('name', $scope.team_member.name);
                 form.append('surname', $scope.team_member.surname);
                 form.append('quote', $scope.team_member.quote);
                 form.append('email', $scope.team_member.email);
                 form.append('phone', $scope.team_member.phone);
                 form.append('is_initiative', $scope.team_member.is_initiative);
-
                 form.append('facebook_link', $scope.team_member.facebook_link);
-                console.log(form)
                 // gather images and files
                 if ($scope.team_member.foto.fresh) {
                     console.log($scope.team_member.foto)
@@ -77,4 +76,4 @@ angular.module('controllers')
                 return form;
             };
         }
-]);
+    ]);

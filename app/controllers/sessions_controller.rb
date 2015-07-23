@@ -1,9 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :authenticate, except: [:new, :create]
-
-  def new
-  end
-
+  before_action :authenticate, except: [:create]
   def create
     @admin = Admin.find_by(email: params[:session][:email])
     @admin.set_auth_token
