@@ -243,15 +243,15 @@
                 </div>
                 <form name="orderform" ng-submit="submitContact(contact_mail)" role="form" ng-init="contact_mail = {}">
                     <div class="form-group">
-                        <input type="text" class="form-control name-input" id="name-input" name="name" placeholder="Ваше ім'я" maxlength="50" ng-model="contact_mail.name" onblur="validateNonEmpty(this, document.getElementById('name_help'))">
+                        <input type="text" class="form-control-contact name-input" id="name-input" name="name" placeholder="Ваше ім'я" maxlength="50" ng-model="contact_mail.name" onblur="validateNonEmpty(this, document.getElementById('name_help'))">
                         <span id="name_help" class="help"></span>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control email-input" id="email-input" name="email" placeholder="Ваша пошта" maxlength="50" ng-model="contact_mail.email" onblur="validateEmail(this, document.getElementById('email_help'))">
+                        <input type="email" class="form-control-contact email-input" id="email-input" name="email" placeholder="Ваша пошта" maxlength="50" ng-model="contact_mail.email" onblur="validateEmail(this, document.getElementById('email_help'))">
                         <span id="email_help" class="help"></span>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control theme-input" id="theme-input" name="subject" placeholder="Тема повідомлення" maxlength="50" ng-model="contact_mail.subject" onblur="validateNonEmpty(this, document.getElementById('theme_help'))">
+                        <input type="text" class="form-control-contact theme-input" id="theme-input" name="subject" placeholder="Тема повідомлення" maxlength="50" ng-model="contact_mail.subject" onblur="validateNonEmpty(this, document.getElementById('theme_help'))">
                         <span id="theme_help" class="help"></span>
                     </div>
                     <div class="form-group message-text">
