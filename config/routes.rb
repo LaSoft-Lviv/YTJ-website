@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 	root 'home#index'
+
   resources :projects
   resources :team_members
 
@@ -8,7 +9,6 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   patch 'accounts' => 'accounts#update', :as => 'account/update'
-  get 'home/index'
   post 'contact' => 'contact#create'
   get 'team_members' => 'team_members#index'
   post 'projects' => 'projects#create'
