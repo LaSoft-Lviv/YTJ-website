@@ -6,17 +6,19 @@ class ProjectsController < ApplicationController
       @project = Project.new(project_params)
       if @project.save
         @project.team_members_projects.create(coordinator: true, team_member:@team_member)
-        render status: 200,
-               json: { success: true, info: "project add"}
+        render json: { success: true, project: @project}
       else
-        render status: false,
-               json: { success: false, errors: @project.errors }
+        render json: { success: false, errors: @project.errors.full_messages }
       end
   end
 
   def edit
     @project = Project.find(params[:id])
-    render json:  {success: true, project: @project }
+    if @project
+      render json:  {success: true, project: @project }
+    else
+     render json: { success: false, errors: 'not found' }
+    end
   end
 
 
@@ -30,9 +32,9 @@ class ProjectsController < ApplicationController
  	  @project = Project.find(params[:id]);
    if  @project.update(project_params);
      add_team_member
-    render json: {status:true, success: true, project: @project }
+    render json: {success: true, project: @project }
    else
-     render json: {status:true, success: true, errors:@project.errors.full_messages }
+     render json: {success: false, errors:@project.errors.full_messages }
    end
 
   end

@@ -3,10 +3,7 @@ angular.module('controllers')
 
         $scope.update = function (user) {
             UserService.update(user).then(function (data) {
-
-            console.log(data)
-
-                if(data.data && data.data.status && data.data.status=='success')
+            if(data.data && data.data.status && data.data.status=='success')
                 {
                     $location.path('/#');
                 }
