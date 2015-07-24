@@ -7,7 +7,8 @@ angular.module('controllers')
                 image : {},
                 name : "",
                 description: "",
-                team : ""
+                team : "",
+                facebook_link: ""
         };
         var params = $route.current.params;
 
@@ -15,21 +16,10 @@ angular.module('controllers')
             $scope.team = data.data.team;
         });
 
-       /* $scope.file= {};
-        //listen for the file selected event
-        $scope.$on("fileSelected", function (event, args) {
-            console.log("fileSelected")
-            $scope.$apply(function () {
-                //add the file object to the scope's files collection
-                console.log(args)
-                $scope.file = args.file;
-            });
-        });
-        */
-
         $scope.addProject = function(project) {
             var form = collectFormData();
             ProjectService.addProject(form).then(function (data) {
+
                 if (data.data.success) {
                     $location.path('#/')
                 }
@@ -44,12 +34,10 @@ angular.module('controllers')
             })
         };
 
-
         $scope.projectFoto = {
             add: function(file) {
 
                 if (file.type.match('image.*')) {;
-                    console.log('ss');
                     var reader = new FileReader();
                     reader.onload = function (event) {
                         $scope.project.image = {id: (new Date()).getTime(), title: file.name, src: event.target.result, file: file, fresh: true};
@@ -61,18 +49,17 @@ angular.module('controllers')
                 }
             };
 
-
-
         var collectFormData = function() {
             var form = new FormData();
 
             form.append('name', $scope.project.name);
             form.append('description', $scope.project.description);
             form.append('team_member_id', $scope.project.team);
+            form.append('facebook_link', $scope.project.facebook_link);
+
 
             // gather images and files
             if ($scope.project.image.fresh) {
-                console.log($scope.project.image)
                 form.append('image', $scope.project.image.file);
             }
             return form;
