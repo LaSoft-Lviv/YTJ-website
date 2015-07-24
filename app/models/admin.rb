@@ -4,7 +4,7 @@ class Admin < ActiveRecord::Base
 
   validates :name, presence: true, length: {minimum:3, maximum: 16 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, length: { maximum: 30 },
   uniqueness: { case_sensitive: false }
   validates :password, confirmation: true, length: { minimum: 4 }, on: :create
   validates :password_confirmation, presence: true,on: :create
