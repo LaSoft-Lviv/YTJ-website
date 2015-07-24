@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  port: 5432
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: YTJ_development
+  username: vasyl
+  password:
+
+test:
+  <<: *default
+  database: YTJ_test
+  username: vasyl
+  password:
+
+production:
+  <<: *default
+  host: ec2-54-217-202-110.eu-west-1.compute.amazonaws.com
+  database: de7rccpora84ea
+  username: ixcanrsjbchtfn
+  password: PuPAAzoE7OluKTsMlF0j7vcx9
