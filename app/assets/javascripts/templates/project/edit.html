@@ -8,7 +8,6 @@
         <textarea class="form-control" placeholder="опис" name="description" ng-model="project.description" />
     </div>
     <br>
-    <!--    <input type="file" file-upload  ng-model="project.image" multiple /></br>-->
     <div mg-file-upload="projectFoto"  ng-model="project.image">
         <div class="drop-area">
             <input type="file" class="js-progress-files" />
@@ -17,7 +16,6 @@
         </div>
     </div>
     <div class="input-group">
-
         <label for='teams' >Організатори</label>
         <input type="hidden" ng-model="project.team_member_prev_id" />
         <select name="team" id="team" class="form-control" ng-model="project.team">
@@ -27,5 +25,9 @@
             </option>
         </select>
     </div>
-    <input type="submit" class="btn btn-default" value="додати проект">
+    <div class="input-group">
+        <label for='facebook_link'>Опис</label>
+        <input typeof="text" class="form-control" placeholder="facebook" name="facebook_link" ng-model="project.facebook_link" />
+    </div>
+    <input type="submit" class="btn btn-default" value="оновити">
 </form>

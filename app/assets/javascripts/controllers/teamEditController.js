@@ -20,8 +20,6 @@ angular.module('controllers')
             $scope.updateTeamMember = function(team_member) {
                 var form = collectFormData();
                 TeamService.update(form,params).then(function (response) {
-
-                    console.log(response)
                   if (response.team_member) {
                         $location.path('#/')
                     }
@@ -70,7 +68,6 @@ angular.module('controllers')
                 form.append('facebook_link', $scope.team_member.facebook_link);
                 // gather images and files
                 if ($scope.team_member.foto.fresh) {
-                    console.log($scope.team_member.foto)
                     form.append('foto', $scope.team_member.foto.file);
                 }
                 return form;

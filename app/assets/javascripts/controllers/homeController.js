@@ -10,8 +10,6 @@ angular.module('controllers')
         DataService.getAll().then(function (data) {
             $scope.projects = data.projects
             $scope.team = data.team
-           // console.log($scope.projects)
-            console.log($scope.team);
 
             $('.container-photo').slick({
                 slidesToShow: 3,
@@ -61,15 +59,13 @@ angular.module('controllers')
         });
 
         $scope.deleteProject= function(id){
-           console.log(id)
-           ProjectService.remove(id).then(function(data) {
+          ProjectService.remove(id).then(function(data) {
                    $location.url('/');
                }
            );
         };
 
         $scope.deleteTeamMember= function(id){
-            console.log(id)
             TeamService.remove(id).then(function(data) {
                     $location.url('/');
                 }

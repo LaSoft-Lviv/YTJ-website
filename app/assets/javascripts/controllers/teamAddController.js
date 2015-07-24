@@ -37,8 +37,6 @@ angular.module('controllers')
                 add: function (file) {
 
                     if (file.type.match('image.*')) {
-
-                        console.log('ss');
                         var reader = new FileReader();
                         reader.onload = function (event) {
                             $scope.team_member.foto = {
@@ -68,10 +66,8 @@ angular.module('controllers')
                 form.append('is_initiative', $scope.team_member.is_initiative);
 
                 form.append('facebook_link', $scope.team_member.facebook_link);
-                console.log(form)
                 // gather images and files
                 if ($scope.team_member.foto.fresh) {
-                    console.log($scope.team_member.foto)
                     form.append('foto', $scope.team_member.foto.file);
                 }
                 return form;

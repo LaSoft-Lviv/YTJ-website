@@ -17,3 +17,4 @@
 Vagrantfile
 /.vagrant
 /public/uploads
+/public/assets

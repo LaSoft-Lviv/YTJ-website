@@ -6,11 +6,9 @@ angular.module('controllers')
 
         var params = $route.current.params;
         ProjectService.edit(params).then(function(data) {
-            console.log(data)
-            console.log(data.team_members)
             $scope.project.name = data.name;
             $scope.project.description = data.description;
-
+            $scope.project.facebook_link = data.facebook_link;
             if(data.team_members.length>0) {
 
                 $scope.project.team_member_prev_id = data.team_members[0].id;
@@ -32,12 +30,15 @@ angular.module('controllers')
         });
          $scope.updateProject = function() {
           var form = collectFormData();
-             console.log(form)
-          ProjectService.update(form, params).then(function(data) {
-              console.log(data)
-              if (data.status) {
+             ProjectService.update(form, params).then(function(data) {
+                if (data.success) {
                   $location.path('#/')
               } else {
+                  if (data.errors)
+                      for (error  in data.errors)
+                          alert(error + " " + data.errors[error])
+                  else
+                      alert(data.statusText)
                   $scope.errors = data.errors;
               }
           });
@@ -46,7 +47,6 @@ angular.module('controllers')
           $scope.projectFoto = {
               add: function (file) {
                   if (file.type.match('image.*')) {
-
                       var reader = new FileReader();
                       reader.onload = function (event) {
                           $scope.project.image = {
@@ -67,7 +67,7 @@ angular.module('controllers')
             var form = new FormData();
             form.append('name', $scope.project.name);
             form.append('description', $scope.project.description);
-
+            form.append('facebook_link', $scope.project.facebook_link);
 
 
              if( $scope.project.team && $scope.project.team_member_prev_id &&$scope.project.team_member_prev_id != $scope.project.team)

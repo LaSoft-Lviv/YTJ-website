@@ -4,7 +4,6 @@ angular.module('controllers')
 
         $scope.registerUser = function(user) {
             UserService.register(user).then(function (response) {
-                console.log(response);
                 if (response.data.status == "success") {
                     alert("Вас успішно зареєстровано!");
                     $location.path('/signin');
