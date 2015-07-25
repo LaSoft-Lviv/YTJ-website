@@ -28,7 +28,11 @@ gem 'rails', '4.2.1'
 gem 'sprockets', '2.12.3'
 gem 'sprockets-rails', '2.2.1'
 gem 'angular_rails_csrf'
-#gem 'turbolinks'
+
+group :production do
+	gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
