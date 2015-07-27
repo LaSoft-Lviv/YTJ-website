@@ -33,7 +33,6 @@ angular.module('services')
                });
                 },
             logout: function(redirectUrl) {
-                 console.log(service.currentUser);
                  return  $http.delete('/logout',{
                      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization':'Token token='+service.currentUser.auth_token},
 
@@ -43,7 +42,6 @@ angular.module('services')
                 }).error(function(data) {
                  alert('Error while logout!');
                 });
-
             },
 
             currentUser: null,

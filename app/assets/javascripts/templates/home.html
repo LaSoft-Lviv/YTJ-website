@@ -86,7 +86,7 @@
 
                     <div class="card-content">
                         <div class="card-title activator grey-text text-darken-4">
-                            <a class="facebook-link" href="{{project.facebook_link}}">
+                            <a ng-show="project.facebook_link" class="facebook-link" href="{{project.facebook_link}}">
                                 <img class="project-facebook-logo img-responsive" src="images/facebook.png">
                             </a>
                             <p class="project-name">{{project.name}}<i class="material-icons right">more_vert</i><p>
@@ -136,12 +136,12 @@
                     </div>
                     <div class="card-content">
                         <div class="card-title activator grey-text text-darken-4">
-                            <a class="facebook-link" href="{{team_member.facebook_link}}">
+                            <a  ng-show="team_member.facebook_link" class="facebook-link" href="{{team_member.facebook_link}}">
                                 <img class="member-facebook-logo img-responsive" src="images/facebook.png"></a>
                             <p class="member-name"> {{team_member.name}}  {{team_member.surname}}
                                 <i class="material-icons right more-vert">more_vert</i><p></div>
                             <div class="description">
-                                {{team_member.position}} <br> {{team_member.phone}}  {{team_member.surname}}<br/>
+                                {{team_member.position}} <br> {{team_member.phone}}<br/>
                                 <span>{{team_member.email}}</span></div>
                             </div>
                     <div class="card-reveal">

@@ -20,7 +20,6 @@ $scope.colors = {art:[1,2]};
             UserService.register(user).then(function (response) {
                 $scope.errors = response.data.errors;
                 //console.log('errors');
-                console.log(response);
                 console.info(response);
                 console.info($scope.errors);
                 if (response.data.status == "success") {

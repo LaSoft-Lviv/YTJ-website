@@ -35,12 +35,20 @@ angular.module('services')
             },
 
             addProject: function(form){
-               var  url = projectsUrl()
+               var  url = projectsUrl(),
+                   deferred = $q.defer();
                 return   $http.post(url, form, {
                     headers: { 'Content-Type': undefined ,'Authorization':'Token token='+localStorage.getItem('auth_token')},
                     transformRequest: angular.identity
-                }).then(this.handleSuccess,this.handleError);
+                })
+                    .success(function(data) {
+                        deferred.resolve(data);
+                    })
+                    .error(function(data) {
+                        deferred.reject('Error while add project!');
+                    })
 
+                return deferred.promise;
             },
 
             edit: function(params){
@@ -54,7 +62,7 @@ angular.module('services')
                         deferred.resolve(data.project);
                     })
                     .error(function(data) {
-                        deferred.reject('Error while deleting article!');
+                        deferred.reject('Error while edit project');
                     })
 
                 return deferred.promise;
