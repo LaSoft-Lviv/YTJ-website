@@ -1,10 +1,28 @@
 angular.module('controllers')
-    .controller('SignupController', ['$scope','$location','UserService', function ($scope,  $location, UserService) {
+   /* .directive("SignupDirective", function () {
+                function addClassInput (scope, element, attributes) {
+                var elements = element.find("input[type='email']");
+                elements.addClass("input-after-error"); 
+            }
+        })*/
 
+    .controller('SignupController', ['$scope', '$rootScope', '$location','UserService', function ($scope, $rootScope, $location, UserService) {
 
+$scope.colors = {art:[1,2]};
+
+/*$scope.$on("userSignupEventError", function (event, attr) {
+    debugger;
+                    alert('yes');
+                    });*/
         $scope.registerUser = function(user) {
+            debugger;
+            /* $rootScope.$broadcast("userSignupEventError");*/
             UserService.register(user).then(function (response) {
+                $scope.errors = response.data.errors;
+                //console.log('errors');
                 console.log(response);
+                console.info(response);
+                console.info($scope.errors);
                 if (response.data.status == "success") {
                     alert("Вас успішно зареєстровано!");
                     $location.path('/signin');
@@ -13,6 +31,9 @@ angular.module('controllers')
                         if (response.data.errors) {
                             for (error in response.data.errors) {
                                 alert(error + " " + response.data.errors[error]);
+                                if (error == "email") {
+                                    alert(error);
+                                }
                             } 
                         } else {
                             alert(response.statusText);
@@ -21,7 +42,7 @@ angular.module('controllers')
             })
         }
 
-        $scope.userNamePattern = new RegExp("^[a-z ,.'-]+$", "i");
+        $scope.userNamePattern = new RegExp("^[a-zA-ZА-Яа-яІі ,.'-]+$", "i");
 
         $scope.getErrorName = function (error) {
             if (angular.isDefined(error)) {

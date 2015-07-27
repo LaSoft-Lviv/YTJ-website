@@ -1001,6 +1001,10 @@ p.error {
   font-style: italic;
 }
 
+.input-after-error {
+  background-color: lightpink !important;
+}
+
 @media screen and (max-width: 400px) {
   .signup-submit-input {
   font-size: 12px;

@@ -1,6 +1,6 @@
 
 
-<div class="row container-signup-main">
+<div class="row container-signup-main" signup-directive="response">
     <form name="contactForm" novalidate class="col s12" ng-submit="registerUser(user)">
 
      <div class="row">
@@ -11,7 +11,7 @@
 
       <div class="row">
         <div class="input-field col s8 offset-s2">
-          <input type="text" name="userName" class="signup-input signup-username" required ng-minlength="3" ng-maxlength="16" ng-pattern="userNamePattern" ng-model="user.name">
+          <input type="text" name="userName" class="signup-input signup-username" ng-minlength="3" ng-maxlength="16" ng-pattern="userNamePattern" ng-model="user.name">
           <label for="username"><!-- Username -->І'мя користувача</label>
           <p class="error" ng-show="contactForm.userName.$invalid && contactForm.userName.$dirty">
             {{getErrorName(contactForm.userName.$error)}}
@@ -66,3 +66,5 @@
 
     </form>
   </div>
+
+  {{errors}}
