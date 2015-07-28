@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
-
 
 gem 'pg' # sudo apt-get install libpq-dev
 
@@ -16,11 +14,14 @@ gem 'responders'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'material_icons'
 
-gem 'angularjs-rails'
-gem 'angular-rails-templates'
-gem 'rails-assets-angular-route'
-gem 'rails-assets-angular'
-gem 'angularjs-file-upload-rails', '~> 1.1.6'
+
+source 'https://rails-assets.org' do
+	gem 'angularjs-rails'
+	gem 'angular-rails-templates'
+	gem 'rails-assets-angular-route'
+	gem 'rails-assets-angular'
+	gem 'angularjs-file-upload-rails', '~> 1.1.6'
+end
 
 gem 'carrierwave'
 gem 'rails', '4.2.1'
