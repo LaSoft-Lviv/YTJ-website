@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
 
     if @admin && @admin.authenticate(params[:session][:password])
       @admin.set_auth_token
-
       render json: { status: 'success', user: @admin }
     else
       render json: { status: false, errors: 'Invalid email or password' }
