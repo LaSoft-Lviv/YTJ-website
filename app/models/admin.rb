@@ -6,8 +6,9 @@ class Admin < ActiveRecord::Base
   validates :name, presence: true, length: {minimum:3, maximum: 16 }
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, length: { maximum: 30 },
   uniqueness: { case_sensitive: false }
-  validates :password, confirmation: true, length: { minimum: 4 }, on: :create
-  validates :password_confirmation, presence: true, on: :create
+  validates :password, confirmation: true
+  validates :password, length: { in: 4..16 }, on: :create
+  validates :password_confirmation, presence: true, unless: 'password.nil?'
 
   def set_auth_token
     self.update_attributes(auth_token: generate_auth_token)
@@ -17,10 +18,15 @@ class Admin < ActiveRecord::Base
     self.update_attributes(auth_token: nil)
   end
 
-  private
+  def as_json(options={})
+    super(options.merge( :only => [:name, :email]))
+  end
 
+  private
   def generate_auth_token
     SecureRandom.uuid.gsub(/\-/,'')
   end
+
+
 
 end

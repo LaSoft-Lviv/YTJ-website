@@ -8,7 +8,7 @@ class ContactController < ApplicationController
       ContactMailer.contact_email(@contact).deliver_now
       render json: { status: true }
     else
-      render json: { errors: @contact.errors }
+      render json: { status: false, errors: @contact.errors }
     end
   end
 
