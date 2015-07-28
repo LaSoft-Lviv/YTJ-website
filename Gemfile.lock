@@ -190,10 +190,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  angular-rails-templates
+  angular-rails-templates!
   angular_rails_csrf
-  angularjs-file-upload-rails (~> 1.1.6)
-  angularjs-rails
+  angularjs-file-upload-rails (~> 1.1.6)!
+  angularjs-rails!
   bcrypt (~> 3.1.7)
   bootstrap-sass (= 2.3.2.0)
   byebug
@@ -204,8 +204,8 @@ DEPENDENCIES
   pg
   pry
   rails (= 4.2.1)
-  rails-assets-angular
-  rails-assets-angular-route
+  rails-assets-angular!
+  rails-assets-angular-route!
   rails_12factor
   responders
   rspec-rails
