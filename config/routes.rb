@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :projects
   resources :team_members
-
+  get 'accounts' => 'accounts#edit'
   post 'accounts' => 'accounts#create'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'

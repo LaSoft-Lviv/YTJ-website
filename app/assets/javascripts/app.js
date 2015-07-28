@@ -60,7 +60,7 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$loc
             controller: 'SignupController',
         })
         .when('/settings', {
-            templateUrl: 'account/update.html',
+            templateUrl: 'account/edit.html',
             controller: 'UpdateAccountController',
         })
         .when('/signin', {
