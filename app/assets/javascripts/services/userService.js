@@ -1,10 +1,12 @@
 angular.module('services')
-    .service('UserService',['$http', function($http){
+    .service('UserService', ['$http', '$rootScope', function($http, $rootScope){
         return {
             handleSuccess: function(data) {
+                //$rootScope.$broadcast("userSignupEventSuccess", data);
                 return data;
             },
             handleError: function(error) {
+                $rootScope.$broadcast("userSignupEventError");
                 return error;
             },
             register: function(user) {

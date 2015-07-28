@@ -1,26 +1,24 @@
 angular.module('controllers')
-    .controller('SignupController', ['$scope','$location','UserService', function ($scope,  $location, UserService) {
-
+    .controller('SignupController', ['$scope', '$rootScope', '$location','UserService', function ($scope, $rootScope, $location, UserService) {
 
         $scope.registerUser = function(user) {
+            debugger;
             UserService.register(user).then(function (response) {
-                if (response.data.status == "success") {
+                console.log(response);
+                $scope.errors = response.data.errors;
+                console.log($scope.errors);
+
+                if ($scope.errors == "success") {
                     alert("Вас успішно зареєстровано!");
                     $location.path('/signin');
                 } else { 
-                    alert("Вас не було зареєстровано!");
-                        if (response.data.errors) {
-                            for (error in response.data.errors) {
-                                alert(error + " " + response.data.errors[error]);
-                            } 
-                        } else {
-                            alert(response.statusText);
-                          }
+                    $rootScope.$broadcast("userSignupEventSuccess");
                   }
+                
             })
         }
 
-        $scope.userNamePattern = new RegExp("^[a-z ,.'-]+$", "i");
+        $scope.userNamePattern = new RegExp("^[a-zA-ZА-Яа-яІі ,.'-]+$", "i");
 
         $scope.getErrorName = function (error) {
             if (angular.isDefined(error)) {
