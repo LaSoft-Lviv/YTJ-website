@@ -13,6 +13,7 @@
 /tmp
 /.idea
 /log
+/config/database.yml
 /.rspec
 Vagrantfile
 /.vagrant
