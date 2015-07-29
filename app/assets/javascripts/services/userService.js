@@ -1,14 +1,16 @@
 angular.module('services')
-    .service('UserService',['$http','$q', function($http,$q){
+    .service('UserService', ['$http', '$rootScope', '$q', function($http, $rootScope, $q){
         var  accountsUrl = function() {
             var url = '/accounts';
             return url;
         };
         return {
             handleSuccess: function(data) {
+                //$rootScope.$broadcast("userSignupEventSuccess", data);
                 return data;
             },
             handleError: function(error) {
+                $rootScope.$broadcast("userSignupEventError");
                 return error;
             },
             register: function(user) {

@@ -995,10 +995,26 @@ form .ng-valid.ng-dirty {
   border-bottom: 2px solid lightgreen;
 }
 
+.input-after-error {
+  background-color: lightpink !important;
+}
+
 p.error {
   color: red;
   font-weight: bold;
   font-style: italic;
+}
+
+button.ngdialog-button {
+  border: solid transparent 1px !important;
+}
+
+button.ngdialog-button:focus {
+  border: solid black 1px !important;
+}
+
+.ngdialog h2:focus { 
+  outline: none; 
 }
 
 @media screen and (max-width: 400px) {
