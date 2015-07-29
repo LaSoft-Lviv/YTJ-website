@@ -16,12 +16,12 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'material_icons'
 
 gem 'angular-rails-templates'
+gem 'angularjs-file-upload-rails', '~> 1.1.6'
+gem 'angularjs-rails'
 
 source 'https://rails-assets.org' do
-	gem 'angularjs-rails'
 	gem 'rails-assets-angular-route'
 	gem 'rails-assets-angular'
-	gem 'angularjs-file-upload-rails', '~> 1.1.6'
 end
 
 gem 'carrierwave'
