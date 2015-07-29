@@ -18,10 +18,6 @@ class Admin < ActiveRecord::Base
     self.update_attributes(auth_token: nil)
   end
 
-  def as_json(options={})
-    super(options.merge( :only => [:name, :email]))
-  end
-
   private
   def generate_auth_token
     SecureRandom.uuid.gsub(/\-/,'')
