@@ -15,10 +15,10 @@ gem 'responders'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'material_icons'
 
+gem 'angular-rails-templates'
 
 source 'https://rails-assets.org' do
 	gem 'angularjs-rails'
-	gem 'angular-rails-templates'
 	gem 'rails-assets-angular-route'
 	gem 'rails-assets-angular'
 	gem 'angularjs-file-upload-rails', '~> 1.1.6'

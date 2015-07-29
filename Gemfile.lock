@@ -190,7 +190,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  angular-rails-templates!
+  angular-rails-templates
   angular_rails_csrf
   angularjs-file-upload-rails (~> 1.1.6)!
   angularjs-rails!
