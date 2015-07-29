@@ -21,7 +21,7 @@
 // require ngstorage
 // require ng-file-upload
 //= require angular-rails-templates
-
+//= require ngDialog.min
 
 
 //= require app
