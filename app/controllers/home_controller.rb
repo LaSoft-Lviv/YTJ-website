@@ -1,7 +1,4 @@
-require 'json'
-
 class HomeController < ApplicationController
-  before_action :collect_data_objects, if: :format_json?
   respond_to :json
 
   def index
