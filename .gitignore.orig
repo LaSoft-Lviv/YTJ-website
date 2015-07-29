@@ -38,6 +38,7 @@ Vagrantfile
 /tmp
 /.idea
 /log
+/config/database.yml
 /.rspec
 /config/database.yml
 Vagrantfile
@@ -45,4 +46,7 @@ Vagrantfile
 /public/uploads
 /public/assets
 /public/development
+<<<<<<< HEAD
 >>>>>>> Added logs file.
+=======
+>>>>>>> Added database.yml to .gitignore.
