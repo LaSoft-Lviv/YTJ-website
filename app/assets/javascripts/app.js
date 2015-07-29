@@ -7,10 +7,24 @@ var app = angular.module('ytj', [
     'directives',
     'templates',
     'controllers',
-    'services'
+    'services',
+    'ngDialog'
 
 ]);
 
+ app.config(['ngDialogProvider', function (ngDialogProvider) {
+            ngDialogProvider.setDefaults({
+                className: 'ngdialog-theme-default',
+                plain: false,
+                showClose: true,
+                closeByDocument: true,
+                closeByEscape: true,
+                appendTo: false,
+                preCloseCallback: function () {
+                    console.log('default pre-close callback');
+                }
+            });
+        }]);
 
 app.config(['$httpProvider', function($httpProvider){
     var interceptor = ['$q', '$location', '$rootScope', function($q, $location, $rootScope) {
