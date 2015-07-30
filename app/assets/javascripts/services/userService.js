@@ -6,11 +6,10 @@ angular.module('services')
         };
         return {
             handleSuccess: function(data) {
-                //$rootScope.$broadcast("userSignupEventSuccess", data);
                 return data;
             },
             handleError: function(error) {
-                $rootScope.$broadcast("userSignupEventError");
+                alert('Перепрошуємо. На сервері сталася помилка.');
                 return error;
             },
             register: function(user) {
