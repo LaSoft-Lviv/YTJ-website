@@ -11,13 +11,13 @@ angular.module('controllers')
         };
 
         $scope.submitLogin = function(loginData) {
-          debugger;
             SessionService.login(loginData).then( function (response) {
               console.info(response);
               if (response.data.user) {
                   $scope.currentUser = SessionService.currentUser;
                   $('#username').text($scope.currentUser.name);
                   $location.path('/#');
+                  Materialize.toast('Вас залогінено!', 1000);
               }
             });
         };

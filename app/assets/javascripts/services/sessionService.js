@@ -13,7 +13,6 @@ angular.module('services')
             } ,*/
 
            login: function(user) {
-            debugger;
               return $http.post('/login', {
                 session: {email: user.email, password: user.password}
                   }).success(function (response) {
@@ -25,10 +24,11 @@ angular.module('services')
                            localStorage.setItem('name', service.currentUser.name)
                         }
                       } else {
-                        alert(response.errors)
+                        Materialize.toast('Неправильні пошта або пароль!', 5000);
+                        Materialize.toast(response.errors + '!', 5000);
                         }
                   }).error(function (error) {
-                      return error
+                      return error;
                     });
            },
 
