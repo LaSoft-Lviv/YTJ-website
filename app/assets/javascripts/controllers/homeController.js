@@ -10,6 +10,9 @@ angular.module('controllers')
         DataService.getAll().then(function (data) {
             $scope.projects = data.projects
             $scope.team = data.team
+            $scope.slides = data.slides
+
+            console.log($scope.slides)
 
             $('.container-photo').slick({
                 slidesToShow: 3,

@@ -122,7 +122,7 @@ $(document).ready(function() {
       } else {
             $('body,html').animate({scrollTop: elemTop-95}, 1500);
         }
-      
+
     });
 
 

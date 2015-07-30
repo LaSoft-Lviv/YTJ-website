@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :projects
   resources :team_members
+  resources :slides
   get 'accounts' => 'accounts#edit'
   post 'accounts' => 'accounts#create'
   post 'login' => 'sessions#create'
