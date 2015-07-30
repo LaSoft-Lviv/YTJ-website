@@ -5,9 +5,8 @@ angular.module('controllers')
         if( $scope.currentUser)
              $('#username').text($scope.currentUser.name)
 
-        $scope.signedIn = function()
-        {
-           return SessionService.isAuthenticated();
+        $scope.signedIn = function() {
+            return SessionService.isAuthenticated();
         };
 
         $scope.submitLogin = function(loginData) {
@@ -20,6 +19,10 @@ angular.module('controllers')
                   Materialize.toast('Вас залогінено!', 1000);
               }
             });
+        };
+
+        $scope.goToMain = function () {
+            $location.path('/#');
         };
 
         $scope.getErrorEmail = function (error) {
@@ -44,8 +47,7 @@ angular.module('controllers')
 
         $scope.submitLogout = function(){
             SessionService.logout('/').then(function(data) {
-                alert('logout')
-
+                Materialize.toast('Ви розлогінені!', 3000);
             });
         }
 }]);
