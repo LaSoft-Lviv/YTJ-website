@@ -25,7 +25,7 @@ angular.module('controllers')
                 }
                 else {
                     if (data.data.errors)
-                        for (error  in data.data.errors)
+                        for (var error  in data.data.errors)
                             alert(error + " " + data.data.errors[error])
                     else
                         alert(data.statusText)

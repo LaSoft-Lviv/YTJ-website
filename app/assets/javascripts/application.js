@@ -24,14 +24,13 @@
 //= require ngDialog.min
 
 
-//= require app
-//= require app.init
 
-//= require materialize.min
 //= require bootstrap.min
 //= require slick.min
 
 
+//= require app
+//= require app.init
 
 //= require ./app
 //= require_tree ./directives
