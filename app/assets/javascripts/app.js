@@ -11,6 +11,12 @@ var app = angular.module('ytj', [
     'ngDialog'
 
 ]);
+var roles = {
+    superUser: 0,
+    admin: 1,
+    user: 2
+};
+var routeForUnauthorizedAccess = '/#';
 
  app.config(['ngDialogProvider', function (ngDialogProvider) {
             ngDialogProvider.setDefaults({
@@ -63,7 +69,7 @@ app.config(['$httpProvider', function($httpProvider){
 
 
 
-app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$locationProvider) {
+app.config(['$routeProvider','$locationProvider',  function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'home.html',
@@ -80,6 +86,15 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$loc
         .when('/signin', {
             templateUrl: 'session/signin.html',
             controller: 'SessionController',
+            resolve: { //Here we would use all the hardwork we have done
+                //above and make call to the authorization Service
+                //resolve is a great feature in angular, which ensures that a route
+                //controller (in this case superUserController ) is invoked for a route
+                //only after the promises mentioned under it are resolved.
+                permission: function(AuthorizationService, $route) {
+                    return AuthorizationService.permissionCheck([roles.admin]);
+                }
+            }
 
         })
         .when('/projects/:id/edit', {
