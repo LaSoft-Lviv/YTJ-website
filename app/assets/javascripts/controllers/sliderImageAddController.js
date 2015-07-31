@@ -3,7 +3,7 @@ angular.module('controllers')
         function ($scope,  $location, $http, $route, $routeParams, ImageService) {
             $scope.slide = {
                 images: [],
-                description: null
+                description: ''
             };
             $scope.addSlide = function(slide) {
                 var form = collectFormData();
@@ -11,7 +11,7 @@ angular.module('controllers')
                ImageService.add(form).then(function (data) {
                     if (data.data.status) {
 
-                        $location.path('#/')
+                        $location.path('/slides')
                     }
                     else {
                         if (data.data.errors)
@@ -39,8 +39,8 @@ angular.module('controllers')
             };
 
             var collectFormData = function() {
+                alert( $scope.slide.description)
                 var form = new FormData();
-
                 form.append('description', $scope.slide.description);
                 // gather images and files
                 $scope.slide.images.forEach(function(image, index) {
@@ -48,7 +48,6 @@ angular.module('controllers')
                         form.append('images[]', image.file);
                     }
                 });
-                form.append('count', $scope.slide.images.length);
                 return form;
             };
 
