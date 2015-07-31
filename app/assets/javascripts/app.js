@@ -82,7 +82,7 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$loc
             controller: 'SessionController',
 
         })
-        .when('/projects/edit', {
+        .when('/projects/:id/edit', {
             templateUrl: 'project/edit.html',
             controller: 'ProjectEditController',
 
@@ -97,16 +97,22 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider,$loc
             controller: 'TeamAddController',
 
         })
-        .when('/team/edit', {
+        .when('/team/:id/edit', {
             templateUrl: 'team/edit.html',
             controller: 'TeamEditController',
-
         })
         .when('/slides/new', {
-        templateUrl: 'slider/add.html',
-        controller: 'SliderImageAddController',
-
-    })
+            templateUrl: 'slider/add.html',
+            controller: 'SliderImageAddController',
+        }).
+        when('/slides/:id/edit', {
+            templateUrl: 'slider/edit.html',
+            controller: 'SliderImageEditController'
+        })
+        .when('/slides', {
+            templateUrl: 'slider/index.html',
+            controller: 'SliderImageIndexController',
+        })
         .otherwise({ redirectTo: '/' });
 }]);
 angular.module('directives',[]);
