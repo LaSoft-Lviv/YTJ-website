@@ -24,9 +24,9 @@ angular.module('controllers')
                         $location.path('#/')
                     }
                     else {
-                        if (response.data.errors)
-                            for (error  in response.data.errors)
-                                alert(error + " " + response.data.errors[error])
+                        if (response.errors)
+                            for (error  in response.errors)
+                                alert(error + " " + response.errors[error])
                         else
                             alert(response.statusText)
                     }

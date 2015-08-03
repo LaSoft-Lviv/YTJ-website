@@ -1,6 +1,13 @@
 class AccountsController < ApplicationController
   before_action :authenticate, except: :create
 
+  def show
+    if @current_admin
+      render json: { status: true, user: @current_admin, permission: :isAdministrator }
+    else
+      render json: { status: false, errors: @current_admin.errors }
+    end
+  end
   def edit
     if @current_admin
      render json: { status: true, user: @current_admin }

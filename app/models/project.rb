@@ -4,7 +4,7 @@ class Project < ActiveRecord::Base
   validates :name, :description , presence: true, length:{ minimum: 3 }
   validates :name, length: {maximum: 50}
   validates :description, length: {maximum: 150}
-  validates :facebook_link, format: URI::regexp(%w(http https)), allow_blank: true
+  validates :facebook_link, format: {with: /(?:http:\/\/)?(?:www\.)?facebook\.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[\w\-]*\/)*([\w\-]*)/ }, allow_blank: true
   validates :image , presence: true
   mount_uploader :image, ImageUploader
   def as_json(options={})

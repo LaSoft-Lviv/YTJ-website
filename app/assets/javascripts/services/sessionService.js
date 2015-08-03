@@ -1,18 +1,7 @@
 angular.module('services')
     .service('SessionService', ['$http','$location', function($http, $location){
         var service = {
-            // private functions
-            /*handleSuccess: function(data) {
-                return data;
-            },
-
-            handleError: function(error) {
-                return function () {
-                    return data;
-                };
-            } ,*/
-
-           login: function(user) {
+            login: function(user) {
               return $http.post('/login', {
                 session: {email: user.email, password: user.password}
                   }).success(function (response) {
@@ -55,20 +44,33 @@ angular.module('services')
                     service.currentUser = user;
                 }
             },
+            isAuthToken: function(){
+              return  localStorage.getItem('auth_token')? true:false;
+            },
             setUserName: function(name){
                     service.currentUser.name = name;
             },
             getCurrentUser: function() {
                 var auth_token = localStorage.getItem('auth_token');
-                var name = localStorage.getItem('name');
-                if (auth_token && name) {
-                    service.currentUser = {
-                        auth_token: auth_token,
-                        name: name
-                    };
-                }
-                else
-                    service.currentUser = null;
+                return $http.get('/accounts', {
+                    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json',
+                        'Authorization':'Token token='+auth_token},
+                }).success(function (response) {
+                    if (response.status) {
+                        service.currentUser = response.user;
+                        if (service.isAuthenticated()) {
+                            localStorage.setItem('auth_token', service.currentUser.auth_token);
+                            localStorage.setItem('name', service.currentUser.name)
+                        }
+                    }
+                    else
+                        service.currentUser = null;
+
+                    return service.currentUser
+                }).error(function (error) {
+                    return error;
+                });
+
 
                 return service.currentUser;
             }
