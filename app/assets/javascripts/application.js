@@ -24,7 +24,7 @@
 //= require ngDialog.min
 
 
-
+//= require materialize.min
 //= require bootstrap.min
 //= require slick.min
 

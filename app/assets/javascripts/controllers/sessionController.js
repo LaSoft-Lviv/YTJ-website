@@ -1,9 +1,12 @@
 angular.module('controllers')
     .controller('SessionController', ['$rootScope', '$scope', '$location','SessionService', function($rootScope, $scope, $location, SessionService) {
 
-        $scope.currentUser = SessionService.getCurrentUser();
-        if( $scope.currentUser)
-             $('#username').text($scope.currentUser.name)
+        if(SessionService.isAuthToken())
+               SessionService.getCurrentUser().then( function (response) {
+                    $scope.currentUser = response.data.user;
+                    if( $scope.currentUser)
+                        $('#username').text($scope.currentUser.name)
+                });
 
         $scope.signedIn = function() {
             return SessionService.isAuthenticated();

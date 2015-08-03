@@ -21,6 +21,7 @@ angular.module('services')
             edit: function(){
                 var deferred = $q.defer(),
                     url = accountsUrl();
+                    url+='/edit'
                 $http.get(url, {headers: { 'Accept': 'application/json', 'Content-Type': 'application/json',
                     'Authorization':'Token token='+localStorage.getItem('auth_token')}
                 })

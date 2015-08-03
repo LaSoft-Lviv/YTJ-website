@@ -12,8 +12,6 @@ angular.module('controllers')
             $scope.team = data.team
             $scope.slides = data.slides
 
-            console.log($scope.slides)
-
             $('.container-photo').slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,
