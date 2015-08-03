@@ -21,7 +21,6 @@ angular.module('services')
 
 
         return {
-            // private functions
             handleSuccess: function (data) {
                 return data;
             },
