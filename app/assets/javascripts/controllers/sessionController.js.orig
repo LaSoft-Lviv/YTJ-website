@@ -1,11 +1,21 @@
 angular.module('controllers')
-	.controller('SessionController', ['$rootScope', '$scope', '$location','SessionService', function($rootScope, $scope, $location, SessionService) {		
+    .controller('SessionController', ['$rootScope', '$scope', '$location','SessionService', function($rootScope, $scope, $location, SessionService) {
+
+<<<<<<< HEAD
         if(SessionService.isAuthToken())
                SessionService.getCurrentUser().then( function (response) {
                     $scope.currentUser = response.data.user;
                     if( $scope.currentUser)
                         $('#username').text($scope.currentUser.name)
                 });
+=======
+        $scope.currentUser = SessionService.getCurrentUser();
+
+        if($scope.currentUser) {
+            $('#username').text($scope.currentUser.name);  
+        }
+             
+>>>>>>> feature admin addteamandscroll
 
         $scope.signedIn = function() {
             return SessionService.isAuthenticated();
@@ -13,7 +23,6 @@ angular.module('controllers')
 
         $scope.submitLogin = function(loginData) {
             SessionService.login(loginData).then( function (response) {
-              console.info(response);
               if (response.data.user) {
                   $scope.currentUser = SessionService.currentUser;
                   $('#username').text($scope.currentUser.name);
@@ -47,11 +56,5 @@ angular.module('controllers')
                     return "Пароль повинен містити не менше 4 символів";
                   }
             }
-        }
-
-        $scope.submitLogout = function(){
-            SessionService.logout('/').then(function(data) {
-                Materialize.toast('Ви розлогінені!', 3000);
-            });
         }
 }]);

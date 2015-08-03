@@ -1,7 +1,12 @@
 angular.module('services')
     .service('SessionService', ['$http','$location', function($http, $location){
         var service = {
+<<<<<<< HEAD
             login: function(user) {
+=======
+
+           login: function(user) {
+>>>>>>> feature admin addteamandscroll
               return $http.post('/login', {
                 session: {email: user.email, password: user.password}
                   }).success(function (response) {
@@ -31,28 +36,26 @@ angular.module('services')
                    });
             },
 
-            currentUser: null,
+         /*   currentUser: null,*/
 
             isAuthenticated: function(){
                 return service.currentUser;
             },
 
-            setUser: function(user){
+       /*     setUser: function(user){
                 if(user) {
                     service.currentUser = user;
                 }
             },
-
             isAuthToken: function(){
               return  localStorage.getItem('auth_token')? true:false;
             },
-
             setUserName: function(name){
                     service.currentUser.name = name;
-            },
-            
+            },*/
             getCurrentUser: function() {
                 var auth_token = localStorage.getItem('auth_token');
+<<<<<<< HEAD
                 return $http.get('/accounts', {
                     headers: { 'Accept': 'application/json', 'Content-Type': 'application/json',
                         'Authorization':'Token token='+auth_token},
@@ -72,6 +75,16 @@ angular.module('services')
                     return error;
                 });
 
+
+=======
+                var name = localStorage.getItem('name');
+                if (auth_token && name) {
+                    service.currentUser = {
+                        auth_token: auth_token,
+                        name: name
+                    };
+                } else {service.currentUser = null;}
+>>>>>>> feature admin addteamandscroll
                 return service.currentUser;
             }
 
