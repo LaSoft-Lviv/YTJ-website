@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="ytj">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
   <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
   <![endif]-->
 </head>
-<body ng-app="ytj" style="position:relative;min-width:100%;max-width:1600px" onload="remoAttr()" onresize="remoAttr()">
+<body style="position:relative;min-width:100%;max-width:1600px" id="scrollArea" ng-controller="IndexController">
 
 
     <%= render 'share/header' %>

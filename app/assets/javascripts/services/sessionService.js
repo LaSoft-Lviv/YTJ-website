@@ -5,7 +5,6 @@ angular.module('services')
               return $http.post('/login', {
                 session: {email: user.email, password: user.password}
                   }).success(function (response) {
-                      console.log(response);
                       if (response.status) {
                         service.currentUser = response.user;
                         if (service.isAuthenticated()) {
@@ -14,7 +13,6 @@ angular.module('services')
                         }
                       } else {
                         Materialize.toast('Неправильні пошта або пароль!', 5000);
-                        Materialize.toast(response.errors + '!', 5000);
                         }
                   }).error(function (error) {
                       return error;
@@ -33,13 +31,13 @@ angular.module('services')
                    });
             },
 
-            currentUser: null,
+         /*   currentUser: null,*/
 
             isAuthenticated: function(){
-                   return !!service.currentUser;
+                return service.currentUser;
             },
 
-            setUser: function(user){
+       /*     setUser: function(user){
                 if(user) {
                     service.currentUser = user;
                 }
@@ -49,7 +47,7 @@ angular.module('services')
             },
             setUserName: function(name){
                     service.currentUser.name = name;
-            },
+            },*/
             getCurrentUser: function() {
                 var auth_token = localStorage.getItem('auth_token');
                 return $http.get('/accounts', {
@@ -70,7 +68,6 @@ angular.module('services')
                 }).error(function (error) {
                     return error;
                 });
-
 
                 return service.currentUser;
             }

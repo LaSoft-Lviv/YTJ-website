@@ -1,6 +1,6 @@
 angular.module('controllers')
   .controller('HomeController', ['$scope','$location','DataService','SessionService','ProjectService', 'TeamService',
-                                function ($scope,  $location, DataService, SessionService, ProjectService, TeamService) {
+                                function ($scope,  $location, DataService, SessionService, ProjectService, TeamService, ScrollService) {
 
         $scope.signedIn = SessionService.isAuthenticated;
 

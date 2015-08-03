@@ -1,16 +1,11 @@
 angular.module('controllers')
-    .controller('SessionController', ['$rootScope', '$scope', '$location','SessionService', function($rootScope, $scope, $location, SessionService) {
-
+	.controller('SessionController', ['$rootScope', '$scope', '$location','SessionService', function($rootScope, $scope, $location, SessionService) {		
         if(SessionService.isAuthToken())
                SessionService.getCurrentUser().then( function (response) {
                     $scope.currentUser = response.data.user;
                     if( $scope.currentUser)
                         $('#username').text($scope.currentUser.name)
                 });
-
-        $scope.signedIn = function() {
-            return SessionService.isAuthenticated();
-        };
 
         $scope.submitLogin = function(loginData) {
             SessionService.login(loginData).then( function (response) {
@@ -19,16 +14,18 @@ angular.module('controllers')
                   $scope.currentUser = SessionService.currentUser;
                   $('#username').text($scope.currentUser.name);
                   $location.path('/#');
-                  Materialize.toast('Вас залогінено!', 1000);
+                  Materialize.toast('Ви - залогінені!', 2000);
               }
             });
         };
 
-        $scope.goToMain = function () {
-            $location.path('/#');
-        };
+        $scope.submitLogout = function(){
+            SessionService.logout('/').then(function(data) {
+                Materialize.toast('Ви - розлогінені!', 2000);
+            });
+        }
 
-        $scope.getErrorEmail = function (error) {
+                $scope.getErrorEmail = function (error) {
             if (angular.isDefined(error)) {
                 if (error.required) {
                   return "Поле не повинно бути пустим";

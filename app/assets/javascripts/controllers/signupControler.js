@@ -5,7 +5,7 @@ angular.module('controllers')
                 $scope.data = response;
                 $scope.errors = response.data.errors;
                     if ($scope.data.data.user) {
-                        Materialize.toast('Вас успішно зареєстровано!', 5000);
+                        Materialize.toast('Вас успішно зареєстровано!', 3000);
                         $location.path('/signin');
                     } else { 
                         $rootScope.$broadcast("userSignupEventSuccess");
