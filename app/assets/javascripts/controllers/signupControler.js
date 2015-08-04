@@ -1,19 +1,15 @@
 angular.module('controllers')
     .controller('SignupController', ['$scope', '$rootScope', '$location','UserService', 'ngDialog', '$timeout', function ($scope, $rootScope, $location, UserService, ngDialog, $timeout) {
-
         $scope.registerUser = function(user) {
-            debugger;
             UserService.register(user).then(function (response) {
-                console.log(response);
+                $scope.data = response;
                 $scope.errors = response.data.errors;
-                console.log($scope.errors);
-
-                if ($scope.errors == "success") {
-                    alert("Вас успішно зареєстровано!");
-                    $location.path('/signin');
-                } else { 
-                    $rootScope.$broadcast("userSignupEventSuccess");
-                  }
+                    if ($scope.data.data.user) {
+                        Materialize.toast('Вас успішно зареєстровано!', 3000);
+                        $location.path('/signin');
+                    } else { 
+                        $rootScope.$broadcast("userSignupEventSuccess");
+                      }
                 
             })
         }
@@ -23,7 +19,7 @@ angular.module('controllers')
         $scope.getErrorName = function (error) {
             if (angular.isDefined(error)) {
                 if (error.required) {
-                    return "Поле не повинно бути пустим";
+                  return "Поле не повинно бути пустим";
                 } else if (error.pattern) {
                     return "Введіть правильне ім'я";
                   } else if (error.minlength) {
@@ -37,38 +33,24 @@ angular.module('controllers')
         $scope.getErrorEmail = function (error) {
             if (angular.isDefined(error)) {
                 if (error.required) {
-                    return "Поле не повинно бути пустим";
+                  return "Поле не повинно бути пустим";
                 } else if (error.email) {
-                      return "Введіть правильний email";
-                    }
+                    return "Введіть правильний email";
+                  }
             }
         }
 
         $scope.getErrorPassword = function (error) {
             if (angular.isDefined(error)) {
                 if (error.required) {
-                    return "Поле не повинно бути пустим";
+                  return "Поле не повинно бути пустим";
                 } else if (error.minlength) {
                     return "Пароль повинен містити не менше 4 символів";
-                    }
+                  }
             }
         }
 
         $scope.getErrorConfirm = function () {
-         return "Паролі повинні співпадати!";
+            return "Паролі повинні співпадати!";
         }
-
-         $scope.openControllerAsController = function () { 
-
-                ngDialog.open({
-                    template: 'controllerAsDialog',
-                    //controller: 'InsideCtrlAs',
-                    controllerAs: 'ctrl',
-                    className: 'ngdialog-theme-plain'
-                });
-            };
-
-}]).controller('InsideCtrlAs', function () {
-            //scope.$on("userSignupEventSuccess", function () {}
-            this.value = 'value from controller';
-        });
+}]);

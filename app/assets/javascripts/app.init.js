@@ -95,7 +95,7 @@ $(document).ready(function() {
     // This command is used to initialize some elements and make them work properly
     //$.material.init();
 
-    $(window).on("scroll", function() {
+/*    $(window).on("scroll", function() {
 
         var height = $(window).scrollTop();
 
@@ -106,10 +106,10 @@ $(document).ready(function() {
             $("#navbar-main").removeClass("navbar-fixed-top");
             $(".header-container").css("height", "100px");
         }
-    });
+    });*/
 
-
-    $('#myNavbar, .footer-left').on('click', 'a', function(event) {
+/*
+    $('.footer-left').on('click', 'a', function(event) {
 
       event.preventDefault();
 
@@ -122,8 +122,8 @@ $(document).ready(function() {
       } else {
             $('body,html').animate({scrollTop: elemTop-95}, 1500);
         }
-      
-    });
+
+    });*/
 
 
   /*  $('.container-photo').slick({

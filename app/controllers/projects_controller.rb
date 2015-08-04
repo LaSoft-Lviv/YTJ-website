@@ -24,17 +24,17 @@ class ProjectsController < ApplicationController
 
   def destroy
  	  @project = Project.find(params[:id])
-    @project.destroy
+    @project.destroy!
     render json:  {success: true, project: @project }
   end
 
   def update
  	  @project = Project.find(params[:id]);
    if  @project.update(project_params);
-     add_team_member
+    add_team_member
     render json: {success: true, project: @project }
    else
-     render json: {success: false, errors:@project.errors.full_messages }
+     render json: {success: false, errors: @project.errors.full_messages }
    end
 
   end
@@ -47,8 +47,9 @@ class ProjectsController < ApplicationController
     elsif(params[:team_member_id])
       @project.team_members_projects.create(team_member_id: params[:team_member_id], coordinator: true)
     end
-   end
+  end
 
+  private
   def project_params
     params.permit(:id, :name, :description, :image, :facebook_link)
   end

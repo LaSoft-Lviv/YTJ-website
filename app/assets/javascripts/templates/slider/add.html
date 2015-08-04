@@ -1,0 +1,19 @@
+<form ng-submit="addSlide(slide)">
+
+    <div class="input-group">
+        <label for='description'>Опис</label>
+        <textarea class="form-control" placeholder="опис" name="description" ng-model="slide.description" />
+    </div>
+    <br>
+    <div mg-file-upload="slideImage"  ng-model="slide.image">
+        <div class="drop-area">
+            <input type="file" class="js-progress-files" multiple />
+            <div   ng-repeat="image in slide.images">
+                <img  width="100px" ng-src="{{image.src}}" title="{{image.title}}" />
+                <a href="" ng-click="slideImage.remove(image.id, $index)">remove</a>
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" class="btn btn-default" value="додати">
+</form>

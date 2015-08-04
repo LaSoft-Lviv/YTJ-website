@@ -1,7 +1,3 @@
-/** {
-  transition: 1s;
-}*/
-
 body {
   box-sizing: border-box;
 }
@@ -138,6 +134,10 @@ nav {
   text-decoration: none;
 }
 
+.header-right ul li a:hover {
+  cursor: pointer;
+}
+
 #navbar-main {
   background-color: #4A148C;
   border: none;
@@ -251,6 +251,10 @@ ul.lang-after-collapse li {
     display: inline-block;
   }
 }
+
+/*Donate*/
+
+/*Finish Donate*/
 
 /*Finish header*/
 
@@ -691,6 +695,7 @@ p.quote-description {
 
 .photo {
   padding: 15px;
+  outline: none !important;
 }
 
 .photo p {
@@ -761,6 +766,10 @@ p.quote-description {
   color: #ffffff;
   font-size: 16px;
   font-weight: normal;
+}
+
+.video-iframe-box {
+outline: none !important;
 }
 
 .video-iframe-box iframe {
@@ -929,6 +938,11 @@ textarea {
   color: #9E9E9E;
 }
 
+.footer-navigate li a {
+  color: #9E9E9E;
+  cursor: pointer;
+}
+
 .footer-navigate li p {
   color: #9E9E9E;
 }
@@ -973,9 +987,9 @@ textarea {
   margin-bottom: 5px !important;
 }
 
-/*.signup-username:focus, .signup-email:focus, .signup-password:focus, .signup-password-confirm:focus, {
-  border-bottom-color: #4a148c !important;
-}*/
+.signup-input:focus {
+  background-color: none;
+}
 
 label.active {
   color: #4a148c !important;
@@ -985,12 +999,10 @@ form .ng-pristine {
   border-bottom: 1px dotted gray;
 }
 
-        
 form .ng-invalid.ng-dirty {
   border-bottom: 2px solid red;
 }
 
-        
 form .ng-valid.ng-dirty {
   border-bottom: 2px solid lightgreen;
 }
@@ -1005,18 +1017,6 @@ p.error {
   font-style: italic;
 }
 
-button.ngdialog-button {
-  border: solid transparent 1px !important;
-}
-
-button.ngdialog-button:focus {
-  border: solid black 1px !important;
-}
-
-.ngdialog h2:focus { 
-  outline: none; 
-}
-
 @media screen and (max-width: 400px) {
   .signup-submit-input {
   font-size: 12px;
@@ -1024,3 +1024,116 @@ button.ngdialog-button:focus {
 }
 
 /*Finish signup*/
+
+/*Signin*/
+
+.signin-headline p {
+  text-align: center;
+  margin-top: 5%;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.signin-submit-input {
+  font-family: Roboto, sans-serif;
+  color: #ffffff;
+}
+
+.signin-submit-input:hover {
+  color: #ffffff;
+}
+
+.signupin-submit-input:active {
+  color: #ffffff;
+}
+
+.signin-submit-input:focus {
+  color: #ffffff;
+}
+
+.signin-input {
+  margin-bottom: 5px !important;
+}
+
+.signin-input:focus {
+  background-color: none;
+}
+
+p.error {
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+}
+
+@media screen and (max-width: 400px) {
+  .signin-submit-input {
+  font-size: 12px;
+  }
+}
+
+/*Finish signin*/
+
+/*Admin menu*/
+
+li.admingoMain a {
+  text-transform: none;
+  font-size: 14px;
+}
+
+li.admingoMain a:hover {
+  font-size: 15px;
+}
+
+li.adminName a {
+  text-transform: none;
+  font-size: 14px;
+}
+
+li.adminName a:hover {
+  font-size: 14px;
+}
+
+li.newPageElement a span {
+  font-size: 12px;
+}
+
+ul.newPageElementDropdown > li > a {
+  color: #000000;
+  height: 25px;
+}
+
+ul.newPageElementDropdown > li {
+  width: 100%;
+}
+
+li.newPageElementSettings a span {
+  font-size: 12px;
+}
+
+ul.newPageElementSettingsDropdown > li > a {
+  color: #000000;
+  height: 25px;
+}
+
+ul.newPageElementSettingsDropdown > li {
+  width: 100%;
+}
+
+/*new slider*/
+
+/*Finish admin menu*/
+
+/*Scroll*/
+
+#scrollArea {
+    height: 100%;
+    overflow: auto;
+  }
+ 
+/*#bottom {
+    display: block;
+}*/
+
+/*Finish scroll*/
+

@@ -1,6 +1,6 @@
 angular.module('controllers')
   .controller('HomeController', ['$scope','$location','DataService','SessionService','ProjectService', 'TeamService',
-                                function ($scope,  $location, DataService, SessionService, ProjectService, TeamService) {
+                                function ($scope,  $location, DataService, SessionService, ProjectService, TeamService, ScrollService) {
 
         $scope.signedIn = SessionService.isAuthenticated;
 
@@ -10,6 +10,7 @@ angular.module('controllers')
         DataService.getAll().then(function (data) {
             $scope.projects = data.projects
             $scope.team = data.team
+            $scope.slides = data.slides
 
             $('.container-photo').slick({
                 slidesToShow: 3,

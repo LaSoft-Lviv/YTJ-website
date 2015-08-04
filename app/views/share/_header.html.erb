@@ -1,5 +1,5 @@
 <!--Header-->
-<div class="container-fluid header-container">
+<div class="container-fluid header-container" ng-controller="SessionController as session">
   <div class="col-sm-5 header-left">
     <a href="#">Youth To Jesus</a>
     <p>Молодіжна християнська громадська організація</p>
@@ -9,9 +9,9 @@
   </div>
   <div class="col-sm-5 header-right">
     <ul>
-      <li><a href="#contact-link">Контакт</a></li>
-      <li><a href="#">Біблія</a></li>
-      <li><a href="#">Допомогти</a></li>
+      <li><a class="gotoContact" ng-click="gotoElement('contact-link')">Контакт</a></li>
+      <li data-toggle="modal" data-target="#myDonate"><a>Допомогти</a></li>
+      <li><a href="#/signin">Sign In</a></li>
       <li><a href="#" title="Search"><span class="glyphicon glyphicon-search"></span></a></li>
     </ul>
   </div>
@@ -22,7 +22,7 @@
   </ul>
 </div>
 
-<nav class="navbar navbar-inverse" role="navigation" id="navbar-main">
+<nav class="navbar navbar-inverse" role="navigation"  id="navbar-main" ng-controller="SessionController as session">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" id="nav-button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
@@ -34,7 +34,6 @@
       <ul class="button-after-collapse">
         <li><a href="#" title="Translate" class="navbar-button"><span class="glyphicon glyphicon-globe"></span></a></li>
         <li><a href="#" title="Donate" class="navbar-button"><span class="glyphicon glyphicon-piggy-bank"></span></a></li>
-        <li><a href="#" title="Bible" class="navbar-button"><span class="glyphicon glyphicon-book"></span></a></li>
         <li><a href="#" title="Search" class="navbar-button"><span class="glyphicon glyphicon-search"></span></a></li>
       </ul>
 
@@ -43,26 +42,56 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav topnav navbar-left">
         <li>
-          <a href="#about-link" class="active waves-effect" title="About">ПРО НАС</a>
+          <a ng-click="gotoElement('about-link')" class="active waves-effect" title="About">ПРО НАС</a>
         </li>
         <li>
-          <a href="#" title="Piligrims" class="waves-effect">ПІЛІГРИМИ</a>
+          <a ng-click="gotoElement('projects-link')" title="Projects" class="waves-effect">ПРОЕКТИ</a>
         </li>
         <li>
-          <a href="#projects-link" title="Projects" class="waves-effect">ПРОЕКТИ</a>
+          <a ng-click="gotoElement('team-link')" "Team" class="waves-effect">КОМАНДА</a>
         </li>
         <li>
-          <a href="#team-link" title="Team" class="waves-effect">КОМАНДА</a>
+          <a ng-click="gotoElement('photo-link')" title="Photo" class="waves-effect" target="_self">ФОТО</a>
         </li>
         <li>
-          <a href="#photo-link" title="Photo" class="waves-effect">ФОТО</a>
-        </li>
-        <li>
-          <a href="#video-link" title="Video" class="waves-effect">ВІДЕО</a>
+          <a ng-click="gotoElement('video-link')" class="waves-effect">ВІДЕО</a>
         </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right nav-right">
+
+
+  <li class="admingoMain" ng-show="signedIn()">
+        <a href="#/" class="waves-effect">Головна</a>
+        </li>
+
+<li role="presentation" class="dropdown newPageElement" ng-show="signedIn()">
+    <a class="dropdown-toggle adminLink waves-effect>" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+    <span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-menu-down"></span>
+    </a>
+    <ul class="dropdown-menu newPageElementDropdown">
+      <li><a href="#/slides/new" class="waves-effect">Новий слайд</a></li>
+      <li><a href="#/projects/new" class="waves-effect">Новий проект</a></li>
+      <li><a href="#/team/new" class="waves-effect">Новий член команди</a></li>
+    </ul>
+  </li>
+
+  <li role="presentation" class="dropdown newPageElementSettings" ng-show="signedIn()">
+    <a class="dropdown-toggle waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+    <span class="glyphicon glyphicon-wrench"></span><span class="glyphicon glyphicon-menu-down"></span>
+    </a>
+    <ul class="dropdown-menu newPageElementSettingsDropdown">
+      <li><a href="#/slides" class="waves-effect">Cлайди</a></li>
+      <li><a href="#/admin/profile/edit" class="waves-effect">Профіль</a></li>
+      <li><a href="#/" class="waves-effect" ng-click="submitLogout()">Вийти</a></li>
+    </ul>
+  </li>
+
+
+        <li class="adminName" ng-show="signedIn()">
+        <a id="username"></a>
+        </li>
+
         <li>
           <a href="#" title="UA" class="waves-effect">UA</a>
         </li>
@@ -76,3 +105,31 @@
   </div>
 </nav>
 <!--Finish header-->
+
+<!-- Donate -->
+<div class="modal fade" id="myDonate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Закрити</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">ДОПОМОЖІТЬ НАМ</h4>
+      </div>
+      <div class="modal-body">
+        <p>Ми - неприбуткова організацією, яка існує за рахунок пожертв. <br> 
+        У зв'язку з цим потребуємо вашої фінансової підтримки. <br>
+        </p> 
+      </div>
+      <div class="modal-body">
+        <p>Номери карток для перерахунку допомоги: <br> 
+        5457-0822-3348-8182<br>
+        4188-3700-2060-8636
+        </p> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Finish Donate -->
