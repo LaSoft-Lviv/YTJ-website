@@ -26,7 +26,7 @@ class TeamMembersController < ApplicationController
    if  @team_member.update(team_member_params)
     render json: {success: true, team_member: @team_member}
    else
-     render json: {success: false, errors: @team_member.errors.full_messages}
+     render json: {success: false, errors: @team_member.errors}
    end
   end
 

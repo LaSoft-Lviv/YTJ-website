@@ -34,7 +34,7 @@ angular.module('services')
             currentUser: null,
 
             isAuthenticated: function(){
-                return service.currentUser;
+                return  !!service.currentUser;
             },
 
             setUser: function(user){

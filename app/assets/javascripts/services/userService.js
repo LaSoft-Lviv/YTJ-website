@@ -19,7 +19,7 @@ angular.module('services')
             update: function(user) {
                 return $http.patch(accountsUrl(), user ,{headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'Authorization':'Token token='+localStorage.getItem('auth_token')}}).then(this.handleSuccess,this.handleError);
             },
-            /*edit: function() {
+            edit: function() {
                 var deferred = $q.defer(),
                     url = accountsUrl();
                     url+='/edit'
@@ -35,6 +35,5 @@ angular.module('services')
 
                 return deferred.promise;
             }
-*/
         }
     }]);
