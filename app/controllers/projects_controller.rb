@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
         @project.team_members_projects.create(coordinator: true, team_member:@team_member)
         render json: { success: true, project: @project}
       else
-        render json: { success: false, errors: @project.errors.full_messages }
+        render json: { success: false, errors: @project.errors }
       end
   end
 
@@ -20,7 +20,6 @@ class ProjectsController < ApplicationController
      render json: { success: false, errors: 'not found' }
     end
   end
-
 
   def destroy
  	  @project = Project.find(params[:id])
@@ -34,7 +33,7 @@ class ProjectsController < ApplicationController
     add_team_member
     render json: {success: true, project: @project }
    else
-     render json: {success: false, errors: @project.errors.full_messages }
+     render json: {success: false, errors: @project.errors }
    end
 
   end

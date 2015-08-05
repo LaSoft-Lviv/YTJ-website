@@ -21,25 +21,20 @@ angular.module('services')
 
             //Checking if permission object(list of roles for logged in user) 
             //is already filled from service
+            parentPointer.permissionModel.permission =  "isUser";
             this.permissionModel.isPermissionLoaded = SessionService.isAuthenticated();
             if (this.permissionModel.isPermissionLoaded) {
                 //if permission is not obtained yet, we will get it from  server
                 SessionService.getCurrentUser().then( function (response) {
 
                     parentPointer.permissionModel.permission = response.data.permission;
-                    console.log(parentPointer.permissionModel.permission)
                       //Check if the current user has required role to access the route
                     parentPointer.getPermission(parentPointer.permissionModel, roleCollection, deferred);
                 });
-
-
             }else{
+
                 parentPointer.getPermission(parentPointer.permissionModel, roleCollection, deferred);
             }
-
-
-
-
             return deferred.promise;
         },
 
@@ -48,7 +43,6 @@ angular.module('services')
         //'roleCollection' is the list of roles which are authorized to access route
         //'deferred' is the object through which we shall resolve promise
         getPermission: function (permissionModel, roleCollection, deferred) {
-            console.log(permissionModel)
             var ifPermissionPassed = false;
 
             angular.forEach(roleCollection, function (role) {
@@ -61,7 +55,6 @@ angular.module('services')
                     case roles.admin:
                         if (permissionModel.permission == 'isAdministrator') {
                             ifPermissionPassed = true;
-                            console.log(ifPermissionPassed)
                         }
                         break;
                     case roles.user:

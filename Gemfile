@@ -25,6 +25,9 @@ source 'https://rails-assets.org' do
 end
 
 gem 'carrierwave'
+# Amazon S3
+gem 'fog'
+gem 'fog-aws' # gem install nokogiri -v '1.6.6.2'
 gem 'rails', '4.2.1'
 
 gem 'sprockets', '2.12.3'

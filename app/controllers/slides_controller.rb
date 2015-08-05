@@ -11,7 +11,7 @@ class SlidesController < ApplicationController
     params[:images].each do |image|
       @slide = Slide.new(description: params[:description], image: image)
       unless  @slide.save
-        errors<<@slide.errors.full_messages
+        errors<<@slide.errors
         is_save = false
       end
     end
@@ -37,7 +37,7 @@ class SlidesController < ApplicationController
     if @slide.update(slide_params)
       render json:  {status: true, slide: @slide }
     else
-      render json: { status: false, errors: @slide.errors.full_messages }
+      render json: { status: false, errors: @slide.errors }
     end
   end
 

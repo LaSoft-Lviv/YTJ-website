@@ -5,6 +5,15 @@
         <p class="flow-text">ФОРМА РЕДАГУВАННЯ ПРОФІЛЯ</p>
       </div>
     </div>
+      <div class="row">
+          <div class="input-field col s8 offset-s2">
+              <input type="email" name="userEmail" class="profile-input profile-email" required ng-model="user.name">
+              <label for="email"><!-- Email -->Електронна пошта</label>
+              <p class="error" ng-show="profileForm.userEmail.$invalid && profileForm.userEmail.$dirty">
+                  {{getErrorEmail(signinForm.userEmail.$error)}}
+              </p>
+          </div>
+      </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
         <input type="email" name="userEmail" class="profile-input profile-email" required ng-model="user.email">
