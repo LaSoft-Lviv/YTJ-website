@@ -13,8 +13,7 @@ angular.module('services')
             } ,
 
             getAll: function() {
-
-                return $http.get('home/index.json').then(this.handleSuccess,this.handleError('Error creating user'));
+                return $http.get('home', {headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}}).then(this.handleSuccess,this.handleError('Error creating user'));
             }
         }
     }]);

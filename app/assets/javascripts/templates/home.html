@@ -156,7 +156,7 @@
         <div class="photo-headline">
             <p><!-- PHOTO -->ФОТО</p>
         </div>
-        <div class="container-photo col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1">
+        <div class="container-photo col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1" >
             <div class="photo">
                 <img class="img-responsive img-thumbnail img-photo" src="assets/photo/1.jpg" alt="">
                 <p>Поїздка в дитячий будинок</p>
@@ -188,35 +188,22 @@
 <!--Finish photo-->
 
 <!--Video-->
-<!-- <div class="container-fluid container-video-main" id="video-link">
+<div class="container-fluid container-video-main" id="video-link">
     <div class="row-fluid">
         <div class="video-headline">
             <p>ВІДЕО</p>
         </div>
         <div class="container-video col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1">
-            <div class="video-iframe-box">
-                <iframe width="480" height="360" src="https://www.youtube.com/embed/Z3bp-HETGI8" frameborder="1" allowfullscreen></iframe>
-                <p class="video-name-box">Нам 10 років</p>
-            </div>
-            <div class="video-iframe-box">
-                <iframe width="480" height="360" src="https://www.youtube.com/embed/Z3bp-HETGI8" frameborder="1" allowfullscreen></iframe>
-                <p class="video-name-box">Нам 10 років</p>
-            </div>
-            <div class="video-iframe-box">
-                <iframe width="480" height="360" src="https://www.youtube.com/embed/Z3bp-HETGI8" frameborder="1" allowfullscreen></iframe>
-                <p class="video-name-box">Нам 10 років</p>
-            </div>
-            <div class="video-iframe-box">
-                <iframe width="480" height="360" src="https://www.youtube.com/embed/Z3bp-HETGI8" frameborder="1" allowfullscreen></iframe>
-                <p class="video-name-box">Нам 10 років</p>
-            </div>
-            <div class="video-iframe-box">
-                <iframe width="480" height="360" src="https://www.youtube.com/embed/Z3bp-HETGI8" frameborder="1" allowfullscreen></iframe>
-                <p class="video-name-box">Нам 10 років</p>
+            <div class="video-iframe-box" ng-repeat="video in playListItems">
+                <youtube-embed width="{{video.snippet.thumbnails.medium.width}}px" height="{{video.snippet.thumbnails.medium.height}}px" id="{{video.contentDetails.videoId}}"
+                               image="{{video.snippet.thumbnails.medium.url}}">
+                </youtube-embed >
+                <p class="video-name-box">{{video.snippet.title}}</p>
             </div>
         </div>
     </div>
-</div> -->
+</div>
+
 <!--finish video-->
 
 <!--contact form-->

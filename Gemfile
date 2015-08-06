@@ -15,6 +15,7 @@ gem 'responders'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'material_icons'
 
+
 gem 'angular-rails-templates'
 gem 'angularjs-file-upload-rails', '~> 1.1.6'
 gem 'angularjs-rails'
@@ -29,6 +30,8 @@ gem 'carrierwave'
 gem 'fog'
 gem 'fog-aws' # gem install nokogiri -v '1.6.6.2'
 gem 'rails', '4.2.1'
+gem "multi_json"
+gem 'google-api-client', '0.8.2'
 
 gem 'sprockets', '2.12.3'
 gem 'sprockets-rails', '2.2.1'
