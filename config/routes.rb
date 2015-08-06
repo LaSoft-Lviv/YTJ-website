@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
 	root 'home#index'
-  get 'home/index'
-
   resources :projects
   resources :team_members
   resources :slides
+
+  get 'home' => 'home#index'
   get 'accounts' => 'accounts#show'
   get 'accounts/edit' => 'accounts#edit'
   post 'accounts' => 'accounts#create'

@@ -8,9 +8,10 @@ angular.module('controllers')
         $scope.titleTeam="Команда"
 
         DataService.getAll().then(function (data) {
-            $scope.projects = data.projects
-            $scope.team = data.team
-            $scope.slides = data.slides
+            $scope.projects = data.projects;
+            $scope.team = data.team;
+            $scope.slides = data.slides;
+            $scope.playListItems = data.playlistItems;
 
             $('.container-photo').slick({
                 slidesToShow: 3,

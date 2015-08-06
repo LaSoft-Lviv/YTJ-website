@@ -3,22 +3,19 @@ angular.module('controllers')
         function($rootScope, $scope, $location, UserService, SessionService) {
         $scope.user={};
 
- /*       UserService.edit().then(function(data) {
-            alert('editContr');
-            console.log(data)
+      UserService.edit().then(function(data) {
             $scope.user.name = data.name;
             $scope.user.email = data.email;
-        });*/
+        });
 
         $scope.update = function (user) {
-            alert('updateContr');
             UserService.update(user).then(function (response) {
             /*    debugger;*/
                 console.log(response);
                 if (response.data.status) {
                     Materialize.toast('Профіль - оновлено!', 3000);
-             /*       SessionService.setUserName( $scope.user.name);*/
-                   /* $('#username').text($scope.user.name);*/
+                 SessionService.setUserName( $scope.user.name);
+                   $('#username').text($scope.user.name);
                     $location.path('#/');
                 } else {
                     if (response.data.errors) {
