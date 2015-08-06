@@ -19,7 +19,7 @@ CarrierWave.configure do |config|
     }
 
 	  config.fog_directory  = ENV['S3_BUCKET_NAME']
-		config.s3_access_policy = :public_read
+		#config.s3_access_policy = :public_read
 		#config.fog_host         = "#{ENV['S3_ASSET_URL']}/#{ENV['S3_BUCKET_NAME']}"
 	end
 
