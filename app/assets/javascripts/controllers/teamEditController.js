@@ -13,6 +13,7 @@ angular.module('controllers')
                 $scope.team_member.quote = data.quote;
                 $scope.team_member.phone = data.phone;
                 $scope.team_member.foto = data.foto;
+                $scope.team_member.position = data.position;
                 $scope.team_member.facebook_link = data.facebook_link;
                 $scope.team_member.is_initiative = data.is_initiative;
 
@@ -64,6 +65,7 @@ angular.module('controllers')
                 form.append('quote', $scope.team_member.quote);
                 form.append('email', $scope.team_member.email);
                 form.append('phone', $scope.team_member.phone);
+                form.append('position', $scope.team_member.position);
                 form.append('is_initiative', $scope.team_member.is_initiative);
                 form.append('facebook_link', $scope.team_member.facebook_link);
                 // gather images and files
