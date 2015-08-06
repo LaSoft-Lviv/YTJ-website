@@ -37,6 +37,6 @@ class TeamMembersController < ApplicationController
   end
 
   def team_member_params
-    params.permit(:name, :surname, :email, :quote, :foto, :phone, :facebook_link, :is_initiative)
+    params.permit(:name, :surname, :email, :quote, :foto, :phone, :position, :facebook_link, :is_initiative)
   end
 end

@@ -6,6 +6,7 @@ angular.module('controllers')
             $scope.team_member = {
                 foto: {},
                 name: "",
+                position: "",
                 surname: "",
                 email: "",
                 quote: "",
@@ -88,6 +89,7 @@ angular.module('controllers')
                 form.append('quote', $scope.team_member.quote);
                 form.append('email', $scope.team_member.email);
                 form.append('phone', $scope.team_member.phone);
+                form.append('position', $scope.team_member.position);
                 form.append('is_initiative', $scope.team_member.is_initiative);
                 form.append('facebook_link', $scope.team_member.facebook_link);
                 // gather images and files
