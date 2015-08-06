@@ -25,4 +25,9 @@ CarrierWave.configure do |config|
 
 	config.cache_dir = "#{Rails.root}/tmp/uploads"
 	config.storage = :fog
+
+	if Rails.env.test? || Rails.env.development?
+		config.storage = :file
+		config.enable_processing = true
+	end
 end
