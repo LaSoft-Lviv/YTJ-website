@@ -1,5 +1,6 @@
 angular.module('controllers')
-	.controller('SessionController', ['$rootScope', '$scope', '$location','SessionService', function($rootScope, $scope, $location, SessionService) {		
+	.controller('SessionController', ['$rootScope', '$scope', '$location','SessionService', function($rootScope, $scope, $location, SessionService) {
+
         if(SessionService.isAuthToken())
                SessionService.getCurrentUser().then( function (response) {
                     $scope.currentUser = response.data.user;
