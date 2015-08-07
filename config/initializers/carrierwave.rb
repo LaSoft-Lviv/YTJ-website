@@ -21,10 +21,11 @@ CarrierWave.configure do |config|
 	  config.fog_directory  = ENV['S3_BUCKET_NAME']
 		#config.s3_access_policy = :public_read
 		#config.fog_host         = "#{ENV['S3_ASSET_URL']}/#{ENV['S3_BUCKET_NAME']}"
+    config.storage = :fog
 	end
 
 	config.cache_dir = "#{Rails.root}/tmp/uploads"
-	config.storage = :fog
+
 
 	if Rails.env.test? || Rails.env.development?
 		config.storage = :file
