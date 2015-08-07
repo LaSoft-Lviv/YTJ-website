@@ -113,15 +113,6 @@ angular.module('controllers')
 
         });
 
-       
-
-        $scope.deleteProject= function(id){
-          ProjectService.remove(id).then(function(data) {
-                   $location.url('/');
-                   Materialize.toast('Проект успішно видалено!', 3000);
-               }
-           );
-        };
 
 
 

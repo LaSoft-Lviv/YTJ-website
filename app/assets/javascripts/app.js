@@ -181,6 +181,15 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider, $lo
                 }
             }
         })
+        .when('/projects', {
+            templateUrl: 'project/index.html',
+            controller: 'ProjectIndexController',
+            resolve: {
+                permission: function (AuthorizationService, $route) {
+                    return AuthorizationService.permissionCheck([roles.admin]);
+                }
+            }
+        })
         .otherwise({ redirectTo: '/' });
 }]);
 angular.module('directives',[]);

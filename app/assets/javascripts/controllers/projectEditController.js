@@ -32,7 +32,7 @@ angular.module('controllers')
           var form = collectFormData();
              ProjectService.update(form, params).then(function(data) {
                 if (data.success) {
-                  $location.path('#/')
+                  $location.path('/projects')
               } else {
                   if (data.errors)
                       for (error  in data.errors)
