@@ -1,16 +1,15 @@
+class Configuration
+  def self.fog(config)
+    config.fog_directory  = 'youthtojesus'                     # required
+    config.fog_public     = true
+    config.fog_attributes = { 'Cache-Control'=>'max-age=315576000' }  # optional, defaults to {}
+  end
+end
+
 CarrierWave.configure do |config|
-	config.fog_credentials = {
-    provider:               'AWS',       # required
-    aws_access_key_id:      'AKIAIYHGJZAOJSXUEYZQ',       # required
-    aws_secret_access_key:  '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',       # required
-    region:                 'us-west-2'
-  }
-
-  config.fog_directory  = 'youthtojesus'                     # required
-  config.fog_public     = true
-  config.fog_attributes = { 'Cache-Control'=>'max-age=315576000' }  # optional, defaults to {}
-
 	if Rails.env.production?
+    Configuration.fog(config)
+
 		config.fog_credentials = {
       provider:               'AWS',       # required
       aws_access_key_id:      ENV['S3_KEY'],
@@ -24,11 +23,18 @@ CarrierWave.configure do |config|
     config.storage = :fog
 	end
 
-	config.cache_dir = "#{Rails.root}/tmp/uploads"
-
-
 	if Rails.env.test? || Rails.env.development?
+    Configuration.fog(config)
+
+    config.fog_credentials = {
+      provider:               'AWS',       # required
+      aws_access_key_id:      '',       # required
+      aws_secret_access_key:  '',       # required
+      region:                 ''
+    }
 		config.storage = :file
 		config.enable_processing = true
+    config.cache_dir = "#{Rails.root}/tmp/uploads"
 	end
 end
+
