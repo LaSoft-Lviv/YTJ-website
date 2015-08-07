@@ -61,6 +61,7 @@ angular.module('services')
 
                 return deferred.promise;
             },
+            
             edit: function(params){
 
                 var deferred = $q.defer(),

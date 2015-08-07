@@ -25,8 +25,8 @@ angular.module('controllers')
                         Materialize.toast('Члена команди успішно додано!', 3000);
                     }  else {
                          if (data.data.errors) {
-                            console.log(data.data.errors);
-                            for (error  in data.data.errors) {
+                            for (error in data.data.errors) {
+                                console.log(error);
                                 switch(error) {
                                     case 'email':
                                     Materialize.toast('Перевірте, будь-ласка, пошту!', 7000);

@@ -47,5 +47,9 @@ angular.module('services')
         }
 
     };
+
+    this.scrollTop = function () {
+        $('body,html').animate({scrollTop: 0}, 1000);
+    };
     
 });
