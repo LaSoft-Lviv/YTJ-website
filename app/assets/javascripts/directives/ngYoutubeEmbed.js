@@ -3,7 +3,7 @@ angular.module("directives")
         return {
             restrict: 'E',
             template: 	'<div style="position: relative;">' +
-            '<img src="" style="position:absolute; width: {{width}}; height:{{height}}; cursor: pointer;" alt="Play" />' +
+            '<img src="assets/play_button.png" style="position:absolute; width: {{width}}; height:{{height}}; cursor: pointer;" alt="Play" />' +
             '<img ng-src="{{src}}" style="width: {{width}}; height:{{height}};display: inline;cursor: pointer" alt="" />' +
             '</div>',
             scope: {
