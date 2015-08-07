@@ -169,9 +169,8 @@
         </div>
         <div class="container-video col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1">
             <div class="video-iframe-box" ng-repeat="video in playListItems">
-                <youtube-embed width="{{video.snippet.thumbnails.medium.width}}px" height="{{video.snippet.thumbnails.medium.height}}px" id="{{video.contentDetails.videoId}}"
-                               image="{{video.snippet.thumbnails.medium.url}}">
-                </youtube-embed >
+                <youtube-embed width="{{video.snippet.thumbnails.medium.width}}px" height="{{video.snippet.thumbnails.medium.height}}px" id="{{video.contentDetails.videoId}}" image="{{video.snippet.thumbnails.medium.url}}">
+                </youtube-embed>
                 <p class="video-name-box">{{video.snippet.title}}</p>
             </div>
         </div>

@@ -12,8 +12,8 @@ angular.module('controllers')
             $scope.projects = data.projects;
             $scope.team = data.team;
             $scope.slides = data.slides;
-            $rootScope.$broadcast("dataLoad");
             $scope.playListItems = data.playlistItems;
+            $rootScope.$broadcast("dataLoad");
 
 
             $('.container-photo').slick({
