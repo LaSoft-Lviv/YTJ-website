@@ -19,3 +19,4 @@ Vagrantfile
 /.vagrant
 /public/uploads
 /public/assets
+/public/development

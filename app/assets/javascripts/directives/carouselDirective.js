@@ -15,12 +15,12 @@ angular.module("ytj")
                 var slidesIndicators = element.find(".carousel-indicators-main");
 
                 var imageClass = 'image-shown';
-                var indicatorClass = '';
+                var indicatorClass = 'active';
 
                 for (var i = 0; i < slides.length; i++) {
                    if (i != 0) {
                         imageClass = 'image-hidden';
-                        indicatorClass = 'active';
+                        indicatorClass = '';
                    }
                    
                     console.log(slides[i].image.url);
