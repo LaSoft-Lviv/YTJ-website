@@ -1,0 +1,37 @@
+<div class="container-fluid container-team-main" id="team-link">
+    <div class="row-fluid">
+        <div class="container-team">
+    <div class="col-xs-6 col-sm-4"  ng-repeat="team_member in teamMembers">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator member-picture"  ng-src={{team_member.foto.url}} >
+                <hr>
+            </div>
+            <div class="card-content">
+                <div class="card-title activator grey-text text-darken-4">
+                    <a  ng-show="team_member.facebook_link" class="facebook-link" href="{{team_member.facebook_link}}">
+                        <img class="member-facebook-logo img-responsive" src="images/facebook.png"></a>
+                    <p class="member-name"> {{team_member.name}}  {{team_member.surname}}
+                        <i class="material-icons right more-vert">more_vert</i><p></div>
+                <div class="description">
+                    {{team_member.position}} <br> {{team_member.phone}}<br/>
+                    <span>{{team_member.email}}</span></div>
+            </div>
+            <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            <i class="material-icons right close-quote">close</i>
+                        </span>
+                <p class="quote-head">Що для мене "Молодь до Ісуса?"</p>
+                <p class="quote-description">
+                    {{team_member.quote}}
+                </p>
+            </div>
+            <a  class="btn btn-sm" href="#/team/{{team_member.id}}/edit">update</a>
+            <a  class="btn btn-sm" href="#"   data-ng-click="deleteTeamMember(team_member.id)">delete</a>
+
+        </div>
+    </div>
+</div>
+</div>
+    </div>
+</div>

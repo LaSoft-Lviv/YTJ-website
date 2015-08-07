@@ -21,12 +21,12 @@ angular.module('controllers')
                 var form = collectFormData();
                 TeamService.add(form).then(function (data) {
                     if (data.data.success) {
-                        $location.path('#/');
+                        $location.path('/team');
                         Materialize.toast('Члена команди успішно додано!', 3000);
                     }  else {
                          if (data.data.errors) {
                             for (error in data.data.errors) {
-                                console.log(error);
+
                                 switch(error) {
                                     case 'email':
                                     Materialize.toast('Перевірте, будь-ласка, пошту!', 7000);
