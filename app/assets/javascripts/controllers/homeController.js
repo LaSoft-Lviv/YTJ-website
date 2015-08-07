@@ -123,12 +123,6 @@ angular.module('controllers')
            );
         };
 
-        $scope.deleteTeamMember= function(id){
-            TeamService.remove(id).then(function(data) {
-                    $location.url('/');
-                     Materialize.toast('Члена команди успішно видалено!', 3000);
-                }
-            );
-        };
+
 
 }]);

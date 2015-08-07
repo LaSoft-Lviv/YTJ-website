@@ -172,6 +172,15 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider, $lo
                 }
             }
         })
+        .when('/team', {
+            templateUrl: 'team/index.html',
+            controller: 'TeamMemberIndexController',
+            resolve: {
+                permission: function (AuthorizationService, $route) {
+                    return AuthorizationService.permissionCheck([roles.admin]);
+                }
+            }
+        })
         .otherwise({ redirectTo: '/' });
 }]);
 angular.module('directives',[]);

@@ -22,7 +22,8 @@ angular.module('controllers')
                 var form = collectFormData();
                 TeamService.update(form,params).then(function (response) {
                   if (response.team_member) {
-                        $location.path('#/')
+
+                        $location.path('/team')
                     }
                     else {
                         if (response.errors)
