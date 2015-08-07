@@ -1,33 +1,7 @@
 <!--Carousel-->
-<div class="container-fluid" style="padding:0px">
-    <div class="row-fluid">
-        <div id="carousel-example-generic" class="carousel slide embed-responsive-item" data-ride="carousel" data-interval="3000">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li ng-repeat="slide in slides" data-target="#carousel-example-generic" data-slide-to="{{$index}}"></li>
-            </ol>
-            <!-- Обгортка для слайдів -->
-            <div class="carousel-inner" role="listbox" id="slidesBlock">
-                <div ng-repeat="slide in slides"  class="{{ !$index ? 'item active' : 'item'}}" >
-                    <img ng-src={{slide.image.url}} alt="..." class="img-responsive">
-                    <div class="carousel-caption">
-                        {{slide.image.description}}
-                    </div>
-                </div>
-            </div>
-            <!-- Управління -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" target="_self">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Попередній</span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" target="_self">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Наступний</span>
-            </a>
-        </div>
-    </div>
-</div>
+<div class="container-fluid container-carousel-main" carousel-directive="slides"></div>
 <!--Finish carousel-->
+
 <!-- About as -->
 <div class="container-fluid container-about-main" id="about-link">
     <div class="row-fluid">
@@ -238,4 +212,12 @@
         </div>
     </div>
 </div>
-<!--finish contact form-->
+<!--Finish contact form-->
+
+<!-- Scroll button -->
+<div scroll-directive class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a ng-click="gotoTop()" style="display:none" class="btn-floating btn-large purple darken-4 my-btn-floating">
+        <i class="large material-icons">keyboard_arrow_up</i>
+    </a>
+</div>
+<!-- Finish scroll button -->
