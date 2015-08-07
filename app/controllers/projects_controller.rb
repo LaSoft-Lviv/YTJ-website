@@ -1,6 +1,10 @@
 class ProjectsController < ApplicationController
   before_action :authenticate, only: [:create, :edit, :destroy, :update ]
 
+  def index
+    render json: {projects: Project.all.order("created_at DESC")}
+  end
+
   def create
       @team_member = TeamMember.find(params[:team_member_id])
       @project = Project.new(project_params)

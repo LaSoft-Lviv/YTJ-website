@@ -24,7 +24,7 @@ angular.module('controllers')
                 console.log(data);
 
                 if (data.data.success) {
-                    $location.path('#/');
+                    $location.path('/projects');
                     Materialize.toast('Проект успішно додано!', 3000);
                 } else {
                     console.info(data);
