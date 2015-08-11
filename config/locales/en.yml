@@ -20,4 +20,89 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  hello: "@@@@"
+  activemodel:
+    attributes:
+      contact_form:
+       name: "Name"
+       subject: "Subject"
+       message: "Message"
+       email: "Email"
+    errors:
+      models:
+        contact_form:
+          attributes:
+            :blank: "%{attribute} can't be blank"
+            :too_short: "Please fill more 3 letters"
+            :invalid: "%{attribute} format is invalid"
+            name:
+              :too_long: "Please fill less 16 letters"
+            email:
+              :too_long: "%{attribute} can't have more 30 letters"
+  activerecord:
+     attributes:
+        admin:
+          name: "Name"
+          email: "Email"
+          password: "Password"
+          password_confirmation: "Password Confirmation"
+        slide:
+          image: "Slide"
+        project:
+          name: "Name"
+          description: "Description"
+          image: "Image"
+          facebook_link: "Facebook link"
+        team_member:
+          name: "Name"
+          surname: "Surname"
+          email: "Email"
+          phone: "Phone"
+          quote: "Quote"
+          foto: "Foto"
+          facebook_link: "Facebook link"
+     errors:
+        models:
+          admin:
+            :blank: "%{attribute} can't be blank"
+            :too_long: "Please fill less 16 letters"
+            :invalid: "%{attribute} format is invalid"
+            :confirmation: "Please confirm password"
+            attributes:
+              name:
+                :too_short: "Please fill more 3 letters"
+              password:
+                :too_short: "Please fill more 4 letters"
+              email:
+                :too_long: "Please fill less 30 letters"
+                :taken: "%{value} has already been taken"
+          project:
+            :blank: "%{attribute} can't be blank"
+            :too_short: "Please fill more 3 letters"
+            :invalid: "%{attribute} format is invalid"
+            attributes:
+              name:
+                too_long: "Please fill less 50 letters"
+              description:
+                too_long: "Please fill less 1000 letters"
+              image:
+                :blank: "Please choose image for project"
+          team_member:
+            blank: "%{attribute} can't be blank"
+            :too_short: "Please fill more 2 letters"
+            :too_long: "Please fill less 16 letters"
+            attributes:
+              phone:
+               :invalid: "%{attribute} format is invalid"
+              facebook_link:
+                :invalid: "%{attribute} format is invalid"
+              quote:
+                too_long: "Please fill less 1000 letters"
+              foto:
+                :blank: "Please choose a team member's photo"
+              email:
+                :taken: "%{value} has already been taken"
+                :too_long: "%{attribute} can't have more 30 letters"
+                :invalid: "%{attribute} format is invalid"
+          slide:
+            :blank: "%{attribute} can't be blank"

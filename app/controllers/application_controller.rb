@@ -4,8 +4,12 @@ class ApplicationController < ActionController::Base
   #protect_from_forgery with: :exception
   rescue_from ::ActiveRecord::RecordNotFound, with: :record_not_found
   rescue_from ::ActiveRecord::RecordInvalid, with: :error_invalid
-
+  before_action :set_locale
+  
   protected
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
 
   def record_not_found(exception)
     render json: { success: false, error: exception.message }.to_json, status: 404
