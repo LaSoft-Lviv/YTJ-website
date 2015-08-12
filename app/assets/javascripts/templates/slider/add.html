@@ -1,19 +1,58 @@
-<form ng-submit="addSlide(slide)">
+<div class="row">
+  <form name="addSlidesForm" novalidate class="col s12" ng-submit="addSlide(slide)">
 
-    <div class="input-group">
-        <label for='description'>Опис</label>
-        <textarea class="form-control" placeholder="опис" name="description" ng-model="slide.description" />
+    <div class="row">
+      <div class="col s8 offset-s2 add-menu-headline">
+        <p class="flow-text">ФОРМА ДОДАВАННЯ СЛАЙДІВ</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <textarea name="addSlideDescription" class="materialize-textarea" required ng-maxlength="200" ng-model="slide.description"></textarea>
+        <label for="addSlideDescription">Опис слайду</label>
+        <p class="error" ng-show="addSlidesForm.addSlideDescription.$invalid">
+          {{getErrorDescription(addSlidesForm.addSlideDescription.$error)}}
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+    <div class="col s8 offset-s2 file-field input-field" mg-file-upload="slideImage"  ng-model="slide.image">
+    <div ng-repeat="image in slide.images"> 
+      <img ng-src="{{image.src}}" title="{{image.title}}"/>
+      <a href="" ng-click="slideImage.remove(image.id, $index)">Видалити</a>
     </div>
     <br>
-    <div mg-file-upload="slideImage"  ng-model="slide.image">
-        <div class="drop-area">
-            <input type="file" class="js-progress-files" multiple />
-            <div   ng-repeat="image in slide.images">
-                <img  width="100px" ng-src="{{image.src}}" title="{{image.title}}" />
-                <a href="" ng-click="slideImage.remove(image.id, $index)">remove</a>
-            </div>
-        </div>
+      <div class="btn purple darken-4 container-image-chosen">
+        <span class="image-chosen">Вибрати фотографію</span>
+        <input type="file" name="slideImage" class="js-progress-files" multiple>
+      </div>
+    </div>
     </div>
 
-    <input type="submit" class="btn btn-default" value="додати">
-</form>
+    <div class="row">
+        <div class="switch col s8 offset-s2">
+            <label>
+            Не підтверджую
+            <input type="checkbox" name="projectAgreed" id="project-checkbox" required ng-model="project.agreed">
+            <span class="lever"></span>
+            Підтверджую
+            </label>
+        </div>
+    </div>
+<!-- 
+    <div class="row">
+      <div class="col s8 offset-s2 signup-submit-input">
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="addProjectForm.$invalid || project.image.fresh != true">ДОДАТИ</button>
+      </div>
+    </div>
+ -->
+    <div class="row">
+      <div class="col s8 offset-s2 signup-submit-input">
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input">ДОДАТИ</button>
+      </div>
+    </div>
+
+    </form>
+</div>

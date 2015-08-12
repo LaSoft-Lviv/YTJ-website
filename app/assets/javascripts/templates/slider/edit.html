@@ -1,4 +1,4 @@
-<form ng-submit="update(slide)">
+<!-- <form ng-submit="update(slide)">
 
     <div class="input-group">
         <label for='description'>Опис</label>
@@ -14,4 +14,61 @@
     </div>
 
     <input type="submit" class="btn btn-default" value="оновити">
-</form>
+</form> -->
+
+<div class="row">
+  <form name="updateSlidesForm" novalidate class="col s12" ng-submit="update(slide)">
+
+    <div class="row">
+      <div class="col s8 offset-s2 add-menu-headline">
+        <p class="flow-text">ФОРМА РЕДАГУВАННЯ СЛАЙДУ</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <textarea name="addSlideDescription" class="materialize-textarea" required ng-maxlength="200" ng-model="slide.description"></textarea>
+        <label for="addSlideDescription">Опис слайду</label>
+        <p class="error" ng-show="updateSlidesForm.addSlideDescription.$invalid">
+          {{getErrorDescription(updateSlidesForm.addSlideDescription.$error)}}
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+    <div class="col s8 offset-s2 file-field input-field" mg-file-upload="slideImage"  ng-model="slide.image">
+      <img  ng-if="slide.image.url" ng-src="{{slide.image.url}}">
+      <img ng-else ng-src="{{slide.image.src}}" title="{{slide.image.title}}" id="{{slide.image.id}}"/>
+      <br>
+      <div class="btn purple darken-4 container-image-chosen">
+        <span class="image-chosen">Вибрати фотографію</span>
+        <input type="file" name="slideImage" class="js-progress-files" multiple>
+      </div>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="switch col s8 offset-s2">
+            <label>
+            Не підтверджую
+            <input type="checkbox" name="projectAgreed" id="project-checkbox" required ng-model="project.agreed">
+            <span class="lever"></span>
+            Підтверджую
+            </label>
+        </div>
+    </div>
+<!-- 
+    <div class="row">
+      <div class="col s8 offset-s2 signup-submit-input">
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="addProjectForm.$invalid || project.image.fresh != true">ДОДАТИ</button>
+      </div>
+    </div>
+ -->
+    <div class="row">
+      <div class="col s8 offset-s2 signup-submit-input">
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input">ОНОВИТИ</button>
+      </div>
+    </div>
+
+    </form>
+</div>

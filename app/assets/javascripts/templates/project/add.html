@@ -1,60 +1,19 @@
-<!-- <form ng-submit="addProject(project)">
-    <div class="input-group">
-        <label for='name'>Імя</label>
-        <input type="text" class="form-control" placeholder="проект" name="name" ng-model="project.name" />
-   </div>
-    <div class="input-group">
-        <label for='description'>Опис</label>
-        <textarea class="form-control" placeholder="опис" name="description" ng-model="project.description" />
-    </div>
-    <br>
-
-
-    <div mg-file-upload="projectFoto"  ng-model="project.image">
-        <div class="drop-area">
-            <input type="file" class="js-progress-files" />
-            <img  width="100%" ng-src="{{project.image.src}}" title="{{project.image.title}}" id="{{image.id}}"/>
-
-        </div>
-    </div>
-
-
-    <div class="input-group">
-        <label for='teams' >Організатори</label>
-        <select name="teams" class="form-control" ng-model="project.team">
-            <option  ng-repeat="team_member in team" value="{{team_member.id}}">"
-                     {{team_member.name}}  {{team_member.surname}}
-            </option>
-        </select>
-    </div>
-
-    <div class="input-group">
-        <label for='facebook_link'>Опис</label>
-        <input typeof="text" class="form-control" placeholder="facebook" name="facebook_link" ng-model="project.facebook_link" />
-    </div>
-    <input type="submit" class="btn btn-default" value="додати проект">
-</form> -->
-
-
-<div class="row container-add-project-main">
+<div class="row">
   <form name="addProjectForm" novalidate class="col s12" ng-submit="addProject()">
-
     <div class="row">
-      <div class="col s8 offset-s2 add-project-headline">
+      <div class="col s8 offset-s2 add-menu-headline">
         <p class="flow-text">ФОРМА ДОДАВАННЯ ПРОЕКТУ</p>
       </div>
     </div>
-
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="addProjectName" class="add-project-input add-project-name" required ng-minlength="4" ng-maxlength="50" ng-pattern="projectNamePattern" ng-model="project.name">
+        <input type="text" name="addProjectName" class="add-menu-input" required ng-minlength="4" ng-maxlength="50" ng-pattern="projectNamePattern" ng-model="project.name">
         <label for="addProjectName">Назва проекту</label>
         <p class="error" ng-show="addProjectForm.addProjectName.$invalid && addProjectForm.addProjectName.$dirty">
           {{getErrorName(addProjectForm.addProjectName.$error)}}
         </p>
       </div>
     </div>
-
     <div class="row">
       <div class="input-field col s8 offset-s2">
         <textarea name="addProjectDescription" class="materialize-textarea" required ng-minlength="50" ng-maxlength="1000" ng-model="project.description"></textarea>
@@ -64,43 +23,40 @@
         </p>
       </div>
     </div>
-
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="projectFacebook" class="add-project-input project-facebook" required ng-pattern="projectFacebookPattern" ng-model="project.facebook_link">
+        <input type="text" name="projectFacebook" class="add-menu-input" required ng-pattern="projectFacebookPattern" ng-model="project.facebook_link">
         <label for="projectFacebook">Facebook link</label>
         <p class="error" ng-show="addProjectForm.projectFacebook.$invalid && addProjectForm.projectFacebook.$dirty">
           {{getErrorFacebook(addProjectForm.projectFacebook.$error)}}
         </p>
       </div>
     </div>
-
     <div class="row">
         <div class="input-field col s8 offset-s2">
               <!-- <label>Організатори</label> -->
-                  <select name="projectOrganizator"class="browser-default" ng-model="project.team">
-                      <option value="" disabled selected>Вибрати оргінізатора</option>
-                      <option ng-repeat="team_member in team" value="{{team_member.id}}" required>
-                     {{team_member.name}}  {{team_member.surname}}
-                     </option>
-                  </select>
-                  <p class="error" ng-show="addProjectForm.projectOrganizator.$dirty">
-                  {{getErrorOrganizator(addProjectForm.projectOrganizator.$error)}}
-                  </p>
+            <select name="projectOrganizator"class="browser-default" ng-model="project.team">
+                <option value="" disabled selected>Вибрати оргінізатора</option>
+                <option ng-repeat="team_member in team" value="{{team_member.id}}" required>
+                     {{team_member.name}}  
+                     {{team_member.surname}}
+                </option>
+            </select>
+            <p class="error" ng-show="addProjectForm.projectOrganizator.$dirty">
+            {{getErrorOrganizator(addProjectForm.projectOrganizator.$error)}}
+            </p>
         </div>
     </div>
-
     <div class="row">
-    <div class="col s8 offset-s2 file-field input-field" mg-file-upload="projectFoto"  ng-model="project.image">
-      <img  width="100px" ng-src="{{project.image.src}}" title="{{project.image.title}}" id="{{project.image.id}}"/>
-     <!--  <input class="file-path validate" type="text"/> -->
-      <div class="btn purple darken-4">
-        <span class="image-chosen">Вибрати фотографію</span>
-        <input type="file" name="projectImage" class="js-progress-files">
-      </div>
+        <div class="col s8 offset-s2 file-field input-field" mg-file-upload="projectFoto"  ng-model="project.image">
+            <img ng-src="{{project.image.src}}" title="{{project.image.title}}" id="{{project.image.id}}"/>
+            <br>
+            <div class="btn purple darken-4 container-image-chosen">
+              <span class="image-chosen">Вибрати фотографію</span>
+              <input type="file" name="projectImage" class="js-progress-files">
+            </div>
+        </div>
     </div>
-    </div>
-
     <div class="row">
         <div class="switch col s8 offset-s2">
             <label>
@@ -123,6 +79,6 @@
         <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input">ДОДАТИ</button>
       </div>
     </div>
-
-    </form>
+  </form>
 </div>
+
