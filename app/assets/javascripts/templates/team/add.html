@@ -1,13 +1,13 @@
-<div class="row container-teamMember-main">
+<div class="row">
   <form name="teamMemberForm" novalidate class="col s12" ng-submit="addTeamMember()">
-    <div class="row">
-      <div class="col s8 offset-s2 teamMember-headline">
+    <div class="row-fluid">
+      <div class="col s8 offset-s2 add-menu-headline">
         <p class="flow-text">ФОРМА ДОДАВАННЯ ЧЛЕНА КОМАНДИ</p>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="memberName" class="member-input member-name" required ng-minlength="4" ng-maxlength="16" ng-pattern="memberNamePattern" ng-model="team_member.name">
+        <input type="text" name="memberName" class="add-menu-input member-name" required ng-minlength="4" ng-maxlength="16" maxlength="100" ng-pattern="memberNamePattern" ng-model="team_member.name">
         <label for="memberName">І'мя</label>
         <p class="error" ng-show="teamMemberForm.memberName.$invalid && teamMemberForm.memberName.$dirty">
           {{getErrorName(teamMemberForm.memberName.$error)}}
@@ -16,7 +16,7 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="memberSurname" class="member-input member-surname" required ng-minlength="4" ng-maxlength="16" ng-pattern="memberNamePattern" ng-model="team_member.surname">
+        <input type="text" name="memberSurname" class="add-menu-input member-surname" required ng-minlength="4" ng-maxlength="16" ng-pattern="memberNamePattern" maxlength="100" ng-model="team_member.surname">
         <label for="memberSurname">Прізвище</label>
         <p class="error" ng-show="teamMemberForm.memberSurname.$invalid && teamMemberForm.memberSurname.$dirty">
           {{getErrorName(teamMemberForm.memberSurname.$error)}}
@@ -34,7 +34,7 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="memberPhone" class="member-input member-phone" required ng-pattern="memberPhonePattern" ng-model="team_member.phone">
+        <input type="text" name="memberPhone" class="add-menu-input member-phone" required maxlength="100" ng-pattern="memberPhonePattern" ng-model="team_member.phone">
         <label for="memberPhone">Номер телефону</label>
         <p class="error" ng-show="teamMemberForm.memberPhone.$invalid && teamMemberForm.memberPhone.$dirty">
           {{getErrorPhone(teamMemberForm.memberPhone.$error)}}
@@ -43,7 +43,7 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="email" name="memderEmail" class="member-input member-email" required ng-model="team_member.email">
+        <input type="email" name="memderEmail" class="add-menu-input member-email" required maxlength="100" ng-model="team_member.email">
         <label for="memberEmail"><!-- Email -->Електронна пошта</label>
         <p class="error" ng-show="teamMemberForm.memberEmail.$invalid && teamMemberForm.memberEmail.$dirty">
         {{getErrorEmail(teamMemberForm.memberEmail.$error)}}
@@ -52,14 +52,13 @@
     </div>
      <div class="row">
           <div class="input-field col s8 offset-s2">
-              <input type="text" name="memberPosition" class="member-input member-position" required  ng-model="team_member.position">
+              <input type="text" name="memberPosition" class="add-menu-input member-position" required maxlength="100" ng-model="team_member.position">
               <label for="memberPosition">Посада</label>
-
           </div>
       </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="memberFacebook" class="member-input member-facebook" required ng-pattern="memberFacebookPattern" ng-model="team_member.facebook_link">
+        <input type="text" name="memberFacebook" class="add-menu-input member-facebook" ng-pattern="memberFacebookPattern" maxlength="100" ng-model="team_member.facebook_link">
         <label for="memberFacebook">Facebook link</label>
         <p class="error" ng-show="teamMemberForm.memberFacebook.$invalid && teamMemberForm.memberFacebook.$dirty">
           {{getErrorFacebook(teamMemberForm.memberFacebook.$error)}}
@@ -73,30 +72,16 @@
         <label>
       </div>
     </div>
-
-<!--     <div class="row">
-    <div class="col s8 offset-s2" mg-file-upload="teamFoto"  ng-model="team_member.foto">
-      <div class="drop-area">
-        <input type="file" name="memberPhoto" class="js-progress-files" required/>
-        <img  width="100px" ng-src="{{team_member.foto.src}}" title="{{team_member.foto.title}}" id="{{team_member.foto.id}}"/>
-        <label for="memberPhoto">Фотографія
-        <label>
-      </div>
-    </div>
-    </div> -->
-
-
     <div class="row">
     <div class="col s8 offset-s2 file-field input-field" mg-file-upload="teamFoto"  ng-model="team_member.foto">
-      <img  width="100px" ng-src="{{team_member.foto.src}}" title="{{team_member.foto.title}}" id="{{team_member.foto.id}}"/>
-     <!--  <input class="file-path validate" type="text"/> -->
-      <div class="btn purple darken-4">
+      <img ng-src="{{team_member.foto.src}}" title="{{team_member.foto.title}}" id="{{team_member.foto.id}}"/>
+      <br>
+      <div class="btn purple darken-4 container-image-chosen">
         <span class="image-chosen">Вибрати фотографію</span>
         <input type="file" name="memberPhoto" class="js-progress-files">
       </div>
     </div>
     </div>
-
     <div class="row">
         <div class="switch col s8 offset-s2">
             <label>
@@ -107,13 +92,11 @@
             </label>
         </div>
     </div>
-
     <div class="row">
       <div class="col s8 offset-s2 signup-submit-input">
         <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="teamMemberForm.$invalid || team_member.foto.fresh != true">ДОДАТИ</button>
       </div>
     </div>
-
   </form>
 </div>
 

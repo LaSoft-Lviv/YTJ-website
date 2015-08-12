@@ -1,4 +1,4 @@
-<form ng-submit="updateTeamMember(team_member)">
+<!-- <form ng-submit="updateTeamMember(team_member)">
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Імя" name="name" ng-model="team_member.name" />
     </div>
@@ -35,4 +35,109 @@
     </div>
     <input type="submit" class="btn btn-default" value="оновити">
     <br/>
-</form>
+</form> -->
+
+<div class="row">
+  <form name="updateTeamMemberForm" novalidate class="col s12" ng-submit="updateTeamMember(team_member)">
+    <div class="row-fluid">
+      <div class="col s8 offset-s2 add-menu-headline">
+        <p class="flow-text">ФОРМА РЕДАГУВАННЯ ЧЛЕНА КОМАНДИ</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <input type="text" name="memberName" class="add-menu-input member-name" required ng-minlength="4" ng-maxlength="16" maxlength="100" ng-pattern="memberNamePattern" ng-model="team_member.name">
+        <p class="error" ng-show="updateTeamMemberForm.memberName.$invalid && updateTeamMemberForm.memberName.$dirty">
+          {{getErrorName(updateTeamMemberForm.memberName.$error)}}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <input type="text" name="memberSurname" class="add-menu-input member-surname" required ng-minlength="4" ng-maxlength="16" ng-pattern="memberNamePattern" maxlength="100" ng-model="team_member.surname">
+        <p class="error" ng-show="updateTeamMemberForm.memberSurname.$invalid && updateTeamMemberForm.memberSurname.$dirty">
+          {{getErrorName(updateTeamMemberForm.memberSurname.$error)}}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <textarea name="memberQuote" class="materialize-textarea" required ng-minlength="50" ng-maxlength="1000" ng-model="team_member.quote"></textarea>
+       <!--  <label for="memberQuote">Цитата ("Що для мене Молодь до Ісуса?")</label> -->
+        <p class="error" ng-show="updateTeamMemberForm.memberQuote.$invalid && teamMemberForm.memberQuote.$dirty">
+          {{getErrorQuote(updateTeamMemberForm.memberQuote.$error)}}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <input type="text" name="memberPhone" class="add-menu-input member-phone" required maxlength="100" ng-pattern="memberPhonePattern" ng-model="team_member.phone">
+      <!--   <label for="memberPhone">Номер телефону</label> -->
+        <p class="error" ng-show="updateTeamMemberForm.memberPhone.$invalid && updateTeamMemberForm.memberPhone.$dirty">
+          {{getErrorPhone(updateTeamMemberForm.memberPhone.$error)}}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <input type="email" name="memderEmail" class="add-menu-input member-email" required maxlength="100" ng-model="team_member.email">
+     <!--    <label for="memberEmail">EmailЕлектронна пошта</label> -->
+        <p class="error" ng-show="updateTeamMemberForm.memberEmail.$invalid && updateTeamMemberForm.memberEmail.$dirty">
+        {{getErrorEmail(updateTeamMemberForm.memberEmail.$error)}}
+        </p>
+      </div>
+    </div>
+     <div class="row">
+          <div class="input-field col s8 offset-s2">
+              <input type="text" name="memberPosition" class="add-menu-input member-position" required maxlength="100" ng-model="team_member.position">
+              <!-- <label for="memberPosition">Посада</label> -->
+          </div>
+      </div>
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <input type="text" name="memberFacebook" class="add-menu-input member-facebook" ng-pattern="memberFacebookPattern" maxlength="100" ng-model="team_member.facebook_link">
+        <!-- <label for="memberFacebook">Facebook link</label> -->
+        <p class="error" ng-show="updateTeamMemberForm.memberFacebook.$invalid && updateTeamMemberForm.memberFacebook.$dirty">
+          {{getErrorFacebook(updateTeamMemberForm.memberFacebook.$error)}}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="checkbox col s8 offset-s2">
+        <input type="checkbox" name="memberInitiative" id="signup-checkbox" ng-model="team_member.is_initiative">
+        <label for="signup-checkbox">Ініціативна група
+        <label>
+      </div>
+    </div>
+    <div class="row">
+    <div class="col s8 offset-s2 file-field input-field" mg-file-upload="teamFoto"  ng-model="team_member.foto">
+      <img  ng-if="team_member.foto.url" ng-src="{{team_member.foto.url}}">
+      <img  ng-else ng-src="{{team_member.foto.src}}" title="{{team_member.foto.title}}" id="{{team_member.foto.id}}"/>
+      <br>
+      <div class="btn purple darken-4 container-image-chosen">
+        <span class="image-chosen">Вибрати фотографію</span>
+        <input type="file" name="memberPhoto" class="js-progress-files">
+      </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="switch col s8 offset-s2">
+            <label>
+            Не підтверджую
+            <input type="checkbox" name="memberAgreed" id="member-checkbox" required ng-model="user.agreed">
+            <span class="lever"></span>
+            Підтверджую
+            </label>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col s8 offset-s2 signup-submit-input">
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="updateTeamMemberForm.$invalid || team_member.foto.fresh != true">ДОДАТИ</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+

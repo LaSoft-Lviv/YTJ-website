@@ -1,6 +1,6 @@
 angular.module('controllers')
-  .controller('HomeController', ['$scope', '$rootScope', '$location','DataService','SessionService','ProjectService', 'TeamService',
-                                function ($scope, $rootScope, $location, DataService, SessionService, ProjectService, TeamService, ScrollService) {
+  .controller('HomeController', ['$scope', '$rootScope', '$interval', '$location','DataService','SessionService','ProjectService', 'TeamService',
+                                function ($scope, $rootScope, $interval, $location, DataService, SessionService, ProjectService, TeamService, ScrollService) {
 
         $scope.signedIn = SessionService.isAuthenticated;
 
@@ -109,6 +109,8 @@ angular.module('controllers')
         nextActiveIndicator.addClass("active");
 
     };
+
+      /* $interval($scope.nextLink, 5000);*/
 
 
         });
