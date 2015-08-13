@@ -2,59 +2,59 @@
   <div class="container-fluid header-container">
     <div class="col-sm-5 header-left">
       <a href="#/">Youth To Jesus</a>
-      <p translate="ORGNAME"></p>
+    <p translate="ORGNAME"></p>
     </div>
     <div class="col-sm-2 main-logo-box">
       <img src="assets/logo2.jpg" class="main-logo">
     </div>
     <div class="col-sm-5 header-right">
       <ul>
-        <li><a class="gotoContact" ng-click="gotoElement('contact-link')" translate="CONTACT"></a></li>
-        <li data-toggle="modal" data-target="#myDonate" ><a translate="DONATE"></a></li>
-        <li><a href="#/signin">Sign In</a></li>
-        <li><a href="#" title="Search"><span class="glyphicon glyphicon-search"></span></a></li>
-      </ul>
-    </div>
-    <ul class="lang-after-collapse">
-      <li><a href="#">ua</a></li>
-      <li><a href="#">|</a></li>
-      <li><a href="#">en</a></li>
+      <li><a class="gotoContact" ng-click="gotoElement('contact-link')" translate="CONTACT"></a></li>
+      <li data-toggle="modal" data-target="#myDonate" ><a translate="DONATE"></a></li>
+      <li><a href="#/signin">Sign In</a></li>
+      <li><a href="#" title="Search"><span class="glyphicon glyphicon-search"></span></a></li>
     </ul>
   </div>
+  <ul class="lang-after-collapse">
+    <li><a href="#">ua</a></li>
+    <li><a href="#">|</a></li>
+    <li><a href="#">en</a></li>
+  </ul>
+</div>
 
-  <nav class="navbar navbar-inverse" role="navigation"  id="navbar-main" >
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" id="nav-button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <ul class="button-after-collapse">
-          <li><a href="#" title="Translate" class="navbar-button"><span class="glyphicon glyphicon-globe"></span></a></li>
-          <li><a href="#" title="Donate" class="navbar-button"><span class="glyphicon glyphicon-piggy-bank"></span></a></li>
-          <li><a href="#" title="Search" class="navbar-button"><span class="glyphicon glyphicon-search"></span></a></li>
-        </ul>
+<nav class="navbar navbar-inverse" role="navigation"  id="navbar-main" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" id="nav-button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <ul class="button-after-collapse">
+        <li><a href="#" title="Translate" class="navbar-button"><span class="glyphicon glyphicon-globe"></span></a></li>
+        <li><a href="#" title="Donate" class="navbar-button"><span class="glyphicon glyphicon-piggy-bank"></span></a></li>
+        <li><a href="#" title="Search" class="navbar-button"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
 
-      </div>
+    </div>
 
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav topnav navbar-left">
           <li>
-            <a ng-click="gotoElement('about-link')" class="active waves-effect" title="About" translate="ABOUT"></a>
-          </li>
-          <li>
-            <a ng-click="gotoElement('projects-link')" title="Projects" class="waves-effect" translate="PROJECTS"></a>
-          </li>
-          <li>
-            <a ng-click="gotoElement('team-link')"  class="waves-effect" translate="TEAM"></a>
-          </li>
-          <li>
-            <a ng-click="gotoElement('photo-link')" title="Photo" class="waves-effect" target="_self" translate="PHOTO"></a>
-          </li>
-          <li>
-            <a ng-click="gotoElement('video-link')" class="waves-effect" translate="VIDEO"></a>
+          <a ng-click="gotoElement('about-link')" class="active waves-effect" translate="ABOUT"></a>
+        </li>
+        <li>
+          <a ng-click="gotoElement('projects-link')" class="waves-effect" translate="PROJECTS"></a>
+        </li>
+        <li>
+          <a ng-click="gotoElement('team-link')"  class="waves-effect" translate="TEAM"></a>
+        </li>
+        <li>
+          <a ng-click="gotoElement('photo-link')"class="waves-effect" translate="PHOTO"></a>
+        </li>
+        <li>
+          <a ng-click="gotoElement('video-link')" class="waves-effect" translate="VIDEO"></a>
           </li>
         </ul>
 
@@ -62,7 +62,7 @@
 
 
           <li class="admingoMain" ng-show="signedIn()">
-            <a href="#/" class="waves-effect" translate="MAIN">Головна</a>
+        <a href="#/" class="waves-effect" translate="MAIN"></a>
           </li>
 
           <li role="presentation" class="dropdown newPageElement" ng-show="signedIn()">
@@ -70,9 +70,9 @@
               <span class="glyphicon glyphicon-plus"></span><span class="glyphicon glyphicon-menu-down"></span>
             </a>
             <ul class="dropdown-menu newPageElementDropdown">
-              <li><a href="#/slides/new" class="waves-effect">Новий слайд</a></li>
-              <li><a href="#/projects/new" class="waves-effect">Новий проект</a></li>
-              <li><a href="#/team/new" class="waves-effect">Новий член команди</a></li>
+      <li><a href="#/slides/new" class="waves-effect" translate="NEWSLIDE"></a></li>
+      <li><a href="#/projects/new" class="waves-effect" translate="NEWPROJECT"></a></li>
+      <li><a href="#/team/new" class="waves-effect" translate="NEWTEAMMEMBER"></a></li>
             </ul>
           </li>
 
@@ -81,12 +81,12 @@
               <span class="glyphicon glyphicon-wrench"></span><span class="glyphicon glyphicon-menu-down"></span>
             </a>
             <ul class="dropdown-menu newPageElementSettingsDropdown">
-              <li><a href="#/slides" class="waves-effect">Cлайди</a></li>
-              <li><a href="#/team" class="waves-effect">Команда</a></li>
-              <li><a href="#/projects" class="waves-effect">Проекти</a></li>
-              <li><a href="#/admin/profile/edit" class="waves-effect">Профіль</a></li>
+      <li><a href="#/slides" class="waves-effect" translate="SLIDES"></a></li>
+      <li><a href="#/team" class="waves-effect" translate="TEAM"></a></li>
+      <li><a href="#/projects" class="waves-effect" translate="PROJECTS"></a></li>
+      <li><a href="#/admin/profile/edit" class="waves-effect" translate="PROFILE"></a></li>
               <br>
-              <li><a href="#/" class="waves-effect" ng-click="submitLogout()">Вийти</a></li>
+      <li><a href="#/" class="waves-effect" ng-click="submitLogout()" translate="SIGNOUT"></a></li>
             </ul>
           </li>
 
@@ -96,18 +96,19 @@
           </li>
 
           <li>
-            <a title="UA" class="waves-effect" ng-click="changeLanguage('ua')">UA</a>
+          <a title="UA" class="waves-effect" ng-click="changeLanguage('ua')">UA</a>
           </li>
           <li>
-            <a title="ENG" class="waves-effect" ng-click="changeLanguage('en')">EN</a>
+          <a title="ENG" class="waves-effect" ng-click="changeLanguage('en')">EN</a>
           </li>
           <li id="nav-li-hide" class="waves-effect"><a href="#" title="Translate"><span class="glyphicon glyphicon-globe"></span></a></li>
         </ul>
 
-      </div>
     </div>
-  </nav>
-</div>
+  </div>
+</nav>
+  </div>
+<!--Finish header-->
 
 <!-- Donate -->
 <div class="modal fade" id="myDonate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -116,7 +117,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Закрити</span>
         </button>
-        <h4 class="modal-title" id="myModalLabel">ДОПОМОЖІТЬ НАМ</h4>
+        <h5 class="modal-title" id="myModalLabel">ДОПОМОЖІТЬ НАМ</h5>
       </div>
       <div class="modal-body">
         <p>Ми - неприбуткова організацією, яка існує за рахунок пожертв. <br> 

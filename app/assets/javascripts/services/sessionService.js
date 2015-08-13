@@ -12,7 +12,7 @@ angular.module('services')
                            localStorage.setItem('name', service.currentUser.name)
                         }
                       } else {
-                        Materialize.toast('Неправильні пошта або пароль!', 5000);
+                        Materialize.toast(response.errors, 5000);
                         }
                   }).error(function (error) {
                       return error;

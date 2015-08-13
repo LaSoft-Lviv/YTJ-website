@@ -26,28 +26,27 @@ angular.module('controllers')
                     }  else {
                          if (data.data.errors) {
                             for (error in data.data.errors) {
-
                                 switch(error) {
                                     case 'email':
-                                    Materialize.toast('Перевірте, будь-ласка, пошту!', 7000);
+                                    Materialize.toast(data.data.errors.email[0], 7000);
                                     break;
                                     case 'name':
-                                    Materialize.toast("Перевірте, будь-ласка, ім'я!", 7000);
+                                    Materialize.toast(data.data.errors.name[0], 7000);
                                     break;
                                     case 'surname':
-                                    Materialize.toast("Перевірте, будь-ласка, прізвище!", 7000);
+                                    Materialize.toast(data.data.errors.surname[0], 7000);
                                     break;
                                     case 'quote':
-                                    Materialize.toast("Перевірте, будь-ласка, цитату!", 7000);
+                                    Materialize.toast(data.data.errors.quote[0], 7000);
                                     break;
                                     case 'phone':
-                                    Materialize.toast("Перевірте, будь-ласка, номер телефону!", 7000);
+                                    Materialize.toast(data.data.errors.phone[0], 7000);
                                     break;
                                     case 'facebook_link':
-                                    Materialize.toast("Перевірте, будь-ласка, facebook-посилання!", 7000);
+                                    Materialize.toast(data.data.errors.facebook_link[0], 7000);
                                     break;
                                     case 'foto':
-                                    Materialize.toast("Перевірте, будь-ласка, фотографію!", 7000);
+                                    Materialize.toast(data.data.errors.foto[0], 7000);
                                     break;
                                 }
                             }

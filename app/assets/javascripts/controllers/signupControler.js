@@ -2,8 +2,7 @@ angular.module('controllers')
     .controller('SignupController', ['$scope', '$rootScope', '$location','UserService', 'ngDialog', '$timeout', function ($scope, $rootScope, $location, UserService, ngDialog, $timeout) {
         $scope.registerUser = function(user) {
             UserService.register(user).then(function (response) {
-                //debugger;
-                console.log(response);
+                
                 $scope.data = response;
                 $scope.errors = response.data.errors;
                     if ($scope.data.data.user) {

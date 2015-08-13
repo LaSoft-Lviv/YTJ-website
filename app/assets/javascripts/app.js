@@ -12,6 +12,7 @@ var app = angular.module('ytj', [
     'ngDialog'
 
 ]);
+
 var roles = {
     superUser: 0,
     admin: 1,
@@ -20,7 +21,7 @@ var roles = {
 
 var routeForUnauthorizedAccess = '/#';
 
- app.config(['ngDialogProvider', function (ngDialogProvider) {
+app.config(['ngDialogProvider', function (ngDialogProvider) {
             ngDialogProvider.setDefaults({
                 className: 'ngdialog-theme-default',
                 plain: false,
@@ -32,7 +33,7 @@ var routeForUnauthorizedAccess = '/#';
                     console.log('default pre-close callback');
                 }
             });
-        }]);
+}]);
 
 app.config(['$httpProvider', function($httpProvider){
     var interceptor = ['$q', '$location', '$rootScope', function($q, $location, $rootScope) {
@@ -201,7 +202,8 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider, $lo
                 }
             }
         })
-        .otherwise({ redirectTo: '/' });
+        .otherwise({ redirectTo: '/' 
+    });
 }]);
 
 angular.module('directives',[]);
