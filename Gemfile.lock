@@ -43,6 +43,8 @@ GEM
       railties (>= 3.1)
       sprockets (~> 2)
       tilt
+    angular-translate-rails (2.6.0)
+      railties (>= 3.1)
     angular_rails_csrf (1.0.4)
       rails (>= 3, < 5)
     angularjs-file-upload-rails (1.1.6)
@@ -236,8 +238,24 @@ GEM
       railties (= 4.2.1)
       sprockets-rails
     rails-assets-angular (1.4.3)
+    rails-assets-angular-cache (4.3.2)
+      rails-assets-angular (>= 1)
+    rails-assets-angular-cookies (1.4.3)
+      rails-assets-angular (= 1.4.3)
     rails-assets-angular-route (1.4.3)
       rails-assets-angular (= 1.4.3)
+    rails-assets-angular-sanitize (1.4.3)
+      rails-assets-angular (= 1.4.3)
+    rails-assets-angular-translate (2.7.2)
+      rails-assets-angular (>= 1.2.26, <= 1.5)
+    rails-assets-angular-translate-loader-static-files (2.7.2)
+      rails-assets-angular-translate (~> 2.7.2)
+    rails-assets-angular-translate-storage-cookie (2.7.2)
+      rails-assets-angular-cookies (>= 1.2.26, <= 1.5)
+      rails-assets-angular-translate (~> 2.7.2)
+    rails-assets-angular-translate-storage-local (2.7.2)
+      rails-assets-angular-translate (~> 2.7.2)
+      rails-assets-angular-translate-storage-cookie (~> 2.7.2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.6)
@@ -324,6 +342,7 @@ PLATFORMS
 
 DEPENDENCIES
   angular-rails-templates
+  angular-translate-rails!
   angular_rails_csrf
   angularjs-file-upload-rails (~> 1.1.6)
   angularjs-rails
@@ -342,7 +361,13 @@ DEPENDENCIES
   pry
   rails (= 4.2.1)
   rails-assets-angular!
+  rails-assets-angular-cache!
+  rails-assets-angular-cookies!
   rails-assets-angular-route!
+  rails-assets-angular-sanitize!
+  rails-assets-angular-translate-loader-static-files!
+  rails-assets-angular-translate-storage-cookie!
+  rails-assets-angular-translate-storage-local!
   rails_12factor
   responders
   rspec-rails
