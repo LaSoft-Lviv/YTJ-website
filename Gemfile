@@ -23,6 +23,7 @@ gem 'angularjs-rails'
 source 'https://rails-assets.org' do
 	gem 'rails-assets-angular'
   gem 'rails-assets-angular-route'
+  gem 'rails-assets-ngstorage'
   gem 'rails-assets-angular-cache'
   gem 'rails-assets-angular-cookies'
   gem 'rails-assets-angular-sanitize'

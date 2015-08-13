@@ -75,7 +75,6 @@ angular.module('services')
 
                 var deferred = $q.defer(),
                     url = editSlidesUrl(params);
-                console.log(url)
                 $http.get(url, {headers: { 'Accept': 'application/json', 'Content-Type': 'application/json',
                     'Authorization':'Token token='+localStorage.getItem('auth_token')}
                 })
