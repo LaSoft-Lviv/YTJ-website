@@ -81,9 +81,12 @@ angular.module('controllers')
           var collectFormData = function() {
             var form = new FormData();
 
-            form.append('name', $scope.project.name);
-            form.append('description', $scope.project.description);
-            form.append('facebook_link', $scope.project.facebook_link);
+            if( $scope.project.name)
+                form.append('name', $scope.project.name);
+            if( $scope.project.description)
+                form.append('description', $scope.project.description);
+            if( $scope.project.description)
+                form.append('facebook_link', $scope.project.facebook_link);
 
             if($scope.project.team && $scope.project.team_member_prev_id && $scope.project.team_member_prev_id != $scope.project.team)
              {

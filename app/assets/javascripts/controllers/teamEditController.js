@@ -62,14 +62,21 @@ angular.module('controllers')
             var collectFormData = function () {
                 var form = new FormData();
                 form.append('id', $scope.team_member.id);
-                form.append('name', $scope.team_member.name);
-                form.append('surname', $scope.team_member.surname);
-                form.append('quote', $scope.team_member.quote);
-                form.append('email', $scope.team_member.email);
-                form.append('phone', $scope.team_member.phone);
-                form.append('position', $scope.team_member.position);
+                if ($scope.team_member.name)
+                    form.append('name', $scope.team_member.name);
+                if($scope.team_member.surname)
+                    form.append('surname', $scope.team_member.surname);
+                if($scope.team_member.quote)
+                    form.append('quote', $scope.team_member.quote);
+                if($scope.team_member.email)
+                    form.append('email', $scope.team_member.email);
+                if($scope.team_member.phone)
+                    form.append('phone', $scope.team_member.phone);
+                if($scope.team_member.position)
+                    form.append('position', $scope.team_member.position);
                 form.append('is_initiative', $scope.team_member.is_initiative);
-                form.append('facebook_link', $scope.team_member.facebook_link);
+                if($scope.team_member.facebook_link)
+                    form.append('facebook_link', $scope.team_member.facebook_link);
                 // gather images and files
                 if ($scope.team_member.foto.fresh) {
                     form.append('foto', $scope.team_member.foto.file);
