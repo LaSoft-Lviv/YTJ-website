@@ -256,6 +256,8 @@ GEM
     rails-assets-angular-translate-storage-local (2.7.2)
       rails-assets-angular-translate (~> 2.7.2)
       rails-assets-angular-translate-storage-cookie (~> 2.7.2)
+    rails-assets-ngstorage (0.3.6)
+      rails-assets-angular (>= 1.0.8)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.6)
@@ -368,6 +370,7 @@ DEPENDENCIES
   rails-assets-angular-translate-loader-static-files!
   rails-assets-angular-translate-storage-cookie!
   rails-assets-angular-translate-storage-local!
+  rails-assets-ngstorage!
   rails_12factor
   responders
   rspec-rails

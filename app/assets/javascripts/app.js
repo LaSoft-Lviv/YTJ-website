@@ -4,6 +4,8 @@ var app = angular.module('ytj', [
     'angularFileUpload',
     'ngResource',
     'ngRoute',
+    'ngCookies',
+    'ngStorage',
     'pascalprecht.translate',
     'directives',
     'templates',

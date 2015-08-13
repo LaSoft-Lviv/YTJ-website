@@ -22,8 +22,6 @@ angular.module("ytj")
                         imageClass = 'image-hidden';
                         indicatorClass = '';
                    }
-                   
-                    console.log(slides[i].image.url);
                     slidesContainer.append(angular.element('<img class="'+imageClass+'">').attr("src", slides[i].image.url).addClass("img-responsive-main"));
                     slidesIndicators.append(angular.element('<li class="'+indicatorClass+'">'));
                 };
