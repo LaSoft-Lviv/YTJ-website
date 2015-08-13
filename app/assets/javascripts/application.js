@@ -21,6 +21,11 @@
 // require ngstorage
 // require ng-file-upload
 //= require angular-rails-templates
+//= require angular-translate
+//= require angular-cookies
+//= require angular-translate-loader-static-files
+//= require angular-translate-storage-cookie
+//= require angular-translate-storage-local
 //= require ngDialog.min
 
 

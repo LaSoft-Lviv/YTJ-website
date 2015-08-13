@@ -4,6 +4,7 @@ var app = angular.module('ytj', [
     'angularFileUpload',
     'ngResource',
     'ngRoute',
+    'pascalprecht.translate',
     'directives',
     'templates',
     'controllers',
@@ -16,6 +17,7 @@ var roles = {
     admin: 1,
     user: 2
 };
+
 var routeForUnauthorizedAccess = '/#';
 
  app.config(['ngDialogProvider', function (ngDialogProvider) {
@@ -67,7 +69,16 @@ app.config(['$httpProvider', function($httpProvider){
     $httpProvider.interceptors.push(interceptor);
 }]);
 
+app.config(function($translateProvider) {
+    $translateProvider.useSanitizeValueStrategy('escape');
+    $translateProvider.preferredLanguage('en');
+    $translateProvider.fallbackLanguage('en');
 
+    $translateProvider.useStaticFilesLoader({
+        prefix: '/locales/',
+        suffix: '.json'
+    });
+});
 
 app.config(['$routeProvider','$locationProvider',  function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -192,6 +203,7 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider, $lo
         })
         .otherwise({ redirectTo: '/' });
 }]);
+
 angular.module('directives',[]);
 angular.module('controllers', []);
 angular.module('services', []);
