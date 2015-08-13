@@ -60,7 +60,7 @@ ua:
           blank: "%{attribute} не може бути незаповненe"
           :too_short: "Будь ласка введіть більше  3 літер"
           :too_long: "Будь ласка введіть менше 16 літер"
-          :invalid: "Формат facebook посилання є некоректним"
+          :invalid: "Формат %{attribute} є некоректним"
           attributes:
             phone:
               :invalid:  "Формат  телефону є некоректним"

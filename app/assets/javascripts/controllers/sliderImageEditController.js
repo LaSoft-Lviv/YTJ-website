@@ -49,7 +49,7 @@ angular.module('controllers')
 
             var collectFormData = function() {
                 var form = new FormData();
-
+                if($scope.slide.description)
                 form.append('description', $scope.slide.description);
                 if ($scope.slide.image.fresh) {
                     form.append('image', $scope.slide.image.file);
