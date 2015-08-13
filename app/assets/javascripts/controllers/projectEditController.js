@@ -27,15 +27,34 @@ angular.module('controllers')
         $scope.updateProject = function() {
           var form = collectFormData();
             ProjectService.update(form, params).then(function(data) {
+              //debugger;
               if (data.success) {
-                  $location.path('/projects')
+                  $location.path('/projects');
+                  Materialize.toast('Проект успішно оновлено!', 3000);
               } else {
-                  if (data.errors)
-                      for (error  in data.errors)
-                          alert(error + " " + data.errors[error])
-                  else
-                      alert(data.statusText)
-                  $scope.errors = data.errors;
+                  if (data.errors) {
+                    console.info(data.errors);
+                      for (error in data.errors) {
+                        console.info(error);
+                            switch(error) {
+                                    case 'name':
+                                    Materialize.toast(data.errors[error][0], 7000);
+                                    break;
+                                    case 'description':
+                                    Materialize.toast(data.errors[error][0], 7000);
+                                    break;
+                                    case 'facebook_link':
+                                    Materialize.toast(data.errors[error][0], 7000);
+                                    break;
+                                    case 'image':
+                                    Materialize.toast(data.errors[error][0], 7000);
+                                    break;
+                              }
+                        }
+                  } else {
+                        alert(data.statusText);
+                        $scope.errors = data.errors;
+                    }
               }
           });
          };

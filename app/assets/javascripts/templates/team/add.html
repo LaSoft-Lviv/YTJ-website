@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="memberName" class="add-menu-input member-name" required ng-minlength="4" ng-maxlength="16" maxlength="100" ng-pattern="memberNamePattern" ng-model="team_member.name">
+        <input type="text" name="memberName" class="add-menu-input member-name" ng-minlength="4" ng-maxlength="16" maxlength="100" ng-pattern="memberNamePattern" reqiired ng-model="team_member.name">
         <label for="memberName">І'мя</label>
         <p class="error" ng-show="teamMemberForm.memberName.$invalid && teamMemberForm.memberName.$dirty">
           {{getErrorName(teamMemberForm.memberName.$error)}}
@@ -16,7 +16,7 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="memberSurname" class="add-menu-input member-surname" required ng-minlength="4" ng-maxlength="16" ng-pattern="memberNamePattern" maxlength="100" ng-model="team_member.surname">
+        <input type="text" name="memberSurname" class="add-menu-input member-surname" ng-minlength="4" ng-maxlength="16" ng-pattern="memberNamePattern" maxlength="100" reqiired ng-model="team_member.surname">
         <label for="memberSurname">Прізвище</label>
         <p class="error" ng-show="teamMemberForm.memberSurname.$invalid && teamMemberForm.memberSurname.$dirty">
           {{getErrorName(teamMemberForm.memberSurname.$error)}}
@@ -25,7 +25,7 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <textarea name="memberQuote" class="materialize-textarea" required ng-minlength="50" ng-maxlength="1000" ng-model="team_member.quote"></textarea>
+        <textarea name="memberQuote" class="materialize-textarea" ng-minlength="50" ng-maxlength="1000" reqiired ng-model="team_member.quote"></textarea>
         <label for="memberQuote">Цитата ("Що для мене Молодь до Ісуса?")</label>
         <p class="error" ng-show="teamMemberForm.memberQuote.$invalid && teamMemberForm.memberQuote.$dirty">
           {{getErrorQuote(teamMemberForm.memberQuote.$error)}}
@@ -34,7 +34,7 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="memberPhone" class="add-menu-input member-phone" required maxlength="100" ng-pattern="memberPhonePattern" ng-model="team_member.phone">
+        <input type="text" name="memberPhone" class="add-menu-input member-phone" maxlength="100" ng-pattern="memberPhonePattern" ng-model="team_member.phone">
         <label for="memberPhone">Номер телефону</label>
         <p class="error" ng-show="teamMemberForm.memberPhone.$invalid && teamMemberForm.memberPhone.$dirty">
           {{getErrorPhone(teamMemberForm.memberPhone.$error)}}
@@ -43,7 +43,7 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="email" name="memderEmail" class="add-menu-input member-email" required maxlength="100" ng-model="team_member.email">
+        <input type="text" name="memderEmail" class="add-menu-input member-email" maxlength="100" reqiired ng-model="team_member.email">
         <label for="memberEmail"><!-- Email -->Електронна пошта</label>
         <p class="error" ng-show="teamMemberForm.memberEmail.$invalid && teamMemberForm.memberEmail.$dirty">
         {{getErrorEmail(teamMemberForm.memberEmail.$error)}}
@@ -52,7 +52,7 @@
     </div>
      <div class="row">
           <div class="input-field col s8 offset-s2">
-              <input type="text" name="memberPosition" class="add-menu-input member-position" required maxlength="100" ng-model="team_member.position">
+              <input type="text" name="memberPosition" class="add-menu-input member-position" maxlength="100" ng-model="team_member.position">
               <label for="memberPosition">Посада</label>
           </div>
       </div>
