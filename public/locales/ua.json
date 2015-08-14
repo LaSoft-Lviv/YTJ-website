@@ -30,6 +30,7 @@
         "ADDMESSAGE": "Успішно додано",
         "DELETEMESSAGE": "Успішно видалено",
         "UPDATEMESSAGE": "Успішно оновлено",
+        "SENDMESSAGE": "Успішно нідіслано",
 
         "MESSAGENAME": "Ваше ім'я",
         "MESSAGEEMAIL": "Ваша пошту",

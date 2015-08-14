@@ -30,6 +30,7 @@
         "ADDMESSAGE": "Add successfully",
         "DELETEMESSAGE": "Delete successfully",
         "UPDATEMESSAGE": "Update successfully",
+        "SENDMESSAGE": "Send successfully",
 
         "MESSAGENAME": "Your name",
         "MESSAGEEMAIL": "Your email",
