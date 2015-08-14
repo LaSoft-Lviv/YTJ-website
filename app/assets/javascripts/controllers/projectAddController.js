@@ -1,6 +1,6 @@
 angular.module('controllers')
-    .controller('ProjectAddController', ['$scope','$location','$http','$route','$routeParams','ProjectService',
-                                        function ($scope,  $location, $http, $route, $routeParams, ProjectService) {
+    .controller('ProjectAddController', ['$scope', '$rootScope', '$translate', '$location','$http','$route','$routeParams','ProjectService',
+                                        function ($scope, $rootScope, $translate, $location, $http, $route, $routeParams, ProjectService) {
 
         $scope.titleProject="Проекти";
         $scope.project = {
@@ -12,6 +12,16 @@ angular.module('controllers')
         };
         var params = $route.current.params;
 
+        $translate('ADDMESSAGE').then(function (succesMessage) {
+            $scope.succesMessage = succesMessage;
+        });
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $translate('ADDMESSAGE').then(function (succesMessage) {
+            $scope.succesMessage = succesMessage;
+            });
+        });
+
         ProjectService.getAllTeamMembers().then(function (data) {
             $scope.team = data.data.team;
         });
@@ -21,7 +31,7 @@ angular.module('controllers')
             ProjectService.addProject(form).then(function (data) {
                 if (data.data.success) {
                     $location.path('/projects');
-                    Materialize.toast('Проект успішно додано!', 3000);
+                    Materialize.toast($scope.succesMessage, 3000);
                 } else {
                     if (data.data.errors) {
                         for (var error in data.data.errors) {
@@ -63,6 +73,7 @@ angular.module('controllers')
         var collectFormData = function() {
             var form = new FormData();
 
+            form.append('locale', $rootScope.currentLang);
             form.append('name', $scope.project.name);
             form.append('description', $scope.project.description);
             form.append('team_member_id', $scope.project.team);
@@ -89,18 +100,6 @@ angular.module('controllers')
                     } else if (error.maxlength) {
                         return "Назва повинно містити не більше 50 символів";
                       }
-            }
-        }
-
-        $scope.getErrorDescription = function (error) {
-            if (angular.isDefined(error)) {
-                if (error.required) {
-                  return "Поле не повинно бути пустим";
-                } else if (error.minlength) {
-                      return "Опис повинен містити не менше 50 символів";
-                  } else if (error.maxlength) {
-                        return "Опис повинен містити не більше 1000 символів";
-                    }
             }
         }
 

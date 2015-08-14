@@ -43,8 +43,8 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="memderEmail" class="add-menu-input member-email" maxlength="100" reqiired ng-model="team_member.email">
-        <label for="memberEmail"><!-- Email -->Електронна пошта</label>
+        <input type="email" name="memderEmail" class="add-menu-input member-email" maxlength="100" required ng-model="team_member.email">
+        <label for="memberEmail">Електронна пошта</label>
         <p class="error" ng-show="teamMemberForm.memberEmail.$invalid && teamMemberForm.memberEmail.$dirty">
         {{getErrorEmail(teamMemberForm.memberEmail.$error)}}
         </p>
@@ -92,9 +92,14 @@
             </label>
         </div>
     </div>
-    <div class="row">
+  <!--   <div class="row">
       <div class="col s8 offset-s2 signup-submit-input">
         <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="teamMemberForm.$invalid || team_member.foto.fresh != true">ДОДАТИ</button>
+      </div>
+    </div> -->
+      <div class="row">
+      <div class="col s8 offset-s2 signup-submit-input">
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" >ДОДАТИ</button>
       </div>
     </div>
   </form>

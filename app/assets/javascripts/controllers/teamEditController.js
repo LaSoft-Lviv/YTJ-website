@@ -1,13 +1,12 @@
 angular.module('controllers')
-    .controller('TeamEditController', ['$scope','$location','$http','$route','$routeParams','TeamService',
-        function ($scope,  $location, $http, $route, $routeParams, TeamService) {
+    .controller('TeamEditController', ['$scope', '$rootScope','$location', '$translate','$http','$route','$routeParams','TeamService',
+        function ($scope, $rootScope, $location, $translate, $http, $route, $routeParams, TeamService) {
 
             $scope.titleTeam = "Проекти";
             $scope.team_member = {};
             var params = $route.current.params;
 
             TeamService.edit(params).then(function(data) {
-                console.log(data.foto);
                 $scope.team_member.name = data.name;
                 $scope.team_member.surname = data.surname;
                 $scope.team_member.email = data.email;
@@ -19,21 +18,53 @@ angular.module('controllers')
                 $scope.team_member.is_initiative = data.is_initiative;
 
             });
+
+            $translate('UPDATEMESSAGE').then(function (succesMessage) {
+                $scope.succesMessage = succesMessage;
+            });
+
+            $rootScope.$on('$translateChangeSuccess', function () {
+                $translate('UPDATEMESSAGE').then(function (succesMessage) {
+                $scope.succesMessage = succesMessage;
+                });
+            });
+
             $scope.updateTeamMember = function(team_member) {
                 var form = collectFormData();
-                TeamService.update(form,params).then(function (response) {
-                  if (response.team_member) {
-
-                        $location.path('/team')
+                TeamService.update(form, params).then(function (response) {
+                    if (response.team_member) {
+                        $location.path('/team');
+                        Materialize.toast($scope.succesMessage, 3000);
+                    } else {
+                        if (response.errors) {
+                            console.info(response.errors);
+                            for (error in response.errors) {
+                                switch(error) {
+                                    case 'email':
+                                    Materialize.toast(response.errors.email[0], 7000);
+                                    break;
+                                    case 'name':
+                                    Materialize.toast(response.errors.name[0], 7000);
+                                    break;
+                                    case 'surname':
+                                    Materialize.toast(response.errors.surname[0], 7000);
+                                    break;
+                                    case 'quote':
+                                    Materialize.toast(response.errors.quote[0], 7000);
+                                    break;
+                                    case 'phone':
+                                    Materialize.toast(response.errors.phone[0], 7000);
+                                    break;
+                                    case 'facebook_link':
+                                    Materialize.toast(response.errors.facebook_link[0], 7000);
+                                    break;
+                                    case 'foto':
+                                    Materialize.toast(response.errors.foto[0], 7000);
+                                    break;
+                                }
+                            }
+                        } else {alert(response.statusText)};
                     }
-                    else {
-                        if (response.errors)
-                            for (error  in response.errors)
-                                alert(error + " " + response.errors[error])
-                        else
-                            alert(response.statusText)
-                    }
-
                 })
             };
 
@@ -61,6 +92,7 @@ angular.module('controllers')
 
             var collectFormData = function () {
                 var form = new FormData();
+                form.append('locale', $rootScope.currentLang);
                 form.append('id', $scope.team_member.id);
                 if ($scope.team_member.name)
                     form.append('name', $scope.team_member.name);

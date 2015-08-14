@@ -1,11 +1,39 @@
 {
-"ABOUT": "ABOUT",
-"PROJECTS": "PROJECTS",
-"TEAM": "TEAM",
-"PHOTO": "PHOTO",
-"VIDEO": "VIDEO",
-"CONTACT": "Contact",
-"DONATE": "Donate",
-"ORGNAME": "Non-governmental organization",
-"MAIN": "Main"
+        "ABOUT": "ABOUT",
+        "PROJECTS": "PROJECTS",
+        "PILIGRIMS": "PILIGRIMS",
+        "TEAM": "TEAM",
+        "PHOTO": "PHOTO",
+        "VIDEO": "VIDEO",
+
+        "CONTACT": "Contact",
+        "CONTACTUPPER": "CONTACT",
+        "DONATE": "Donate",
+        "DONATEUPPER": "DONATE",
+
+        "NAVIGATION": "NAVIGATION",
+        "FOLLOW US": "FOLLOW US",
+        "CONTACTS": "CONTACTS",
+
+        "ORGNAME": "Non-governmental organization",
+
+        "MAIN": "Home",
+        "NEWTEAMMEMBER": "New team member",
+        "NEWPROJECT": "New project",
+        "NEWSLIDE": "New slide",
+        "SLIDES": "Slides",
+        "TEAM": "Team",
+        "PROJECTS": "Projects",
+        "PROFILE": "Profile",
+        "SIGNOUT": "Sign Out",
+
+        "ADDMESSAGE": "Add successfully",
+        "DELETEMESSAGE": "Delete successfully",
+        "UPDATEMESSAGE": "Update successfully",
+
+        "MESSAGENAME": "Your name",
+        "MESSAGEEMAIL": "Your email",
+        "MESSAGETHEME": "Messaga theme",
+        "MESSAGETEXT": "Message text",
+        "MESSAGESEND": "SEND"
 }
