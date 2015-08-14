@@ -7,56 +7,59 @@
     </div>
       <div class="row">
           <div class="input-field col s8 offset-s2">
-              <input type="email" name="userEmail" class="profile-input profile-email" required ng-model="user.name">
-              <label for="email"><!-- Email -->Електронна пошта</label>
-              <p class="error" ng-show="profileForm.userEmail.$invalid && profileForm.userEmail.$dirty">
-                  {{getErrorEmail(signinForm.userEmail.$error)}}
+              <input type="text" name="userName" class="profile-input profile-name" minlength="3" required ng-model="user.name">
+              <p class="error" ng-show="profileForm.userName.$invalid && profileForm.userName.$dirty">
+                  {{getErrorName(profileForm.userName.$error)}}
               </p>
           </div>
       </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
         <input type="email" name="userEmail" class="profile-input profile-email" required ng-model="user.email">
-        <label for="email"><!-- Email -->Електронна пошта</label>
         <p class="error" ng-show="profileForm.userEmail.$invalid && profileForm.userEmail.$dirty">
-        {{getErrorEmail(signinForm.userEmail.$error)}}
+        {{getErrorEmail(profileForm.userEmail.$error)}}
         </p>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="password" name="userPassword" class="profile-input profile-password" required minlength="4" ng-model="user.password">
-        <label for="password"><!-- Password -->Пароль</label>
+        <input type="password" name="userPassword" class="profile-input profile-password" minlength="4" ng-model="user.password">
+        <label for="userPassword">Пароль
+        </label>
         <p class="error" ng-show="profileForm.userPassword.$invalid && profileForm.userPassword.$dirty">
-        {{getErrorPassword(signinForm.userPassword.$error)}}
+        {{getErrorPassword(profileForm.userPassword.$error)}}
         </p>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="password" name="userPasswordConfirm" class="profile-input profile-password-confirm" required ng-model="user.password_confirmation">
-        <label for="password"><!-- Password confirmation -->Підтвердити пароль</label>
+        <input type="password" name="userPasswordConfirm" class="profile-input profile-password-confirm" ng-model="user.password_confirmation">
+        <label for="userPasswordConfirm">Підтрердження паролю
+        </label>
         <p class="error" ng-show="user.password !=  user.password_confirmation">
         {{getErrorConfirm()}}
         </p>
       </div>
     </div>
     <div class="row">
-      <div class="checkbox col s8 offset-s2">
-        <input type="checkbox" name="userAgreed" id="signup-checkbox" required ng-model="user.agreed">
-        <label for="signup-checkbox">Я підтверджую введені дані
-        <label>
-      </div>
+        <div class="switch col s8 offset-s2">
+            <label>
+            Не підтверджую
+            <input type="checkbox" name="memberAgreed" id="member-checkbox" required ng-model="user.agreed">
+            <span class="lever"></span>
+            Підтверджую
+            </label>
+        </div>
     </div>
-    <div class="row">
+  <!--   <div class="row">
       <div class="col s8 offset-s2 signup-submit-input">
-        <button type="submit" class="btn btn-default waves-effect purple darken-4 signin-submit-input" ng-disabled="signinForm.$invalid"><!-- UPDATE -->ОНОВИТИ</button>
-      </div>
-    </div> 
-   <!--  <div class="row">
-      <div class="col s8 offset-s2 signup-submit-input">
-        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="contactForm.$invalid || user.password !=  user.password_confirmation">ОНОВИТИ</button>
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="profileForm.$invalid || user.password !=  user.password_confirmation">ОНОВИТИ</button>
       </div>
     </div>  -->
+      <div class="row">
+      <div class="col s8 offset-s2 signup-submit-input">
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input">ОНОВИТИ</button>
+      </div>
+    </div> 
   </form>
 </div>

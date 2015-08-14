@@ -1,32 +1,32 @@
 <div class="container-fluid container-footer">
   <div class="col-sm-4 footer-left">
-    <p class="footer-headline"><span class="glyphicon glyphicon-link"></span>НАВІГАЦІЯ</p>
+    <p class="footer-headline" translate="NAVIGATION"><span class="glyphicon glyphicon-link"></span>НАВІГАЦІЯ</p>
     <ul class="footer-navigate">
       <li>
-        <a ng-click="gotoElement('about-link')" title="About">ПРО НАС</a>
+        <a ng-click="gotoElement('about-link')" translate="ABOUT"></a>
       </li>
       <li>
-        <a ng-click="gotoElement('')" title="Piligrims">ПІЛІГРИМИ</a>
+        <a ng-click="gotoElement('')" translate="PROJECTS"></a>
       </li>
       <li>
-        <a ng-click="gotoElement('projects-link')" title="Projects">ПРОЕКТИ</a>
+        <a ng-click="gotoElement('projects-link')" translate="PROJECTS"></a>
       </li>
       <li>
-        <a ng-click="gotoElement('team-link')" title="Team">КОМАНДА</a>
+        <a ng-click="gotoElement('team-link')" translate="TEAM"></a>
       </li>
       <li>
-        <a ng-click="gotoElement('video-link')" title="Video">ВІДЕО</a>
+        <a ng-click="gotoElement('video-link')" translate="PHOTO"></a>
       </li>
       <li>
-        <a ng-click="gotoElement('photo-link')" title="Photo">ФОТО</a>
+        <a ng-click="gotoElement('photo-link')"  translate="VIDEO"></a>
       </li>
-      <li>
-        <a title="Help">ДОПОМОГТИ</a>
+      <li data-target="#myDonate" >
+        <a translate="DONATEUPPER"></a>
       </li>
     </ul>
   </div>
   <div class="col-sm-4 footer-left">
-    <p class="footer-headline"><span class="glyphicon glyphicon-send"></span>СЛІДКУЙТЕ</p>
+    <p class="footer-headline" translate="FOLLOW US"><span class="glyphicon glyphicon-send"></span>СЛІДКУЙТЕ</p>
     <ul class="footer-navigate">
       <li>
         <a href="https://www.facebook.com/pages/Pilgrims/158084905445?fref=ts" target="_blank">FACEBOOK</a>
@@ -40,7 +40,7 @@
     </ul>
   </div>
   <div class="col-sm-4 footer-left">
-    <p class="footer-headline"><span class="glyphicon glyphicon-map-marker"></span>КОНТАКТИ</p>
+    <p class="footer-headline" translate="CONTACTS"><span class="glyphicon glyphicon-map-marker"></span>КОНТАКТИ</p>
     <ul class="footer-navigate">
       <li>
         <p>КВАРТИРА 17,<br>
@@ -49,10 +49,10 @@
           79000</p>
       </li>
       <li>
-        <p>youthtojesus@gmail.com</p>
+        <p>ytjcontact@gmail.com</p>
       </li>
       <li>
-        <p>+38(97)248-69-87</p>
+        <p>+38(063)746-31-86</p>
       </li>
     </ul>
   </div>
@@ -60,3 +60,31 @@
     <p>© 2015. Youth To Jesus. Всі права застережено | Розробка та дизайн: LaSoft</p>
   </div>
 </div>
+
+<!-- Donate -->
+<div class="modal fade" id="myDonate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Закрити</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">ДОПОМОЖІТЬ НАМ</h4>
+      </div>
+      <div class="modal-body">
+        <p>Ми - неприбуткова організацією, яка існує за рахунок пожертв. <br> 
+        У зв'язку з цим потребуємо вашої фінансової підтримки. <br>
+        </p> 
+      </div>
+      <div class="modal-body">
+        <p>Номери карток для перерахунку допомоги: <br> 
+        5457-0822-3348-8182<br>
+        4188-3700-2060-8636
+        </p> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Finish Donate -->

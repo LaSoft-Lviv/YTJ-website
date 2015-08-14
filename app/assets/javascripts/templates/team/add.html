@@ -1,49 +1,13 @@
-<!-- <form ng-submit="addTeamMember()">
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="Імя" name="name" ng-model="team_member.name" />
-    </div>
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="Прізвище" name="surname" ng-model="team_member.surname" />
-    </div>
-    <div class="input-group">
-        <textarea class="form-control" placeholder="Цитата" name="quote" ng-model="team_member.quote" />
-    </div>
-    <br>
-    <div class="input-group">
-         <input type="text" class="form-control" placeholder="Телефон" name="phone" ng-model="team_member.phone" />
-    </div>
-    <div class="input-group">
-          <input type="email" placeholder="email" name="email" ng-model="team_member.email" />
-    </div>
-    <br>
-    <div class="input-group">
-
-        <input type="text" placeholder="facebook link" name="facebook_link" ng-model="team_member.facebook_link" />
-    </div>
-    <br>
-    <input type="checkbox" id="initiative"  ng-model="team_member.is_initiative" />
-    <label for="initiative">Ініціативна група</label></p>
-
-    <div mg-file-upload="teamFoto"  ng-model="team_member.foto">
-        <div class="drop-area">
-            <input type="file" class="js-progress-files" />
-            <img  width="100px" ng-src="{{team_member.foto.src}}" title="{{team_member.foto.title}}" id="{{team_member.foto.id}}"/>
-        </div>
-    </div>
-    <input type="submit" class="btn btn-default" value="додати">
-    <br/>
-</form> -->
-
-<div class="row container-teamMember-main">
+<div class="row">
   <form name="teamMemberForm" novalidate class="col s12" ng-submit="addTeamMember()">
-    <div class="row">
-      <div class="col s8 offset-s2 teamMember-headline">
+    <div class="row-fluid">
+      <div class="col s8 offset-s2 add-menu-headline">
         <p class="flow-text">ФОРМА ДОДАВАННЯ ЧЛЕНА КОМАНДИ</p>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="memberName" class="member-input member-name" required ng-minlength="4" ng-maxlength="16" ng-pattern="memberNamePattern" ng-model="team_member.name">
+        <input type="text" name="memberName" class="add-menu-input member-name" ng-minlength="4" ng-maxlength="16" maxlength="100" ng-pattern="memberNamePattern" reqiired ng-model="team_member.name">
         <label for="memberName">І'мя</label>
         <p class="error" ng-show="teamMemberForm.memberName.$invalid && teamMemberForm.memberName.$dirty">
           {{getErrorName(teamMemberForm.memberName.$error)}}
@@ -52,7 +16,7 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="memberSurname" class="member-input member-surname" required ng-minlength="4" ng-maxlength="16" ng-pattern="memberNamePattern" ng-model="team_member.surname">
+        <input type="text" name="memberSurname" class="add-menu-input member-surname" ng-minlength="4" ng-maxlength="16" ng-pattern="memberNamePattern" maxlength="100" reqiired ng-model="team_member.surname">
         <label for="memberSurname">Прізвище</label>
         <p class="error" ng-show="teamMemberForm.memberSurname.$invalid && teamMemberForm.memberSurname.$dirty">
           {{getErrorName(teamMemberForm.memberSurname.$error)}}
@@ -61,7 +25,7 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <textarea name="memberQuote" class="materialize-textarea" required ng-minlength="50" ng-maxlength="1000" ng-model="team_member.quote"></textarea>
+        <textarea name="memberQuote" class="materialize-textarea" ng-minlength="50" ng-maxlength="1000" reqiired ng-model="team_member.quote"></textarea>
         <label for="memberQuote">Цитата ("Що для мене Молодь до Ісуса?")</label>
         <p class="error" ng-show="teamMemberForm.memberQuote.$invalid && teamMemberForm.memberQuote.$dirty">
           {{getErrorQuote(teamMemberForm.memberQuote.$error)}}
@@ -70,7 +34,7 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="memberPhone" class="member-input member-phone" required ng-pattern="memberPhonePattern" ng-model="team_member.phone">
+        <input type="text" name="memberPhone" class="add-menu-input member-phone" maxlength="100" ng-pattern="memberPhonePattern" ng-model="team_member.phone">
         <label for="memberPhone">Номер телефону</label>
         <p class="error" ng-show="teamMemberForm.memberPhone.$invalid && teamMemberForm.memberPhone.$dirty">
           {{getErrorPhone(teamMemberForm.memberPhone.$error)}}
@@ -79,7 +43,7 @@
     </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="email" name="memderEmail" class="member-input member-email" required ng-model="team_member.email">
+        <input type="text" name="memderEmail" class="add-menu-input member-email" maxlength="100" reqiired ng-model="team_member.email">
         <label for="memberEmail"><!-- Email -->Електронна пошта</label>
         <p class="error" ng-show="teamMemberForm.memberEmail.$invalid && teamMemberForm.memberEmail.$dirty">
         {{getErrorEmail(teamMemberForm.memberEmail.$error)}}
@@ -88,14 +52,13 @@
     </div>
      <div class="row">
           <div class="input-field col s8 offset-s2">
-              <input type="text" name="memberPosition" class="member-input member-position" required  ng-model="team_member.position">
+              <input type="text" name="memberPosition" class="add-menu-input member-position" maxlength="100" ng-model="team_member.position">
               <label for="memberPosition">Посада</label>
-
           </div>
       </div>
     <div class="row">
       <div class="input-field col s8 offset-s2">
-        <input type="text" name="memberFacebook" class="member-input member-facebook" required ng-pattern="memberFacebookPattern" ng-model="team_member.facebook_link">
+        <input type="text" name="memberFacebook" class="add-menu-input member-facebook" ng-pattern="memberFacebookPattern" maxlength="100" ng-model="team_member.facebook_link">
         <label for="memberFacebook">Facebook link</label>
         <p class="error" ng-show="teamMemberForm.memberFacebook.$invalid && teamMemberForm.memberFacebook.$dirty">
           {{getErrorFacebook(teamMemberForm.memberFacebook.$error)}}
@@ -109,65 +72,31 @@
         <label>
       </div>
     </div>
-
-<!--     <div class="row">
-    <div class="col s8 offset-s2" mg-file-upload="teamFoto"  ng-model="team_member.foto">
-      <div class="drop-area">
-        <input type="file" name="memberPhoto" class="js-progress-files" required/>
-        <img  width="100px" ng-src="{{team_member.foto.src}}" title="{{team_member.foto.title}}" id="{{team_member.foto.id}}"/>
-        <label for="memberPhoto">Фотографія
-        <label>
-      </div>
-    </div>
-    </div> -->
-
-<!--     <div class="row">
-    <div class="col s8 offset-s2" mg-file-upload="teamFoto"  ng-model="team_member.foto">
-    <input class="file-path validate" type="text"/>
-        <div class="btn">
-        <span>File</span>
-        <input type="file" name="memberPhoto" class="js-progress-files" required/>
-        </div>
-        <img  width="100px" ng-src="{{team_member.foto.src}}" title="{{team_member.foto.title}}" id="{{team_member.foto.id}}"/>
-    </div>
-    </div> -->
-
     <div class="row">
     <div class="col s8 offset-s2 file-field input-field" mg-file-upload="teamFoto"  ng-model="team_member.foto">
-      <img  width="100px" ng-src="{{team_member.foto.src}}" title="{{team_member.foto.title}}" id="{{team_member.foto.id}}"/>
-      <input class="file-path validate" required type="text"/>
-      <div class="btn">
-        <span>Вибрати фотографію</span>
-        <input type="file" name="memberPhoto" class="js-progress-files" required/>
+      <img ng-src="{{team_member.foto.src}}" title="{{team_member.foto.title}}" id="{{team_member.foto.id}}"/>
+      <br>
+      <div class="btn purple darken-4 container-image-chosen">
+        <span class="image-chosen">Вибрати фотографію</span>
+        <input type="file" name="memberPhoto" class="js-progress-files">
       </div>
     </div>
     </div>
-
- <!--    <div class="row">
-      <div class="checkbox col s8 offset-s2">
-        <input type="checkbox" name="userAgreed" id="signup-checkbox" required ng-model="user.agreed">
-        <label for="signup-checkbox">Я підтверджую введені дані
-        <label>
-      </div>
-    </div> -->
-
     <div class="row">
         <div class="switch col s8 offset-s2">
             <label>
             Не підтверджую
-            <input type="checkbox" name="userAgreed" id="member-checkbox" required ng-model="user.agreed">
+            <input type="checkbox" name="memberAgreed" id="member-checkbox" required ng-model="user.agreed">
             <span class="lever"></span>
-             Підтверджую
+            Підтверджую
             </label>
         </div>
     </div>
-
     <div class="row">
       <div class="col s8 offset-s2 signup-submit-input">
-        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="teamMemberForm.$invalid || $scope.team_member.foto.file">ДОДАТИ</button>
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="teamMemberForm.$invalid || team_member.foto.fresh != true">ДОДАТИ</button>
       </div>
     </div>
-
   </form>
 </div>
 

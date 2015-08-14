@@ -11,17 +11,16 @@ angular.module('services')
         };
         var updateSlidesUrl = function(params) {
             var url = slidesUrl(params);
-
             url += '/' + params['id'];
-
             return url;
         };
 
         return {
-         add: function (form) {
+            add: function (form) {
                 var url = slidesUrl(),
                     deferred = $q.defer();
-                return $http.post(url, form, {
+
+                    return $http.post(url, form, {
                     headers: {
                         'Content-Type': undefined,
                         'Authorization': 'Token token=' + localStorage.getItem('auth_token')
@@ -37,6 +36,7 @@ angular.module('services')
 
                 return deferred.promise;
             },
+
             getAll: function() {
                 var url = slidesUrl(),
                     deferred = $q.defer();
@@ -55,6 +55,7 @@ angular.module('services')
 
                 return deferred.promise;
             },
+
             remove: function (id) {
                 var deferred = $q.defer(), url = slidesUrl();
                 url += "/" + id;
@@ -71,11 +72,11 @@ angular.module('services')
 
                 return deferred.promise;
             },
+            
             edit: function(params){
 
                 var deferred = $q.defer(),
                     url = editSlidesUrl(params);
-                console.log(url)
                 $http.get(url, {headers: { 'Accept': 'application/json', 'Content-Type': 'application/json',
                     'Authorization':'Token token='+localStorage.getItem('auth_token')}
                 })

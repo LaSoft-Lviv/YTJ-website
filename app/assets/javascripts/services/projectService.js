@@ -30,6 +30,11 @@ angular.module('services')
                          return error;
             } ,
 
+            getAllProjects: function () {
+                var url = projectsUrl();
+                return $http.get(url).then(this.handleSuccess, this.handleError);
+            },
+
             getAllTeamMembers: function() {
                 return $http.get('team_members').then(this.handleSuccess,this.handleError);
             },

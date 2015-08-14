@@ -1,38 +1,12 @@
 <!--Carousel-->
-<div class="container-fluid" style="padding:0px">
-    <div class="row-fluid">
-        <div id="carousel-example-generic" class="carousel slide embed-responsive-item" data-ride="carousel" data-interval="3000">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li ng-repeat="slide in slides" data-target="#carousel-example-generic" data-slide-to="{{$index}}"></li>
-            </ol>
-            <!-- Обгортка для слайдів -->
-            <div class="carousel-inner" role="listbox" id="slidesBlock">
-                <div ng-repeat="slide in slides"  class="{{ !$index ? 'item active' : 'item'}}" >
-                    <img ng-src={{slide.image.url}} alt="..." class="img-responsive">
-                    <div class="carousel-caption">
-                        {{slide.image.description}}
-                    </div>
-                </div>
-            </div>
-            <!-- Управління -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" target="_self">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Попередній</span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" target="_self">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Наступний</span>
-            </a>
-        </div>
-    </div>
-</div>
+<div class="container-fluid container-carousel-main" carousel-directive="slides"></div>
 <!--Finish carousel-->
+
 <!-- About as -->
 <div class="container-fluid container-about-main" id="about-link">
     <div class="row-fluid">
         <div class="about-headline">
-            <p><!-- ABOUT -->ПРО НАС</p>
+            <p translate="ABOUT"></p>
         </div>
         <div class="container-about">
             <div class="col-sm-6 about-image">
@@ -61,7 +35,7 @@
 <div class="container-fluid container-projects-main" id="projects-link">
     <div class="row-fluid">
         <div class="projects-headline">
-            <p>{{titleProject}}</p>
+            <p translate="PROJECTS"></p>
         </div>
         <div class="container-projects">
 
@@ -98,8 +72,6 @@
                         <p></p>
                     </div>
                 </div>
-                <a  role="presentation" ng-show="signedIn()" class="btn btn-sm" href="#/projects/{{project.id}}/edit">update</a>
-                <a  role="presentation" ng-show="signedIn()" class="btn btn-sm" href="#"   data-ng-click="deleteProject(project.id)">delete</a>
             </div>
         </div>
     </div>
@@ -111,7 +83,7 @@
 <div class="container-fluid container-team-main" id="team-link">
     <div class="row-fluid">
         <div class="team-headline">
-            <p>{{titleTeam}}</p>
+            <p translate="TEAM"></p>
         </div>
         <div class="container-team">
 
@@ -140,9 +112,6 @@
                         {{team_member.quote}}
                         </p>
                     </div>
-                    <a  role="presentation" ng-show="signedIn()" class="btn btn-sm" href="#/team/{{team_member.id}}/edit">update</a>
-                    <a  role="presentation" ng-show="signedIn()" class="btn btn-sm" href="#"   data-ng-click="deleteTeamMember(team_member.id)">delete</a>
-
                 </div>
             </div>
         </div>
@@ -154,7 +123,7 @@
 <div class="container-fluid container-photo-main" id="photo-link">
     <div class="row-fluid">
         <div class="photo-headline">
-            <p><!-- PHOTO -->ФОТО</p>
+            <p translate="PHOTO"></p>
         </div>
         <div class="container-photo col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1" >
             <div class="photo">
@@ -191,13 +160,12 @@
 <div class="container-fluid container-video-main" id="video-link">
     <div class="row-fluid">
         <div class="video-headline">
-            <p>ВІДЕО</p>
+            <p translate="VIDEO"></p>
         </div>
         <div class="container-video col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1">
             <div class="video-iframe-box" ng-repeat="video in playListItems">
-                <youtube-embed width="{{video.snippet.thumbnails.medium.width}}px" height="{{video.snippet.thumbnails.medium.height}}px" id="{{video.contentDetails.videoId}}"
-                               image="{{video.snippet.thumbnails.medium.url}}">
-                </youtube-embed >
+                <youtube-embed width="{{video.snippet.thumbnails.medium.width}}px" height="{{video.snippet.thumbnails.medium.height}}px" id="{{video.contentDetails.videoId}}" image="{{video.snippet.thumbnails.medium.url}}">
+                </youtube-embed>
                 <p class="video-name-box">{{video.snippet.title}}</p>
             </div>
         </div>
@@ -213,7 +181,7 @@
         <div class="col-sm-5 col-sm-offset-6  col-xs-8 col-xs-offset-2" id="id-col">
             <div class="main-form" ng-controller="ContactFormController as contact_form">
                 <div class="contact-headline">
-                    <p><!-- QUICK CONTACT -->КОНТАКТ</p>
+                    <p translate="CONTACTUPPER"></p>
                 </div>
                 <form name="orderform" ng-submit="submitContact(contact_mail)" role="form" ng-init="contact_mail = {}">
                     <div class="form-group">
@@ -238,4 +206,12 @@
         </div>
     </div>
 </div>
-<!--finish contact form-->
+<!--Finish contact form-->
+
+<!-- Scroll button -->
+<div scroll-directive class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a ng-click="gotoTop()" style="display:none" class="btn-floating btn-large purple darken-4 my-btn-floating">
+        <i class="large material-icons">keyboard_arrow_up</i>
+    </a>
+</div>
+<!-- Finish scroll button -->

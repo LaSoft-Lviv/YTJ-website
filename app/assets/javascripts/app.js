@@ -4,6 +4,9 @@ var app = angular.module('ytj', [
     'angularFileUpload',
     'ngResource',
     'ngRoute',
+    'ngCookies',
+    'ngStorage',
+    'pascalprecht.translate',
     'directives',
     'templates',
     'controllers',
@@ -11,14 +14,16 @@ var app = angular.module('ytj', [
     'ngDialog'
 
 ]);
+
 var roles = {
     superUser: 0,
     admin: 1,
     user: 2
 };
+
 var routeForUnauthorizedAccess = '/#';
 
- app.config(['ngDialogProvider', function (ngDialogProvider) {
+app.config(['ngDialogProvider', function (ngDialogProvider) {
             ngDialogProvider.setDefaults({
                 className: 'ngdialog-theme-default',
                 plain: false,
@@ -30,7 +35,7 @@ var routeForUnauthorizedAccess = '/#';
                     console.log('default pre-close callback');
                 }
             });
-        }]);
+}]);
 
 app.config(['$httpProvider', function($httpProvider){
     var interceptor = ['$q', '$location', '$rootScope', function($q, $location, $rootScope) {
@@ -67,7 +72,16 @@ app.config(['$httpProvider', function($httpProvider){
     $httpProvider.interceptors.push(interceptor);
 }]);
 
+app.config(function($translateProvider) {
+    $translateProvider.useSanitizeValueStrategy('escape');
+    $translateProvider.preferredLanguage('en');
+    $translateProvider.fallbackLanguage('en');
 
+    $translateProvider.useStaticFilesLoader({
+        prefix: '/locales/',
+        suffix: '.json'
+    });
+});
 
 app.config(['$routeProvider','$locationProvider',  function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -172,8 +186,28 @@ app.config(['$routeProvider','$locationProvider',  function ($routeProvider, $lo
                 }
             }
         })
-        .otherwise({ redirectTo: '/' });
+        .when('/team', {
+            templateUrl: 'team/index.html',
+            controller: 'TeamMemberIndexController',
+            resolve: {
+                permission: function (AuthorizationService, $route) {
+                    return AuthorizationService.permissionCheck([roles.admin]);
+                }
+            }
+        })
+        .when('/projects', {
+            templateUrl: 'project/index.html',
+            controller: 'ProjectIndexController',
+            resolve: {
+                permission: function (AuthorizationService, $route) {
+                    return AuthorizationService.permissionCheck([roles.admin]);
+                }
+            }
+        })
+        .otherwise({ redirectTo: '/' 
+    });
 }]);
+
 angular.module('directives',[]);
 angular.module('controllers', []);
 angular.module('services', []);

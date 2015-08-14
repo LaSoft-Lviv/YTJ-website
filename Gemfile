@@ -21,8 +21,16 @@ gem 'angularjs-file-upload-rails', '~> 1.1.6'
 gem 'angularjs-rails'
 
 source 'https://rails-assets.org' do
-	gem 'rails-assets-angular-route'
 	gem 'rails-assets-angular'
+  gem 'rails-assets-angular-route'
+  gem 'rails-assets-ngstorage'
+  gem 'rails-assets-angular-cache'
+  gem 'rails-assets-angular-cookies'
+  gem 'rails-assets-angular-sanitize'
+  gem 'angular-translate-rails'
+  gem 'rails-assets-angular-translate-loader-static-files'
+  gem 'rails-assets-angular-translate-storage-cookie'
+  gem 'rails-assets-angular-translate-storage-local'
 end
 
 gem 'carrierwave'

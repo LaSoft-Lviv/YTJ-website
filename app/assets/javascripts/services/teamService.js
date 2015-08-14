@@ -30,12 +30,12 @@ angular.module('services')
             },
 
             getAllTeamMembers: function () {
-                return $http.get('team_members').then(this.handleSuccess, this.handleError);
+                var url = teamUrl()
+                return $http.get(url).then(this.handleSuccess, this.handleError);
             },
 
             add: function (form) {
-
-                var url = teamUrl()
+                var url = teamUrl();
                 return $http.post(url, form, {
                     headers: {
                         'Content-Type': undefined,
@@ -61,6 +61,7 @@ angular.module('services')
 
                 return deferred.promise;
             },
+            
             edit: function(params){
 
                 var deferred = $q.defer(),

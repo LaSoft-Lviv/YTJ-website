@@ -1,5 +1,5 @@
 angular.module('controllers')
-	.controller('SessionController', ['$rootScope', '$scope', '$location','SessionService', function($rootScope, $scope, $location, SessionService) {
+	.controller('SessionController', ['$rootScope', '$scope', '$location','$localStorage','SessionService', function($rootScope, $scope, $location,  $localStorage, SessionService) {
 
         if(SessionService.isAuthToken())
                SessionService.getCurrentUser().then( function (response) {
@@ -14,7 +14,6 @@ angular.module('controllers')
 
         $scope.submitLogin = function(loginData) {
             SessionService.login(loginData).then( function (response) {
-              console.info(response);
               if (response.data.user) {
                   $scope.currentUser = SessionService.currentUser;
                   $('#username').text($scope.currentUser.name);
@@ -28,9 +27,9 @@ angular.module('controllers')
             SessionService.logout('/').then(function(data) {
                 Materialize.toast('Ви - розлогінені!', 2000);
             });
-        }
+        };
 
-                $scope.getErrorEmail = function (error) {
+        $scope.getErrorEmail = function (error) {
             if (angular.isDefined(error)) {
                 if (error.required) {
                   return "Поле не повинно бути пустим";
@@ -38,7 +37,7 @@ angular.module('controllers')
                     return "Введіть правильний email";
                   }
             }
-        }
+        };
 
         $scope.getErrorPassword = function (error) {
             if (angular.isDefined(error)) {
@@ -48,11 +47,11 @@ angular.module('controllers')
                     return "Пароль повинен містити не менше 4 символів";
                   }
             }
-        }
+        };
 
         $scope.submitLogout = function(){
             SessionService.logout('/').then(function(data) {
                 Materialize.toast('Ви розлогінені!', 3000);
             });
-        }
+        };
 }]);

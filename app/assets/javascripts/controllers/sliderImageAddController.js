@@ -8,17 +8,19 @@ angular.module('controllers')
             $scope.addSlide = function(slide) {
                 var form = collectFormData();
 
-               ImageService.add(form).then(function (data) {
+                ImageService.add(form).then(function (data) {
+                    debugger;
+                    console.info(data);
                     if (data.data.status) {
-
+                        Materialize.toast('Слайд успішно додано!', 3000);
                         $location.path('/slides')
-                    }
-                    else {
-                        if (data.data.errors)
-                            for (var error  in data.data.errors)
-                                alert(error + " " + data.data.errors[error])
-                                            }
-                    })
+                    }  else {
+                         if (data.data.errors) {
+                            for (var error in data.data.errors)
+                                Materialize.toast(error + " " + data.data.errors[error], 3000);
+                            }
+                        }
+                })
             };
             $scope.slideImage = {
                 add: function(file) {

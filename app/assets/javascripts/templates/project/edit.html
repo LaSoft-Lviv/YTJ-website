@@ -1,33 +1,101 @@
-<form ng-submit="updateProject(project)">
-    <div class="input-group">
-        <label for='name'>Імя</label>
-        <input type="text" class="form-control" placeholder="проект" name="name" ng-model="project.name" />
+<div class="row">
+  <form name="updateProjectForm" novalidate class="col s12" ng-submit="updateProject(project)">
+    <div class="row">
+      <div class="col s8 offset-s2 add-menu-headline">
+        <p class="flow-text">ФОРМА РЕДАГУВАННЯ ПРОЕКТУ</p>
+      </div>
     </div>
-    <div class="input-group">
-        <label for='description'>Опис</label>
-        <textarea class="form-control" placeholder="опис" name="description" ng-model="project.description" />
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <input type="text" name="addProjectName" class="add-menu-input" required ng-minlength="4" ng-maxlength="50" ng-pattern="projectNamePattern" ng-model="project.name">
+        <!-- <label for="addProjectName">Назва проекту</label> -->
+        <p class="error" ng-show="updateProjectForm.addProjectName.$invalid && updateProjectForm.addProjectName.$dirty">
+          {{getErrorName(updateProjectForm.addProjectName.$error)}}
+        </p>
+      </div>
     </div>
-    <br>
-    <div mg-file-upload="projectFoto"  ng-model="project.image">
-        <div class="drop-area">
-            <input type="file" class="js-progress-files" />
-            <img  ng-if="project.image.url" width="100%" ng-src="{{project.image.url}}">
-            <img ng-else width="100%" ng-src="{{project.image.src}}" title="{{project.image.title}}" id="{{image.id}}"/>
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <textarea name="addProjectDescription" class="materialize-textarea" required ng-minlength="50" ng-maxlength="1000" ng-model="project.description"></textarea>
+       <!--  <label for="addProjectDescription">Опис проекту</label> -->
+        <p class="error" ng-show="updateProjectForm.addProjectDescription.$invalid && updateProjectForm.addProjectDescription.$dirty">
+          {{getErrorDescription(updateProjectForm.addProjectDescription.$error)}}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s8 offset-s2">
+        <input type="text" name="projectFacebook" class="add-menu-input" required ng-pattern="projectFacebookPattern" ng-model="project.facebook_link">
+      <!--   <label for="projectFacebook">Facebook link</label> -->
+        <p class="error" ng-show="updateProjectForm.projectFacebook.$invalid && updateProjectForm.projectFacebook.$dirty">
+          {{getErrorFacebook(updateProjectForm.projectFacebook.$error)}}
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s8 offset-s2">
+              <!-- <label>Організатори</label> -->
+            <select name="projectOrganizator"class="browser-default" ng-model="project.team">
+              <!--   <option ng-selected="project.team_member">{{project.team_member.name}}
+                {{project.team_member.surname}}</option> -->
+                <option ng-repeat="team_member in team" ng-selected="{{project.team_member.surname == team_member.surname && project.team_member.name == team_member.name}}" ng-value="{{team_member.id}}" required>
+                     {{team_member.name}}  
+                     {{team_member.surname}}
+                </option>
+            </select>
+            <p class="error" ng-show="updateProjectForm.projectOrganizator.$dirty">
+            {{getErrorOrganizator(updateProjectForm.projectOrganizator.$error)}}
+            </p>
         </div>
     </div>
-    <div class="input-group">
+
+<!--     <div class="input-group">
         <label for='teams' >Організатори</label>
+
         <input type="hidden" ng-model="project.team_member_prev_id" />
+
         <select name="team" id="team" class="form-control" ng-model="project.team">
 
             <option ng-attr="{'selected': (project.team.id == team_member.id) }" ng-repeat="team_member in team" value="{{team_member.id}}">
                 {{team_member.name}}  {{team_member.surname}}
             </option>
+
         </select>
+    </div> -->
+
+    <div class="row">
+        <div class="col s8 offset-s2 file-field input-field" mg-file-upload="projectFoto"  ng-model="project.image">
+            <img  ng-if="project.image.url" ng-src="{{project.image.url}}">
+            <img ng-else ng-src="{{project.image.src}}" title="{{project.image.title}}" id="{{image.id}}"/>
+            <br>
+            <div class="btn purple darken-4 container-image-chosen">
+              <span class="image-chosen">Вибрати фотографію</span>
+              <input type="file" name="projectImage" class="js-progress-files">
+            </div>
+        </div>
     </div>
-    <div class="input-group">
-        <label for='facebook_link'>Опис</label>
-        <input typeof="text" class="form-control" placeholder="facebook" name="facebook_link" ng-model="project.facebook_link" />
+    <div class="row">
+        <div class="switch col s8 offset-s2">
+            <label>
+            Не підтверджую
+            <input type="checkbox" name="projectAgreed" id="project-checkbox" required ng-model="project.agreed">
+            <span class="lever"></span>
+            Підтверджую
+            </label>
+        </div>
     </div>
-    <input type="submit" class="btn btn-default" value="оновити">
-</form>
+<!-- 
+    <div class="row">
+      <div class="col s8 offset-s2 signup-submit-input">
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input" ng-disabled="updateProjectForm.$invalid || project.image.fresh != true">ДОДАТИ</button>
+      </div>
+    </div>
+ -->
+    <div class="row">
+      <div class="col s8 offset-s2 signup-submit-input">
+        <button type="submit" class="btn btn-default waves-effect purple darken-4 signup-submit-input">ОНОВИТИ</button>
+      </div>
+    </div>
+  </form>
+</div>

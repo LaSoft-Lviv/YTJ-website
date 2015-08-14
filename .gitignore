@@ -13,9 +13,10 @@
 /tmp
 /.idea
 /log
-/config/database.yml
 /.rspec
+/config/database.yml
 Vagrantfile
 /.vagrant
 /public/uploads
 /public/assets
+/public/development

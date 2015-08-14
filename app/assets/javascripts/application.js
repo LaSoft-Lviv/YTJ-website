@@ -14,13 +14,19 @@
 //= require jquery_ujs
 
 //= require angular
+//= require ngstorage
 //= require angular-resource
 //= require angular-route
 // require angular-animate
 //= require angularjs-file-upload
-// require ngstorage
+
 // require ng-file-upload
 //= require angular-rails-templates
+//= require angular-translate
+//= require angular-cookies
+//= require angular-translate-loader-static-files
+//= require angular-translate-storage-cookie
+//= require angular-translate-storage-local
 //= require ngDialog.min
 
 

@@ -1,0 +1,77 @@
+ua:
+  activemodel:
+    attributes:
+      contact_form:
+       name: "Ім'я"
+       subject: "Тема"
+       message: "Повідомлення"
+       email: "Електронна пошта"
+    errors:
+      models:
+        contact_form:
+          :blank: "%{attribute} не може бути незаповнене"
+          :too_short: "Будь ласка введіть більше ніж 3 літери"
+          attributes:
+            name:
+              :too_long: "Будь ласка введіть менше ніж 16 літери"
+            subject:
+             :blank: "%{attribute} не може бути незаповнена"
+            email:
+              :blank: "%{attribute} не може бути незаповнена"
+              :too_long: "Будь ласка введіть менше ніж 30 символів"
+              :invalid: "Формат електронної пошти є некоректним"
+  activerecord:
+    attributes:
+      admin:
+        name: "Ім\'я"
+        email: "Email"
+        password: "Пароль"
+        password_confirmation: "Підтвердження Пароля"
+      project:
+        name: "Ім\'я"
+        description: "Опис"
+        image: "Зображення"
+        facebook_link: "Facebook посилання"
+      team_member:
+        name: "Ім\'я"
+        surname: "Прізвище"
+        email: "Email"
+        phone: "Телефон"
+        quote: "Цитата"
+        foto: "Фото"
+        facebook_link: "Facebook посилання"
+      slide:
+        image: "Слайд"
+    errors:
+      models:
+        project:
+          :invalid:  "Формат %{attribute} є некоректним"
+          attributes:
+            name:
+              :blank: "%{attribute} не може бути незаповнене"
+              :too_short: "Будь ласка введіть більше  3 літер"
+              :too_long: "%{attribute} не може містити більше 50 сммволів"
+            description:
+              :blank: "%{attribute} не може бути незаповнений"
+              :too_short: "Будь ласка введіть більше  3 літер"
+              :too_long: "%{attribute} не може містити більше 1000 сммволів"
+            image:
+              :blank: "Будь ласка вмберіть фото проекту"
+        team_member:
+          blank: "%{attribute} не може бути незаповненe"
+          :too_short: "Будь ласка введіть більше  3 літер"
+          :too_long: "Будь ласка введіть менше 16 літер"
+          :invalid: "Формат %{attribute} є некоректним"
+          attributes:
+            phone:
+              :invalid:  "Формат  телефону є некоректним"
+            facebook_link:
+              :invalid: "Формат facebook посилання є некоректним"
+            quote:
+              too_long: "%{attribute} не може містити більше 1000 сммволів"
+            foto:
+              :blank: "Будь ласка вмберіть фото члена командм"
+            email:
+              :taken: "%{value} вже існує"
+              :too_long: "%{attribute} не може містити більше 30 сммволів"
+              :invalid:  "Формат електронної пошти є некоректним"
