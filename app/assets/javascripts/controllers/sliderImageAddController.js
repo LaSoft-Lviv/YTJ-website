@@ -41,7 +41,6 @@ angular.module('controllers')
             };
 
             var collectFormData = function() {
-                alert( $scope.slide.description)
                 var form = new FormData();
                 form.append('description', $scope.slide.description);
                 // gather images and files
