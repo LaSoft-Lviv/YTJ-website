@@ -1,12 +1,26 @@
 angular.module('controllers')
-  .controller('HomeController', ['$scope', '$rootScope', '$interval', '$location','DataService','SessionService','ProjectService', 'TeamService',
-                                function ($scope, $rootScope, $interval, $location, DataService, SessionService, ProjectService, TeamService, ScrollService) {
+  .controller('HomeController', ['$scope', '$rootScope', '$translate', '$interval', '$location', '$translate', 'DataService','SessionService','ProjectService', 'TeamService',
+                                function ($scope, $rootScope, $translate, $interval, $location, $translate, DataService, SessionService, ProjectService, TeamService, ScrollService) {
 
         $scope.signedIn = SessionService.isAuthenticated;
 
-        $scope.titleProject="Проекти";
-        $scope.titleTeam="Команда";
+        $translate(['MESSAGENAME', 'MESSAGEEMAIL', 'MESSAGETHEME', 'MESSAGETEXT', 'MESSAGESEND']).then(function (translations) {
+            $scope.nameMessage = translations.MESSAGENAME;
+            $scope.emailMessage = translations.MESSAGEEMAIL;
+            $scope.themeMessage = translations.MESSAGETHEME;
+            $scope.textMessage = translations.MESSAGETEXT;
+            $scope.sendMessage = translations.MESSAGESEND;
+        });
 
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $translate(['MESSAGENAME', 'MESSAGEEMAIL', 'MESSAGETHEME', 'MESSAGETEXT', 'MESSAGESEND']).then(function (translations) {
+            $scope.nameMessage = translations.MESSAGENAME;
+            $scope.emailMessage = translations.MESSAGEEMAIL;
+            $scope.themeMessage = translations.MESSAGETHEME;
+            $scope.textMessage = translations.MESSAGETEXT;
+            $scope.sendMessage = translations.MESSAGESEND;
+            });
+        });
 
         DataService.getAll().then(function (data) {
             $scope.projects = data.projects;
@@ -14,6 +28,7 @@ angular.module('controllers')
             $scope.slides = data.slides;
             $scope.playListItems = data.playlistItems;
             $rootScope.$broadcast("dataLoad");
+            $rootScope.currentLang = $translate.use();
 
 
             $('.container-photo').slick({
@@ -110,7 +125,7 @@ angular.module('controllers')
 
     };
 
-      /* $interval($scope.nextLink, 5000);*/
+       $interval($scope.nextLink, 5000);
 
 
         });

@@ -10,11 +10,12 @@ angular.module('services')
                 return function () {
                     return error;
                 };
-            } ,
+            },
 
-            sendMail: function(contact_form) {
-
-                return $http.post('/contact',contact_form).then(this.handleSuccess,this.handleError);
+            sendMail: function(form) {
+                return $http.post('/contact', form, {
+                    headers: { 'Content-Type': undefined }
+                }).then(this.handleSuccess,this.handleError);
             }
         }
     }]);

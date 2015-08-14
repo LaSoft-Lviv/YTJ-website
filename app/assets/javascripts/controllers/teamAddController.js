@@ -1,6 +1,6 @@
 angular.module('controllers')
-    .controller('TeamAddController', ['$scope','$location','$http','$route','$routeParams','TeamService',
-        function ($scope,  $location, $http, $route, $routeParams, TeamService) {
+    .controller('TeamAddController', ['$scope', '$rootScope', '$translate', '$location','$http','$route','$routeParams','TeamService',
+        function ($scope, $rootScope, $translate, $location, $http, $route, $routeParams, TeamService) {
 
             $scope.titleTeam = "Проекти";
             $scope.team_member = {
@@ -17,12 +17,22 @@ angular.module('controllers')
             
             var params = $route.current.params;
 
+        $translate('ADDMESSAGE').then(function (succesMessage) {
+            $scope.succesMessage = succesMessage;
+        });
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $translate('ADDMESSAGE').then(function (succesMessage) {
+            $scope.succesMessage = succesMessage;
+            });
+        });
+
             $scope.addTeamMember = function () {
                 var form = collectFormData();
                 TeamService.add(form).then(function (data) {
                     if (data.data.success) {
                         $location.path('/team');
-                        Materialize.toast('Члена команди успішно додано!', 3000);
+                        Materialize.toast($scope.succesMessage, 3000);
                     }  else {
                          if (data.data.errors) {
                             for (error in data.data.errors) {
@@ -83,6 +93,7 @@ angular.module('controllers')
             var collectFormData = function () {
                 var form = new FormData();
 
+                form.append('locale', $rootScope.currentLang);
                 form.append('name', $scope.team_member.name);
                 form.append('surname', $scope.team_member.surname);
                 form.append('quote', $scope.team_member.quote);

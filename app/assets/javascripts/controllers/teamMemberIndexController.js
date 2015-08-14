@@ -1,6 +1,6 @@
 angular.module('controllers')
-    .controller('TeamMemberIndexController', ['$scope','$location','$http','TeamService',
-        function ($scope,  $location, $http,  TeamService) {
+    .controller('TeamMemberIndexController', ['$scope', '$rootScope', '$translate', '$location','$http','TeamService',
+        function ($scope, $rootScope, $translate,  $location, $http,  TeamService) {
 
             $scope.teamMembers = [];
             TeamService.getAllTeamMembers().then(function (response) {
@@ -8,10 +8,20 @@ angular.module('controllers')
 
             });
 
+        $translate('DELETEMESSAGE').then(function (succesMessage) {
+            $scope.succesMessage = succesMessage;
+        });
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $translate('DELETEMESSAGE').then(function (succesMessage) {
+            $scope.succesMessage = succesMessage;
+            });
+        });
+
             $scope.deleteTeamMember= function(id){
                 TeamService.remove(id).then(function(data) {
                         $location.path('/team');
-                        Materialize.toast('Члена команди успішно видалено!', 3000);
+                        Materialize.toast($scope.succesMessage, 3000);
                     }
                 );
             };

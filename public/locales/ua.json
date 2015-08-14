@@ -1,11 +1,39 @@
 {
-  "ABOUT": "ПРО НАС",
-  "PROJECTS": "ПРОЕКТИ",
-  "TEAM": "КОМАНДА",
-  "PHOTO": "ФОТО",
-  "VIDEO": "ВІДЕО",
-  "CONTACT": "Контакт",
-  "DONATE": "Допомогти",
-  "ORGNAME": "Молодіжна християнська громадська організація",
-  "MAIN": "Головна"
+        "ABOUT": "ПРО НАС",
+        "PROJECTS": "ПРОЕКТИ",
+        "PILIGRIMS": "ПІЛІГРИМИ",
+        "TEAM": "КОМАНДА",
+        "PHOTO": "ФОТО",
+        "VIDEO": "ВІДЕО",
+
+        "CONTACT": "Контакт",
+        "CONTACTUPPER": "КОНТАКТ",
+        "DONATE": "Допомогти",
+        "DONATEUPPER": "ДОПОМОГТИ",
+
+        "NAVIGATION": " НАВІГАЦІЯ",
+        "FOLLOW US": "СЛІДКУЙТЕ",
+        "CONTACTS": "КОНТАКТИ",
+
+        "ORGNAME": "Молодіжна християнська громадська організація",
+
+        "MAIN": "Головна",
+        "NEWTEAMMEMBER": "Новий член команди",
+        "NEWPROJECT": "Новий проект",
+        "NEWSLIDE": "Новий слайд",
+        "SLIDES": "Слайди",
+        "TEAM": "Команда",
+        "PROJECTS": "Проекти",
+        "PROFILE": "Профіль",
+        "SIGNOUT": "Вийти",
+
+        "ADDMESSAGE": "Успішно додано",
+        "DELETEMESSAGE": "Успішно видалено",
+        "UPDATEMESSAGE": "Успішно оновлено",
+
+        "MESSAGENAME": "Ваше ім'я",
+        "MESSAGEEMAIL": "Ваша пошту",
+        "MESSAGETHEME": "Тема повідомлення",
+        "MESSAGETEXT": "Текст повідомлення",
+        "MESSAGESEND": "ВІДПРАВИТИ"
 }

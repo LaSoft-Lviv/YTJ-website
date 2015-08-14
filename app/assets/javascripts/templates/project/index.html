@@ -1,9 +1,10 @@
-<div class="container-fluid container-projects-main" id="projects-link">
-<div class="row-fluid">
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="project-admin-headline">
+            <p>ВІКНО ПРОЕКТІВ САЙТУ</p>
+        </div>
 
-    <div class="container-projects">
-
-        <div class="col-xs-6 col-sm-4"  ng-repeat="project in projects">
+        <div class="col-xs-6 col-sm-4 project-admin-slides"  ng-repeat="project in projects">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" ng-src={{project.image.url}} width="100"/>
@@ -35,9 +36,9 @@
                     <p>{{project.description}}</p>
                     <p></p>
                 </div>
+                <a class="btn btn-sm project-admin-button" href="#/projects/{{project.id}}/edit">update</a>
+            <a class="btn btn-sm project-admin-button" href="#"   data-ng-click="deleteProject(project.id)">delete</a>
             </div>
-            <a class="btn btn-sm" href="#/projects/{{project.id}}/edit">update</a>
-            <a class="btn btn-sm" href="#"   data-ng-click="deleteProject(project.id)">delete</a>
         </div>
     </div>
 </div>

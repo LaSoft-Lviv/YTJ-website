@@ -1,6 +1,6 @@
 angular.module('controllers')
-    .controller('ProjectIndexController', ['$scope','$location','$http','$route','$routeParams','ProjectService',
-        function ($scope,  $location, $http, $route, $routeParams, ProjectService) {
+    .controller('ProjectIndexController', ['$scope', '$rootScope', '$translate', '$location','$http','$route','$routeParams','ProjectService',
+        function ($scope, $rootScope, $translate, $location, $http, $route, $routeParams, ProjectService) {
 
             $scope.projects = [];
             ProjectService.getAllProjects().then(function (response) {
@@ -9,12 +9,20 @@ angular.module('controllers')
 
             });
 
+        $translate('DELETEMESSAGE').then(function (succesMessage) {
+            $scope.succesMessage = succesMessage;
+        });
 
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $translate('DELETEMESSAGE').then(function (succesMessage) {
+            $scope.succesMessage = succesMessage;
+            });
+        });
 
             $scope.deleteProject= function(id){
                 ProjectService.remove(id).then(function(data) {
                         $location.url('/projects');
-                        Materialize.toast('Проект успішно видалено!', 3000);
+                        Materialize.toast($scope.succesMessage, 3000);
                     }
                 );
             };

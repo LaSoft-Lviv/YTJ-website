@@ -1,10 +1,21 @@
-<div ng-repeat="slide in slides" >
-    <div>
-    <img ng-src={{slide.image.url}}  width="200px" alt="...">
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="slides-admin-headline">
+            <p>ВІКНО СЛАЙДІВ САЙТУ</p>
+        </div>
+        <div class="container-admin-slides">
+			<div class="col-xs-6 col-sm-4"  ng-repeat="slide in slides">
+				<div>
+    				<img ng-src={{slide.image.url}} class="img-responsive" alt="...">
+    			</div>
+    			<br>
+    			<div>
+        			{{slide.description}}
+    			</div>
+    			<br>
+    			<a href="" ng-click="remove(slide.id, $index)">remove</a> |
+    			<a href="#/slides/{{slide.id}}/edit">edit</a>
+ 			</div>
+        </div>
     </div>
-    <div>
-        {{slide.description}}
-    </div>
-    <a href="" ng-click="remove(slide.id, $index)">remove</a> |
-    <a href="#/slides/{{slide.id}}/edit">edit</a>
 </div>

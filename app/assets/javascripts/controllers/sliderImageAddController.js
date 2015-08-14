@@ -1,20 +1,29 @@
 angular.module('controllers')
-    .controller('SliderImageAddController', ['$scope','$location','$http','$route','$routeParams','ImageService',
-        function ($scope,  $location, $http, $route, $routeParams, ImageService) {
+    .controller('SliderImageAddController', ['$scope', '$rootScope', '$translate', '$location','$http','$route','$routeParams','ImageService',
+        function ($scope, $rootScope, $translate, $location, $http, $route, $routeParams, ImageService) {
             $scope.slide = {
                 images: [],
                 description: ''
             };
+
+            $translate('ADDMESSAGE').then(function (succesMessage) {
+                $scope.succesMessage = succesMessage;
+            });
+
+            $rootScope.$on('$translateChangeSuccess', function () {
+                $translate('ADDMESSAGE').then(function (succesMessage) {
+                $scope.succesMessage = succesMessage;
+                });
+            });
+
             $scope.addSlide = function(slide) {
                 var form = collectFormData();
 
                 ImageService.add(form).then(function (data) {
-                    debugger;
-                    console.info(data);
                     if (data.data.status) {
-                        Materialize.toast('Слайд успішно додано!', 3000);
-                        $location.path('/slides')
-                    }  else {
+                        $location.path('/slides');
+                        Materialize.toast($scope.succesMessage, 3000);
+                    } else {
                          if (data.data.errors) {
                             for (var error in data.data.errors)
                                 Materialize.toast(error + " " + data.data.errors[error], 3000);
@@ -22,6 +31,7 @@ angular.module('controllers')
                         }
                 })
             };
+
             $scope.slideImage = {
                 add: function(file) {
                     $scope.slide.images=[];
@@ -35,17 +45,18 @@ angular.module('controllers')
                     }
                 },
                 remove: function (id, index) {
-                        console.log(id,index)
-                        var removedImage = $scope.slide.images.splice(index, 1)[0];
+                    var removedImage = $scope.slide.images.splice(index, 1)[0];
                 }
             };
 
             var collectFormData = function() {
                 var form = new FormData();
+
+                form.append('locale', $rootScope.currentLang);
                 form.append('description', $scope.slide.description);
-                // gather images and files
+    
                 $scope.slide.images.forEach(function(image, index) {
-                   if (image.fresh) {
+                    if (image.fresh) {
                         form.append('images[]', image.file);
                     }
                 });

@@ -74,8 +74,9 @@ app.config(['$httpProvider', function($httpProvider){
 
 app.config(function($translateProvider) {
     $translateProvider.useSanitizeValueStrategy('escape');
-    $translateProvider.preferredLanguage('en');
-    $translateProvider.fallbackLanguage('en');
+    $translateProvider.preferredLanguage('ua');
+    //$translateProvider.fallbackLanguage('en');
+    $translateProvider.useLocalStorage();
 
     $translateProvider.useStaticFilesLoader({
         prefix: '/locales/',
