@@ -344,7 +344,7 @@ PLATFORMS
 
 DEPENDENCIES
   angular-rails-templates
-  angular-translate-rails!
+  angular-translate-rails
   angular_rails_csrf
   angularjs-file-upload-rails (~> 1.1.6)
   angularjs-rails
