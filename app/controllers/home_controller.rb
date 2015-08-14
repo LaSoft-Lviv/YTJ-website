@@ -25,10 +25,10 @@ class HomeController < ApplicationController
     def get_playlist_items
       get_authenticated_service
       playlist_item = @client.execute(
-          :key => "AIzaSyAON91YCc5EgOeG4qWC8JBk32P4lWijyNo",
+          :key => "AIzaSyDw1IEoAMW7hmnF4cqs9CDZT6yaF-mKn88",
           :api_method => @youtube.playlist_items.list,
           :parameters => {
-              :playlistId => 'PLSNJTlTtyhuHP_DsDyLz2iQP6dpy6vIgE',
+              :playlistId => 'PLSDUgz1LExyhmsosgHF0CTbmTSri0jf2H',
               :part => 'contentDetails,snippet'
           }
       )
