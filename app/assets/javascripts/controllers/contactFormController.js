@@ -11,29 +11,40 @@ angular.module('controllers')
                 text: ""
             };
 
-        $translate('ADDMESSAGE').then(function (succesMessage) {
+        $translate('SENDMESSAGE').then(function (succesMessage) {
             $scope.succesMessage = succesMessage;
         });
 
         $rootScope.$on('$translateChangeSuccess', function () {
-            $translate('ADDMESSAGE').then(function (succesMessage) {
+            $translate('SENDMESSAGE').then(function (succesMessage) {
             $scope.succesMessage = succesMessage;
             });
         });
 
             $scope.submitContact = function() {
-                debugger;
             var form = collectFormData();
-            console.info(form);
             ContactFormService.sendMail(form).then(function (data) {
 
                 if (data.status) {
                    Materialize.toast($scope.succesMessage, 3000);
                 } else {
-                    alert('Message doesn\'t  send');
                     if (data.errors) {
-                        for (var error  in data.errors) {
-                            alert(error + " " + data.errors[error])
+                        console.log(data.errors);
+                        for (var error in data.errors) {
+                            switch(error) {
+                                    case 'name':
+                                    Materialize.toast(data.errors[error][0], 7000);
+                                    break;
+                                    case 'email':
+                                    Materialize.toast(data.errors[error][0], 7000);
+                                    break;
+                                    case 'theme':
+                                    Materialize.toast(data.errors[error][0], 7000);
+                                    break;
+                                    case 'text':
+                                    Materialize.toast(data.errors[error][0], 7000);
+                                    break;
+                                }
                         }
                     }
                   }
@@ -48,8 +59,6 @@ angular.module('controllers')
                 form.append('email', $scope.contact_mail.email);
                 form.append('subject', $scope.contact_mail.theme);
                 form.append('message', $scope.contact_mail.text);
-
-                alert($scope.contact_mail.name);
 
                 return form;
             };

@@ -185,33 +185,25 @@
                 </div>
                 <form name="orderform" ng-submit="submitContact()" role="form">
                     <div class="form-group">
-                  <!--       <input type="text" class="form-control-contact name-input" id="name-input" name="name"placeholder="{{nameMessage}}" maxlength="50" ng-model="contact_mail.name" onblur="validateNonEmpty(this, document.getElementById('name_help'))">
-                        <span id="name_help" class="help"></span> -->
-                        <input type="text" name="contactName" class="add-menu-input contact-name" ng-minlength="4" ng-maxlength="16" maxlength="100" ng-pattern="memberNamePattern" placeholder="{{nameMessage}}" required ng-model="contact_mail.name">
+                        <input type="text" name="contactName" class="contact-input contact-name" ng-minlength="4" ng-maxlength="16" maxlength="100" ng-pattern="memberNamePattern" placeholder="{{nameMessage}}" required ng-model="contact_mail.name">
                         <p class="error" ng-show="orderform.contactName.$invalid && orderform.contactName.$dirty">
                         {{getErrorName(orderform.contactName.$error)}}
                         </p>
                     </div>
                     <div class="form-group">
-                     <!--    <input type="email" class="form-control-contact email-input" id="email-input" name="email" placeholder="{{emailMessage}}"maxlength="200" ng-model="contact_mail.email" onblur="validateEmail(this, document.getElementById('email_help'))">
-                        <span id="email_help" class="help"></span> -->
-                        <input type="email" name="contactEmail" class="add-menu-input contact-email" ng-maxlength="30" ng-pattern="memberNamePattern" placeholder="{{emailMessage}}" required ng-model="contact_mail.email">
+                        <input type="email" name="contactEmail" class="contact-input contact-email" ng-maxlength="30" ng-pattern="memberNamePattern" placeholder="{{emailMessage}}" required ng-model="contact_mail.email">
                         <p class="error" ng-show="orderform.contactEmail.$invalid && orderform.contactEmail.$dirty">
                         {{getErrorEmail(orderform.contactEmail.$error)}}
                         </p>
                     </div>
                     <div class="form-group">
-                   <!--      <input type="text" class="form-control-contact theme-input" id="theme-input" name="subject" placeholder="{{themeMessage}}" maxlength="50" ng-model="contact_mail.subject" onblur="validateNonEmpty(this, document.getElementById('theme_help'))">
-                        <span id="theme_help" class="help"></span> -->
-                        <input type="text" name="contactTheme" class="add-menu-input contact-theme" ng-minlength="3" maxlength="100" ng-pattern="memberNamePattern" placeholder="{{themeMessage}}" required ng-model="contact_mail.theme">
+                        <input type="text" name="contactTheme" class="contact-input contact-theme" ng-minlength="3" maxlength="100" ng-pattern="memberNamePattern" placeholder="{{themeMessage}}" required ng-model="contact_mail.theme">
                         <p class="error" ng-show="orderform.contactTheme.$invalid">
                         {{getErrorName(orderform.contactTheme.$error)}}
                         </p>
                     </div>
                     <div class="form-group message-text">
-                        <!-- <textarea class="form-control message-input" id="message-input" rows="6" name="message" placeholder="{{textMessage}}" maxlength="1000" ng-model="contact_mail.message" onblur="validateLength(1, 1000, this, document.getElementById('message_help'))"></textarea>
-                        <span id="message_help" class="help"></span> -->
-                        <textarea name="contactText" class="materialize-textarea" ng-maxlength="1000" placeholder="{{textMessage}}" required ng-model="contact_mail.text"></textarea>
+                        <textarea name="contactText" class="materialize-textarea contact-input" ng-maxlength="1000" placeholder="{{textMessage}}" required ng-model="contact_mail.text"></textarea>
                          <p class="error" ng-show="orderform.contactText.$invalid && orderform.contactText.$dirty">
                         {{getErrorName(orderform.contactText.$error)}}
                         </p>
