@@ -45,6 +45,7 @@ ua:
     errors:
       models:
         project:
+          :invalid:  "Формат %{attribute} є некоректним"
           attributes:
             name:
               :blank: "%{attribute} не може бути незаповнене"
