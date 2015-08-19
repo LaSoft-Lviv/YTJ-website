@@ -6,19 +6,19 @@
         <a ng-click="gotoElement('about-link')" translate="ABOUT"></a>
       </li>
       <li>
-        <a ng-click="gotoElement('')" translate="PILIGRIMS"></a>
-      </li>
-      <li>
         <a ng-click="gotoElement('projects-link')" translate="PROJECTS"></a>
       </li>
       <li>
         <a ng-click="gotoElement('team-link')" translate="TEAM"></a>
       </li>
       <li>
-        <a ng-click="gotoElement('video-link')" translate="PHOTO"></a>
+        <a ng-click="gotoElement('photo-link')" translate="PHOTO"></a>
       </li>
       <li>
-        <a ng-click="gotoElement('photo-link')"  translate="VIDEO"></a>
+        <a ng-click="gotoElement('video-link')"  translate="VIDEO"></a>
+      </li>
+      <li ng-click="gotoElement('contact-link')">
+        <a translate="CONTACTUPPER"></a>
       </li>
       <li data-target="#myDonate" >
         <a translate="DONATEUPPER"></a>
@@ -32,10 +32,10 @@
         <a href="https://www.facebook.com/pages/Pilgrims/158084905445?fref=ts" target="_blank">FACEBOOK</a>
       </li>
       <li>
-        <a href="#">GOOGLE+</a>
+        <a href="#">FLICKR</a>
       </li>
       <li>
-        <a ng-click="gotoElement('contact-link')">NEWSLETTER</a>
+        <a href="">YOUTUBE</a>
       </li>
     </ul>
   </div>
@@ -43,9 +43,9 @@
     <p class="footer-headline" translate="CONTACTS"><span class="glyphicon glyphicon-map-marker"></span></p>
     <ul class="footer-navigate">
       <li>
-        <p>КВАРТИРА 17,<br>
-          ПЛОЩА ГЕНЕРАЛА ГРИГОРЕНКА, 5,<br>
-          ЛЬВІВ, ЛЬВІВСЬКА ОБЛАСТЬ, УКРАЇНА,<br>
+        <p>{{'APARTMENT' | translate}}<br>
+        <span>{{'SQUARE' | translate}}</span><br>
+        <span>{{'REGION' | translate}}</span><br>
           79000</p>
       </li>
       <li>
