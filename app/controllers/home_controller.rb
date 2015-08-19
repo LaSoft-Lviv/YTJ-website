@@ -1,13 +1,28 @@
 require 'google/api_client'
 require 'json'
+require 'flickraw'
+
 
 class HomeController < ApplicationController
   before_action :collect_data_objects, if: :format_json?
   respond_to :json
 
   def index
+
+
+    FlickRaw.api_key='de20579bcddd55b6c8d3d726bd2a95c7'
+    FlickRaw.shared_secret= 'e6fd79528e637279'
+
+    #@photosets = flickr.photosets.getList(user_id: '134787160@N07').map do |set|
+     # flickr.photosets.getPhotos(photoset_id: set['id']).photo.map do |photo|
+      #if(photo['isprimary'])
+       # FlickRaw.url_b(photo)
+      #end
+      #end
+    #end
+    @list = flickr.photosets.getList(user_id: "134787160@N07")
       respond_to do |format|
-      format.json { render json: { projects: @projects, team: @team_member, slides: @slides, playlistItems: get_playlist_items} }
+      format.json { render json: { projects: @projects, team: @team_member, slides: @slides, playlistItems: get_playlist_items, albums: @list} }
       format.html
      end
   end

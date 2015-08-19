@@ -9,6 +9,8 @@ angular.module('controllers')
             $scope.team = data.team;
             $scope.slides = data.slides;
             $scope.playListItems = data.playlistItems;
+            $scope.albums = data.albums;
+            console.log(data)
             $rootScope.$broadcast("dataLoad");
             $rootScope.currentLang = $translate.use();
 
