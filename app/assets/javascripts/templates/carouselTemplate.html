@@ -1,9 +1,22 @@
 <div class="row-fluid">
     <div class="container-carousel-submain col-xs-12">
+    	<div class="carousel-description">
+    	</div>
         <ol class="carousel-indicators-main">
         </ol>
         <div class="carousel-inner-main">
         </div>
+        <div class="preloader-wrapper big active" ng-style="styleLoader">
+    		<div class="spinner-layer spinner-blue-only">
+      		<div class="circle-clipper left">
+        	<div class="circle"></div>
+      		</div><div class="gap-patch">
+        	<div class="circle"></div>
+      		</div><div class="circle-clipper right">
+        	<div class="circle"></div>
+     		</div>
+    		</div>
+  		</div>
         <a class="previous-link" ng-click="previousLink()"><span class="switch-previous-slide glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
         <a class="next-link" ng-click="nextLink()"><span class="switch-next-slide glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
     </div>

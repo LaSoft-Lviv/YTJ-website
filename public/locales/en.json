@@ -15,7 +15,7 @@
         "FOLLOW US": "FOLLOW US",
         "CONTACTS": "CONTACTS",
 
-        "ORGNAME": "Non-governmental organization",
+        "ORGNAME": "Christian Youth NGO",
 
         "MAIN": "Home",
         "NEWTEAMMEMBER": "New team member",
@@ -36,5 +36,17 @@
         "MESSAGEEMAIL": "Your email",
         "MESSAGETHEME": "Messaga theme",
         "MESSAGETEXT": "Message text",
-        "MESSAGESEND": "SEND"
-}
+        "MESSAGESEND": "SEND",
+
+        "APARTMENT": "APARTMENT 17,",
+        "SQUARE": "5 HENERALA HRYHORENKA SQUARE,",
+        "REGION": "LVIV, LVIV REGION, UKRAINE,",
+
+        "ABOUTSLOGAN": "WE ARE THE YOUTH THAT UNDERSTANDS, GROWS AND PRACTISES LIVE CHRISTIAN FAITH!",
+        "ABOUTSTORY": "Our short story:",
+        "ABOUTSTORYDESCRIPTION": "Our organization was founded in 2006 by American missionaries Fred and Stacy Vanderwerf. In 2009 they were replaced by David and Shannon Goran. The Gorans were replaced by Michael Airgood and Volodymyr Prokip in 2012. The later is still the head of the organization.",
+        "ABOUTOPENNESS": "About its openness:",
+        "ABOUTOPENNESSDESCRIPTION": "Since 2006, the organization functions as an interconfessional free student center with access to free Internet, computer and kitchen. From 10 am to 8 pm the student center is a place for youth to talk, study and spend time in a Christian atmosphere. ",
+        "ABOUTRELATIONS": "About faith and relations with other churches:",
+        "ABOUTRELATIONSDESCRIPTION": "We believe that the Body of Christ is not limited to a certain denomination or confession, His body is a lot broader and bigger and it includes all those who believe that Jesus is the Savior of their life and who show their faith in their deeds. We believe in communication of Christians in the Holy Spirit despite any differences in church traditions. We believe in the Apostle’s creed."
+}       
