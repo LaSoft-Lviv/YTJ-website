@@ -5,12 +5,13 @@ angular.module('controllers')
             $scope.signedIn = SessionService.isAuthenticated;
 
             DataService.getAll().then(function (data) {
+                debugger;
                 $scope.projects = data.projects;
                 $scope.team = data.team;
                 $scope.slides = data.slides;
                 $scope.playListItems = data.playlistItems;
-            $scope.albums = data.albums;
-            console.log(data)
+                $scope.albums = data.albums;
+                console.log($scope.albums);
                 $rootScope.$broadcast("dataLoad");
                 $rootScope.currentLang = $translate.use();
             });
@@ -33,28 +34,55 @@ angular.module('controllers')
                 });
             });
 
-/*            $('.container-photo').slick({
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                autoplay: false,
-                autoplaySpeed: 3000,
-                touchMove: false,
-                responsive: [
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 2
-                        }
-                    }
-                ]
-            });*/
-
+   /*         $scope.$on("dataLoad", function () {
+                    debugger;
+                    var cont = $('.container-photo');
+                    console.log(cont);
+                     $('.container-photo').slick({
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        centerMode: true,
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            }
+        ]
+    });
+                })*/
+/*
+    $('.container-photo').slick({
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        centerMode: true,
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            }
+        ]
+    });
+*/
             $('.container-video').slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,
