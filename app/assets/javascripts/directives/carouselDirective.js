@@ -6,44 +6,24 @@ angular.module("ytj")
                 var attrValue = attributes["carouselDirective"];
                 var slides = scope[attrValue];
 
+                var previous = element.find(".switch-previous-slide");
+                var next = element.find(".switch-next-slide");
+
                 var heightContainer = $window.innerHeight - 150 + "px";
-                var slidesContainer = element.find(".carousel-inner-main");
-                slidesContainer.css("height", heightContainer);
-
-                var loader = element.find(".preloader-wrapper");
-
-                /*var loaderTop = $window.innerHeight / 2;
-                var stringLoaderTop = loaderTop + "px";
-                
-                console.log(stringLoaderTop);*/
+                var loaderContainer = element.find(".container-loader");
+                loaderContainer.css("height", heightContainer);
 
                 scope.styleLoader = {
                     position: "absolute",
                     left: "48%",
-                    top: "40%"
+                    top: "40%",
                 };
 
-                console.log($window.innerHeight);
-
                 scope.$on("dataLoad", function () {
-                
-                loader.hide();
 
-                scope.onResize = function() {
-                    var heightContainer = $window.innerHeight - 150 + "px";
-                    var slidesContainer = element.find(".carousel-inner-main");
-                    slidesContainer.css("height", heightContainer);
-                }
-
-                //scope.onResize();
-                angular.element($window).bind('resize', function() {
-                scope.onResize();
-                })
-            /*    element.on('load', function(){
-                    $scope.$apply(function(){
-                    scope.onResize();
-                    })
-                })*/
+                loaderContainer.hide();
+                previous.css("opacity", "1");
+                next.css("opacity", "1");
 
                 var attrValue = attributes["carouselDirective"];
                 var slides = scope[attrValue];
@@ -57,7 +37,6 @@ angular.module("ytj")
                 var descriptionClass = 'description-shown';
 
                 for (var i = 0; i < slides.length; i++) {
-                    debugger;
                    if (i != 0) {
                         imageClass = 'image-hidden';
                         indicatorClass = '';
@@ -68,20 +47,14 @@ angular.module("ytj")
                     slidesDescription.append('<span class="'+descriptionClass+'">'+slides[i].description+"</span>");
 
                     if (slides[0].description) {
-                        slidesDescription.fadeIn(4000);
+                        slidesDescription.fadeIn(2000);
                     } else {
-                        slidesDescription.fadeOut(4000);
+                        slidesDescription.fadeOut(1000);
                     }
-        
                 };
-
-
-
-
                 })
-             
             },
             restrict: "EACM",
-            templateUrl: "carouselTemplate.html",
+            templateUrl: "carouselTemplate.html"
         }
 }]);

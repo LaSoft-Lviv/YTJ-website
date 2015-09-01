@@ -7,6 +7,7 @@ angular.module('services')
                   }).success(function (response) {
                       if (response.status) {
                         service.currentUser = response.user;
+                        console.log(service.currentUser);
                         if (service.isAuthenticated()) {
                            localStorage.setItem('auth_token', service.currentUser.auth_token);
                            localStorage.setItem('name', service.currentUser.name)
@@ -37,20 +38,20 @@ angular.module('services')
                 return  !!service.currentUser;
             },
 
-            setUser: function(user){
+           /* setUser: function(user){
                 if(user) {
                     service.currentUser = user;
                 }
-            },
+            },*/
 
             isAuthToken: function(){
               return  localStorage.getItem('auth_token')? true:false;
             },
 
-            setUserName: function(name){
+           /* setUserName: function(name){
                     service.currentUser.name = name;
             },
-            
+            */
             getCurrentUser: function() {
                 var auth_token = localStorage.getItem('auth_token');
                 return $http.get('/accounts', {
@@ -63,12 +64,12 @@ angular.module('services')
                             localStorage.setItem('auth_token', service.currentUser.auth_token);
                             localStorage.setItem('name', service.currentUser.name)
                         }
-                    }
-                    else
+                    } else {
                         service.currentUser = null;
-
-                    return service.currentUser
+                        return service.currentUser;
+                    }
                 }).error(function (error) {
+                    //alert(localStorage.getItem('auth_token'));
                     return error;
                 });
 

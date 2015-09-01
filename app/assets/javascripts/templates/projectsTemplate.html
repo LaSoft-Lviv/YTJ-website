@@ -1,0 +1,40 @@
+<div class="row-fluid">
+    <div class="projects-headline">
+        <p translate="PROJECTS"></p>
+    </div>
+    <div class="container-projects">
+        <div class="col-xs-6 col-sm-4"  ng-repeat="project in projects">
+            <div class="card project-card-container">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" ng-src={{project.image.url}} width="100"/>
+                </div>
+                <div class="card-content project-card-content-container">
+                    <div class="card-title project-card-title-container activator grey-text text-darken-4">
+                        <a ng-show="project.facebook_link" class="project-facebook-link" href="{{project.facebook_link}}">
+                            <img class="project-facebook-logo img-responsive" src="images/facebook.png">
+                        </a>
+                        <div class="project-name">{{project.name}}</div>
+                        <i class="material-icons right more-vert-icon">more_vert</i>
+                    </div>
+                    <div  ng-repeat="team_member in project.team_members" >
+                        <div ng-if="team_member.coordinator == true">
+                            <div class="coordinator">
+                                <p> {{team_member.name}}  {{team_member.surname}} </p><p>{{team_member.phone}}</p>
+                            </div>
+                        </div>
+                        <div ng-if="team_member.coordinator == false">
+                            <div>
+                                <p> {{team_member.name}}  {{team_member.surname}} </p><p>{{team_member.phone}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-reveal project-back-container">
+                    <span class="card-title grey-text text-darken-4"><i class="material-icons right close-icon">close</i></span>
+                    <p class="project-description">{{project.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

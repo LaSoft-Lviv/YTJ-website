@@ -9,10 +9,11 @@
             <p translate="ABOUT"></p>
         </div>
         <div class="container-about">
-            <div class="col-sm-6 about-image">
+            <div class="col-xs-12 col-sm-6 about-image">
+                <img src="assets/about.jpg" class="img-responsive">
                 <img src="assets/about.jpg" class="img-responsive">
             </div>
-            <div class="col-sm-6 about-text">
+            <div class="col-xs-12 col-sm-6 about-text">
                 <p class="about-slogan" translate="ABOUTSLOGAN"></p>
                 <p class="text-head" translate="ABOUTSTORY"></p>
                 <span translate="ABOUTSTORYDESCRIPTION"></span>
@@ -30,96 +31,18 @@
 
 
 <!--Projects-->
-<div class="container-fluid container-projects-main" id="projects-link">
-    <div class="row-fluid">
-        <div class="projects-headline">
-            <p translate="PROJECTS"></p>
-        </div>
-        <div class="container-projects">
-
-            <div class="col-xs-6 col-sm-4"  ng-repeat="project in projects">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" ng-src={{project.image.url}} width="100"/>
-                    </div>
-
-                    <div class="card-content">
-                        <div class="card-title activator grey-text text-darken-4">
-                            <a ng-show="project.facebook_link" class="facebook-link" href="{{project.facebook_link}}">
-                                <img class="project-facebook-logo img-responsive" src="images/facebook.png">
-                            </a>
-                            <p class="project-name">{{project.name}}<i class="material-icons right">more_vert</i><p>
-                        </div>
-                        <div  ng-repeat="team_member in project.team_members" >
-                            <div ng-if="team_member.coordinator == true">
-                                <div class="coordinator">
-                                    <p> {{team_member.name}}  {{team_member.surname}} </p><p>{{team_member.phone}}</p>
-                                </div>
-                            </div>
-                            <div ng-if="team_member.coordinator == false">
-                                <div>
-                                    <p> {{team_member.name}}  {{team_member.surname}} </p><p>{{team_member.phone}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-                        <p>{{project.description}}</p>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="container-fluid container-projects-main" id="projects-link" projects-directive="projects">
 </div>
 <!--Finish projects-->
 
 <!--Team-->
-<div class="container-fluid container-team-main" id="team-link">
-    <div class="row-fluid">
-        <div class="team-headline">
-            <p translate="TEAM"></p>
-        </div>
-        <div class="container-team">
-
-            <div class="col-xs-6 col-sm-4"  ng-repeat="team_member in team">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator member-picture"  ng-src={{team_member.foto.url}} >
-                        <hr>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title activator grey-text text-darken-4">
-                            <a  ng-show="team_member.facebook_link" class="facebook-link" href="{{team_member.facebook_link}}">
-                                <img class="member-facebook-logo img-responsive" src="images/facebook.png"></a>
-                            <p class="member-name"> {{team_member.name}}  {{team_member.surname}}
-                                <i class="material-icons right more-vert">more_vert</i><p></div>
-                            <div class="description">
-                                {{team_member.position}} <br> {{team_member.phone}}<br/>
-                                <span>{{team_member.email}}</span></div>
-                            </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">
-                            <i class="material-icons right close-quote">close</i>
-                        </span>
-                        <p class="quote-head">Що для мене "Молодь до Ісуса?"</p>
-                        <p class="quote-description">
-                        {{team_member.quote}}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container-fluid container-team-main" id="team-link" team-directive="team">
 </div>
 <!--Finish team-->
 
 <!--Photo-->
-<div class="container-fluid container-photo-main" id="photo-link">
-    <div class="row-fluid">
+<div class="container-fluid container-photo-main" id="photo-link" photo-directive>
+    <!-- <div class="row-fluid">
         <div class="photo-headline">
             <p translate="PHOTO"></p>
         </div>
@@ -132,7 +55,7 @@
             </div>
         </div>
         </div>
-    </div>
+    </div> -->
 </div>
 <!--Finish photo-->
 
