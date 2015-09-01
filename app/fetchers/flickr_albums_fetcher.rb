@@ -1,4 +1,5 @@
-class Photoset
+require 'flickraw'
+class FlickrAlbumsFetcher
   def self.fetch(opts = {})
     albums = []
     flickr.photosets.getList(opts).map do |item|
