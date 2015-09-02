@@ -42,20 +42,6 @@
 
 <!--Photo-->
 <div class="container-fluid container-photo-main" id="photo-link" photo-directive="albums">
-    <!-- <div class="row-fluid">
-        <div class="photo-headline">
-            <p translate="PHOTO"></p>
-        </div>
-        <div class="container-photo col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1" >
-          <div  ng-repeat="album in albums">
-            <div class="photo">
-                <img class="img-responsive img-thumbnail img-photo" ng-src="{{album.url}}" alt="" width="300px">
-                <p>{{album.title}}</p>
-                <a ng-href="https://www.flickr.com/photos/{{album.user_id}}/sets/{{album.id}}" target="_blank">&raquo; Всі фотографії</a>
-            </div>
-        </div>
-        </div>
-    </div> -->
 </div>
 <!--Finish photo-->
 
@@ -121,7 +107,7 @@
 
 <!-- Scroll button -->
 <div scroll-directive class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a ng-click="gotoTop()" style="display:none" class="btn-floating btn-large purple darken-4 my-btn-floating">
+    <a ng-click="gotoTop()" style="display:none;opacity:0.7" class="btn-floating btn-large grey darken-4 my-btn-floating">
         <i class="large material-icons">keyboard_arrow_up</i>
     </a>
 </div>

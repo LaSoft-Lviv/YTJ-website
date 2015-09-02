@@ -5,7 +5,6 @@ angular.module('controllers')
             $scope.signedIn = SessionService.isAuthenticated;
 
             DataService.getAll().then(function (data) {
-                debugger;
                 $scope.projects = data.projects;
                 $scope.team = data.team;
                 $scope.slides = data.slides;
@@ -34,55 +33,6 @@ angular.module('controllers')
                 });
             });
 
-   /*         $scope.$on("dataLoad", function () {
-                    debugger;
-                    var cont = $('.container-photo');
-                    console.log(cont);
-                     $('.container-photo').slick({
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        centerMode: true,
-        variableWidth: true,
-        responsive: [
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2
-                }
-            }
-        ]
-    });
-                })*/
-/*
-    $('.container-photo').slick({
-        infinite: true,
-        speed: 300,
-        slidesToShow: 1,
-        centerMode: true,
-        variableWidth: true,
-        responsive: [
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2
-                }
-            }
-        ]
-    });
-*/
             $('.container-video').slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,
