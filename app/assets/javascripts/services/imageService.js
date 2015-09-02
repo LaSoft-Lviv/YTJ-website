@@ -40,7 +40,8 @@ angular.module('services')
             getAll: function() {
                 var url = slidesUrl(),
                     deferred = $q.defer();
-                return $http.get(url,{
+                    
+                    return $http.get(url, {
                     headers: {
                         'Accept': 'application/json', 'Content-Type': 'application/json',
                             'Authorization': 'Token token=' + localStorage.getItem('auth_token')
@@ -59,6 +60,7 @@ angular.module('services')
             remove: function (id) {
                 var deferred = $q.defer(), url = slidesUrl();
                 url += "/" + id;
+
                 $http.delete(url, {
                     headers: {
                         'Accept': 'application/json', 'Content-Type': 'application/json',
@@ -74,18 +76,16 @@ angular.module('services')
             },
             
             edit: function(params){
-
                 var deferred = $q.defer(),
-                    url = editSlidesUrl(params);
+                url = editSlidesUrl(params);
+
                 $http.get(url, {headers: { 'Accept': 'application/json', 'Content-Type': 'application/json',
                     'Authorization':'Token token='+localStorage.getItem('auth_token')}
-                })
-                    .success(function(data) {
-                        deferred.resolve(data.slide);
-                    })
-                    .error(function(data) {
-                        deferred.reject('Error while edit slide');
-                    })
+                }).success(function(data) {
+                    deferred.resolve(data.slide);
+                }).error(function(data) {
+                    deferred.reject('Error while edit slide');
+                });
 
                 return deferred.promise;
             },
@@ -106,6 +106,7 @@ angular.module('services')
                 }).error(function (data) {
                     deferred.reject('Error while updating slide!');
                 });
+
                 return deferred.promise;
             },
         }

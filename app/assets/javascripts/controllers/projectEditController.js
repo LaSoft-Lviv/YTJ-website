@@ -1,6 +1,6 @@
 angular.module('controllers')
-    .controller('ProjectEditController', ['$scope','$location','$http','$route','$routeParams','ProjectService',
-        function ($scope,  $location, $http, $route, $routeParams, ProjectService) {
+    .controller('ProjectEditController', ['$scope', '$rootScope', '$translate', '$location','$http','$route','$routeParams','ProjectService',
+        function ($scope, $rootScope, $translate, $location, $http, $route, $routeParams, ProjectService) {
 
         $scope.project = {};
 
@@ -24,18 +24,25 @@ angular.module('controllers')
             });
         });
 
+        $translate('UPDATEMESSAGE').then(function (succesMessage) {
+            $scope.succesMessage = succesMessage;
+        });
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $translate('UPDATEMESSAGE').then(function (succesMessage) {
+            $scope.succesMessage = succesMessage;
+            });
+        });
+
         $scope.updateProject = function() {
           var form = collectFormData();
             ProjectService.update(form, params).then(function(data) {
-              //debugger;
               if (data.success) {
                   $location.path('/projects');
-                  Materialize.toast('Проект успішно оновлено!', 3000);
+                  Materialize.toast($scope.succesMessage, 3000);
               } else {
                   if (data.errors) {
-                    console.info(data.errors);
                       for (error in data.errors) {
-                        console.info(error);
                             switch(error) {
                                     case 'name':
                                     Materialize.toast(data.errors[error][0], 7000);
@@ -81,7 +88,7 @@ angular.module('controllers')
           var collectFormData = function() {
             var form = new FormData();
 
-            if( $scope.project.name)
+            form.append('locale', $rootScope.currentLang);
                 form.append('name', $scope.project.name);
             if( $scope.project.description)
                 form.append('description', $scope.project.description);
@@ -101,6 +108,9 @@ angular.module('controllers')
              }
              return form;
            };
+
+           $scope.projectNamePattern = new RegExp("^[a-zA-ZА-Яа-яІі ,.'-]+$", "i");
+        $scope.projectFacebookPattern = /(?:http:\/\/)?(?:www\.)?facebook\.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[\w\-]*\/)*([\w\-]*)/;
 
            $scope.getErrorName = function (error) {
             if (angular.isDefined(error)) {

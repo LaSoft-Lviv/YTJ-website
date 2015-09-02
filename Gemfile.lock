@@ -79,6 +79,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
+    flickraw (0.9.8)
     fog (1.32.0)
       fog-atmos
       fog-aws (>= 0.6.0)
@@ -352,6 +353,7 @@ DEPENDENCIES
   bootstrap-sass (= 2.3.2.0)
   byebug
   carrierwave
+  flickraw
   fog
   fog-aws
   google-api-client (= 0.8.2)

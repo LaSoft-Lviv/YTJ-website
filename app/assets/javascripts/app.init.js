@@ -92,6 +92,7 @@ function getAttrBack() {
 
 
 $(document).ready(function() {
+    debugger;
     // This command is used to initialize some elements and make them work properly
     //$.material.init();
 
@@ -126,12 +127,12 @@ $(document).ready(function() {
     });*/
 
 
-  /*  $('.container-photo').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 3000,
-        touchMove: false,
+/*    $('.container-photo').slick({
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        centerMode: true,
+        variableWidth: true
         responsive: [
             {
                 breakpoint: 480,
@@ -146,9 +147,18 @@ $(document).ready(function() {
                 }
             }
         ]
-    });
+    });*/
 
-    $('.container-video').slick({
+/*    $('.variable-width').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  centerMode: true,
+  variableWidth: true
+});*/
+
+    /*$('.container-video').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: false,

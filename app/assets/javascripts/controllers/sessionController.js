@@ -48,10 +48,10 @@ angular.module('controllers')
                   }
             }
         };
-
+/*
         $scope.submitLogout = function(){
             SessionService.logout('/').then(function(data) {
                 Materialize.toast('Ви розлогінені!', 3000);
             });
-        };
+        };*/
 }]);

@@ -9,21 +9,20 @@
             <p translate="ABOUT"></p>
         </div>
         <div class="container-about">
-            <div class="col-sm-6 about-image">
+            <div class="col-xs-12 col-sm-6 about-image">
+                <img src="assets/about.jpg" class="img-responsive">
                 <img src="assets/about.jpg" class="img-responsive">
             </div>
-            <div class="col-sm-6 about-text">
-                <p class="about-slogan">Ми - Молодь,  яка розуміє, зрощує і практикує живу християнську віру!</p>
-                <p class="text-head">Коротка історія:</p>
-                Наша організація була заснована у 2006 році  американськими місіонерами Фредом і Стейсі Вендерверфами. У 2009 році в місії їх замінили
-                Девід і Шенон Горани, яких, в свою чергу, у 2012 році замінили Майкл Ейргуд і Володимир Прокіп. Останній до сьогодні очолює організацію.<br>
-                <p class="text-head">Про відкритість:</p>
-                З 2006 року організація функціонує у вигляді міжконфесійної безплатної студентської комуни, з вільним доступом до комп’ютерів, інтернету та кухні.
-                Студенський центр з 10:00 до 20:00 слугує місцем спілкування, навчання і проведення часу для молоді в християнській атмосфері.<br>
-                <p class="text-head">Пілігрими:</p>
-                Кожного четверга 18:30 відбуваються "Пілігрими" - молодіжне служіння для  студентів з обговоренням місця писання, прославленням, проповідю, молитвою і спілкуванням.
-                <p class="text-head">Про віру та відносини з іншими церквами:</p>
-                Ми віримо що Тіло Христове Його Церква не замкнена і не обмежена окремою конфесією чи деномінацією, Його тіло набагато ширше та об’ємніше, і вміщає в себе всіх хто вірить у те, що Ісус - Cпаситель і Христос їхнього життя та своїми  ділами підтверджують віру в Нього. Ми віримо в спілкування християн в Дусі Святому, незважаючи на відмінності традицій церков. Ми віримо в Апостольський символ віри.
+            <div class="col-xs-12 col-sm-6 about-text">
+                <p class="about-slogan" translate="ABOUTSLOGAN"></p>
+                <p class="text-head" translate="ABOUTSTORY"></p>
+                <span translate="ABOUTSTORYDESCRIPTION"></span>
+                <br>
+                <p class="text-head" translate="ABOUTOPENNESS"></p>
+                <span translate="ABOUTOPENNESSDESCRIPTION"></span>
+                <br>
+                <p class="text-head" translate="ABOUTRELATIONS"></p>
+                <span translate="ABOUTRELATIONSDESCRIPTION"></span>
             </div>
         </div>
     </div>
@@ -32,127 +31,31 @@
 
 
 <!--Projects-->
-<div class="container-fluid container-projects-main" id="projects-link">
-    <div class="row-fluid">
-        <div class="projects-headline">
-            <p translate="PROJECTS"></p>
-        </div>
-        <div class="container-projects">
-
-            <div class="col-xs-6 col-sm-4"  ng-repeat="project in projects">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" ng-src={{project.image.url}} width="100"/>
-                    </div>
-
-                    <div class="card-content">
-                        <div class="card-title activator grey-text text-darken-4">
-                            <a ng-show="project.facebook_link" class="facebook-link" href="{{project.facebook_link}}">
-                                <img class="project-facebook-logo img-responsive" src="images/facebook.png">
-                            </a>
-                            <p class="project-name">{{project.name}}<i class="material-icons right">more_vert</i><p>
-                        </div>
-                        <div  ng-repeat="team_member in project.team_members" >
-                            <div ng-if="team_member.coordinator == true">
-                                <div class="coordinator">
-                                    <p> {{team_member.name}}  {{team_member.surname}} </p><p>{{team_member.phone}}</p>
-                                </div>
-                            </div>
-                            <div ng-if="team_member.coordinator == false">
-                                <div>
-                                    <p> {{team_member.name}}  {{team_member.surname}} </p><p>{{team_member.phone}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-                        <p>{{project.description}}</p>
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="container-fluid container-projects-main" id="projects-link" projects-directive="projects">
 </div>
 <!--Finish projects-->
 
 <!--Team-->
-<div class="container-fluid container-team-main" id="team-link">
-    <div class="row-fluid">
-        <div class="team-headline">
-            <p translate="TEAM"></p>
-        </div>
-        <div class="container-team">
-
-            <div class="col-xs-6 col-sm-4"  ng-repeat="team_member in team">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator member-picture"  ng-src={{team_member.foto.url}} >
-                        <hr>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title activator grey-text text-darken-4">
-                            <a  ng-show="team_member.facebook_link" class="facebook-link" href="{{team_member.facebook_link}}">
-                                <img class="member-facebook-logo img-responsive" src="images/facebook.png"></a>
-                            <p class="member-name"> {{team_member.name}}  {{team_member.surname}}
-                                <i class="material-icons right more-vert">more_vert</i><p></div>
-                            <div class="description">
-                                {{team_member.position}} <br> {{team_member.phone}}<br/>
-                                <span>{{team_member.email}}</span></div>
-                            </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">
-                            <i class="material-icons right close-quote">close</i>
-                        </span>
-                        <p class="quote-head">Що для мене "Молодь до Ісуса?"</p>
-                        <p class="quote-description">
-                        {{team_member.quote}}
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container-fluid container-team-main" id="team-link" team-directive="team">
 </div>
 <!--Finish team-->
 
 <!--Photo-->
-<div class="container-fluid container-photo-main" id="photo-link">
-    <div class="row-fluid">
+<div class="container-fluid container-photo-main" id="photo-link" photo-directive="albums">
+    <!-- <div class="row-fluid">
         <div class="photo-headline">
             <p translate="PHOTO"></p>
         </div>
         <div class="container-photo col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1" >
+          <div  ng-repeat="album in albums">
             <div class="photo">
-                <img class="img-responsive img-thumbnail img-photo" src="assets/photo/1.jpg" alt="">
-                <p>Поїздка в дитячий будинок</p>
-                <a href="http://www.cinco.ly/~AYJA5ssyqqE6#swipebox" target="_blank">&raquo; Всі фотографії</a>
-            </div>
-            <div class="photo">
-                <img class="img-responsive img-thumbnail img-photo" src="assets/photo/1.jpg" alt="">
-                <p>Поїздка в дитячий будинок</p>
-                <a href="http://www.cinco.ly/~AcKA5v8Ir2xC#swipebox" target="_blank">&raquo; Всі фотографії</a>
-            </div>
-            <div class="photo">
-                <img class="img-responsive img-thumbnail img-photo" src="assets/photo/1.jpg" alt="">
-                <p>Поїздка в дитячий будинок</p>
-                <a href="http://www.cinco.ly/~AwEAYsMFr-LF" target="_blank">&raquo; Всі фотографії</a>
-            </div>
-            <div class="photo">
-                <img class="img-responsive img-thumbnail img-photo" src="assets/photo/1.jpg" alt="">
-                <p>Поїздка в дитячий будинок</p>
-                <a href="http://www.cinco.ly/~AwEAYsMFr-LF" target="_blank">&raquo; Всі фотографії</a>
-            </div>
-            <div class="photo">
-                <img class="img-responsive img-thumbnail img-photo" src="assets/photo/1.jpg" alt="">
-                <p>Поїздка в дитячий будинок</p>
-                <a href="http://www.cinco.ly/~AwEAYsMFr-LF" target="_blank">&raquo; Всі фотографії</a>
+                <img class="img-responsive img-thumbnail img-photo" ng-src="{{album.url}}" alt="" width="300px">
+                <p>{{album.title}}</p>
+                <a ng-href="https://www.flickr.com/photos/{{album.user_id}}/sets/{{album.id}}" target="_blank">&raquo; Всі фотографії</a>
             </div>
         </div>
-    </div>
+        </div>
+    </div> -->
 </div>
 <!--Finish photo-->
 
@@ -174,7 +77,7 @@
 
 <!--finish video-->
 
-<!--contact form-->
+<!--Contact form-->
 <div class="container-fluid container-contact-main" id="contact-link">
     <a href="https://www.google.com/maps/place/%D0%9C%D0%9E%D0%9B%D0%9E%D0%94%D0%AC+%D0%94%D0%9E+%D0%86%D0%A1%D0%A3%D0%A1%D0%90/@49.8422586,24.0230119,17z/data=!3m1!4b1!4m2!3m1!1s0x473add73c5664763:0x1c6af25550c0aa45" class="bg-contact-link" target="_blank"></a>
     <div class="row-fluit" id="row-main-form">
@@ -183,24 +86,32 @@
                 <div class="contact-headline">
                     <p translate="CONTACTUPPER"></p>
                 </div>
-                <form name="orderform" ng-submit="submitContact(contact_mail)" role="form" ng-init="contact_mail = {}">
+                <form name="orderform" ng-submit="submitContact()" role="form">
                     <div class="form-group">
-                        <input type="text" class="form-control-contact name-input" id="name-input" name="name" placeholder="Ваше ім'я" maxlength="50" ng-model="contact_mail.name" onblur="validateNonEmpty(this, document.getElementById('name_help'))">
-                        <span id="name_help" class="help"></span>
+                        <input type="text" name="contactName" class="contact-input contact-name" ng-minlength="4" ng-maxlength="16" maxlength="100" ng-pattern="memberNamePattern" placeholder="{{nameMessage}}" required ng-model="contact_mail.name">
+                        <p class="error" ng-show="orderform.contactName.$invalid && orderform.contactName.$dirty">
+                        {{getErrorName(orderform.contactName.$error)}}
+                        </p>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control-contact email-input" id="email-input" name="email" placeholder="Ваша пошта" maxlength="50" ng-model="contact_mail.email" onblur="validateEmail(this, document.getElementById('email_help'))">
-                        <span id="email_help" class="help"></span>
+                        <input type="email" name="contactEmail" class="contact-input contact-email" ng-maxlength="30" ng-pattern="memberNamePattern" placeholder="{{emailMessage}}" required ng-model="contact_mail.email">
+                        <p class="error" ng-show="orderform.contactEmail.$invalid && orderform.contactEmail.$dirty">
+                        {{getErrorEmail(orderform.contactEmail.$error)}}
+                        </p>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control-contact theme-input" id="theme-input" name="subject" placeholder="Тема повідомлення" maxlength="50" ng-model="contact_mail.subject" onblur="validateNonEmpty(this, document.getElementById('theme_help'))">
-                        <span id="theme_help" class="help"></span>
+                        <input type="text" name="contactTheme" class="contact-input contact-theme" ng-minlength="3" maxlength="100" ng-pattern="memberNamePattern" placeholder="{{themeMessage}}" required ng-model="contact_mail.theme">
+                        <p class="error" ng-show="orderform.contactTheme.$invalid">
+                        {{getErrorName(orderform.contactTheme.$error)}}
+                        </p>
                     </div>
                     <div class="form-group message-text">
-                        <textarea class="form-control message-input" id="message-input" rows="6" name="message" placeholder="Текст повідомлення" maxlength="1000" ng-model="contact_mail.message" onblur="validateLength(1, 1000, this, document.getElementById('message_help'))"></textarea>
-                        <span id="message_help" class="help"></span>
+                        <textarea name="contactText" class="materialize-textarea contact-input" ng-maxlength="1000" placeholder="{{textMessage}}" required ng-model="contact_mail.text"></textarea>
+                         <p class="error" ng-show="orderform.contactText.$invalid && orderform.contactText.$dirty">
+                        {{getErrorName(orderform.contactText.$error)}}
+                        </p>
                     </div>
-                    <button type="submit" class="btn btn-default button-input">Відправити</button>
+                    <button type="submit" class="btn btn-default button-input">{{sendMessage}}</button>
                 </form>
             </div>
         </div>

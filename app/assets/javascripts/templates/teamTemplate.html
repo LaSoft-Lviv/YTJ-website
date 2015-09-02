@@ -1,0 +1,38 @@
+<div class="row-fluid">
+    <div class="team-headline">
+        <p translate="TEAM"></p>
+    </div>
+    <div class="container-team">
+        <div class="col-xs-4 col-sm-3"  ng-repeat="team_member in team">
+            <div class="card card-container">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator member-picture"  ng-src={{team_member.foto.url}} >
+                    <hr>
+                </div>
+                <div class="card-content card-content-container">
+                    <div class="card-title card-title-container activator grey-text text-darken-4">
+                        <a  ng-show="team_member.facebook_link" class="facebook-link" href="{{team_member.facebook_link}}">
+                            <img class="member-facebook-logo img-responsive" src="images/facebook.png">
+                        </a>
+                        <div class="member-name"> {{team_member.name}}  {{team_member.surname}}
+                        </div>
+                        <i class="material-icons right more-vert more-vert-icon">more_vert</i>
+                    </div>
+                    <div class="description">
+                        {{team_member.position}} <br> {{team_member.phone}}<br/>
+                        <span>{{team_member.email}}</span>
+                    </div>
+                </div>
+                <div class="card-reveal member-back">
+                    <span class="card-title grey-text text-darken-4">
+                        <i class="material-icons right close-quote">close</i>
+                    </span>
+                    <p class="quote-head">Що для мене "Молодь до Ісуса?"</p>
+                    <div class="quote-description">
+                        {{team_member.quote}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

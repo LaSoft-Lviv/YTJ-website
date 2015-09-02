@@ -1,8 +1,11 @@
-<div class="container-fluid container-team-main" id="team-link">
+<div class="container-fluid">
     <div class="row-fluid">
-        <div class="container-team">
-    <div class="col-xs-6 col-sm-4"  ng-repeat="team_member in teamMembers">
-        <div class="card">
+        <div class="team-admin-headline">
+            <p>ВІКНО КОМАНДИ САЙТУ</p>
+        </div>
+        <div class="container-admin-team">
+            <div class="col-xs-6 col-sm-4 team-admin-slides"  ng-repeat="team_member in teamMembers">
+            <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator member-picture"  ng-src={{team_member.foto.url}} >
                 <hr>
@@ -26,8 +29,8 @@
                     {{team_member.quote}}
                 </p>
             </div>
-            <a  class="btn btn-sm" href="#/team/{{team_member.id}}/edit">update</a>
-            <a  class="btn btn-sm" href="#"   data-ng-click="deleteTeamMember(team_member.id)">delete</a>
+            <a  class="btn btn-sm team-admin-button" href="#/team/{{team_member.id}}/edit">update</a>
+            <a  class="btn btn-sm team-admin-button" href="#"   data-ng-click="deleteTeamMember(team_member.id)">delete</a>
 
         </div>
     </div>

@@ -1,4 +1,3 @@
-require 'google/api_client'
 require 'json'
 
 class HomeController < ApplicationController
@@ -7,33 +6,19 @@ class HomeController < ApplicationController
 
   def index
       respond_to do |format|
-      format.json { render json: { projects: @projects, team: @team_member, slides: @slides, playlistItems: get_playlist_items} }
+      format.json { render json: { projects: @projects, team: @team_member, slides: @slides, playlistItems: YoutubeVideosFetcher.instance.get_playlist_items, albums: get_flickr_albums } }
       format.html
      end
   end
 
   private
-    def get_authenticated_service
-     @client = Google::APIClient.new(
-          :application_name => $PROGRAM_NAME,
-          :application_version => '1.0.0'
-      )
-     @youtube = @client.discovered_api('youtube', 'v3')
-     @client.authorization = nil
+    def get_youtube_playlist
+      YoutubeVideosFetcher.instance.get_playlist_items
     end
 
-    def get_playlist_items
-      get_authenticated_service
-      playlist_item = @client.execute(
-          :key => "AIzaSyAON91YCc5EgOeG4qWC8JBk32P4lWijyNo",
-          :api_method => @youtube.playlist_items.list,
-          :parameters => {
-              :playlistId => 'PLSNJTlTtyhuHP_DsDyLz2iQP6dpy6vIgE',
-              :part => 'contentDetails,snippet'
-          }
-      )
-      playlist_item.data.items
-    end
+  def get_flickr_albums
+    FlickrAlbumsFetcher.fetch(user_id: '134787160@N07')
+  end
 
   def collect_data_objects
     @projects = Project.all.order("created_at DESC")
@@ -44,5 +29,4 @@ class HomeController < ApplicationController
   def format_json?
     request.format.json?
   end
-
 end
