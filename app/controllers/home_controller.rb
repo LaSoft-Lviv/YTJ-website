@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :collect_data_objects, if: :format_json?
   respond_to :json
 
   def index
@@ -26,5 +27,4 @@ class HomeController < ApplicationController
   def format_json?
     request.format.json?
   end
-
 end
