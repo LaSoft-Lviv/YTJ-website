@@ -12,7 +12,7 @@ angular.module("ytj")
                         albums[i].user_id+'/sets/'+albums[i].id+'" target="_blank" class="photo-link">'+ 
                         '<img class="img-photo" src="'+albums[i].url+'">'+
                         '<a href="https://www.flickr.com/photos/'+albums[i].user_id+'/sets/'+albums[i].id+
-                        'target="_blank" class="photo-description">'+albums[i].title+' More...</a></a></div>');
+                        '" target="_blank" class="photo-description">'+albums[i].title+' More...</a></a></div>');
                     };
                     
                     $('.container-photo').slick({
@@ -20,9 +20,9 @@ angular.module("ytj")
                         speed: 300,
                         slidesToShow: 1,
                         centerMode: true,
-                        variableWidth: true
-                        /*autoplay: true,
-                        autoplaySpeed: 5000,*/
+                        variableWidth: true,
+                        autoplay: true,
+                        autoplaySpeed: 5000
                     });
                 })
             },

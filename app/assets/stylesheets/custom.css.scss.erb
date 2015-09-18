@@ -518,8 +518,7 @@ li.donate-after-collapse, li.contact-after-collapse {
     font-size: 6px;
   }
 }
-
-/*Finish carousel*/
+/*FINISH CAROUSEL*/
 
 /*Loader*/
 
@@ -531,7 +530,6 @@ li.donate-after-collapse, li.contact-after-collapse {
 /*Finish loader*/
 
 /*ABOUT AS*/
-
 .container-about-main {
   position: relative;
   padding: 0px;
@@ -626,7 +624,6 @@ p.text-head {
     margin-top: 2%;
   }
 }
-
 /*FINISH ABOUT US*/
 
 /*PROJECTS*/
@@ -1007,6 +1004,7 @@ div.quote-description {
 }
 
 .container-photo {
+  margin-bottom: 0;
   padding: 4% 0%;
   background-color: #424343;
 }
@@ -1044,6 +1042,10 @@ div.quote-description {
   list-style: none;
 }
 
+.photo-description {
+  font-size: 14px;
+}
+
 .photo-description:hover {
   color: #ffffff;
 }
@@ -1058,6 +1060,9 @@ div.quote-description {
   .photo img {
     height: 300px;
   }
+  .photo-description {
+    font-size: 12px;
+}
 }
 
 @media screen and (max-width: 600px) {
@@ -1070,11 +1075,13 @@ div.quote-description {
   .photo img {
     height: 150px;
   }
+  .photo-description {
+    font-size: 10px;
+  }
 }
 /*FINISH PHOTO*/
 
-/*Video*/
-
+f
 .container-video-main {
   position: relative;
   padding: 0px;
@@ -1085,21 +1092,23 @@ div.quote-description {
   text-align: center;
   padding-top: 4%;
   padding-bottom: 4%;
-  background-color: #4A148C;
+  background-color: #000000;
 }
 
 .video-headline p {
   font-family: Roboto, sans-serif;
   margin: 0;
   padding: 0;
-  color: #ffffff;
+  color: #FDD73E;
   font-size: 20px;
   font-weight: 300;
 }
 
 .container-video {
   padding: 7% 0% 5% 0%;
+  margin-bottom: 0;
   text-align: center;
+  background-color: #424343;
 }
 
 .video-name-box {
@@ -1114,7 +1123,7 @@ div.quote-description {
 outline: none !important;
 /*width: 375px;*/
 display: inline-block;
-padding: 1% 1%;
+/*padding: 1% 1%;*/
 }
 
 /*.video-iframe-box youtube-embed {
@@ -1123,9 +1132,19 @@ padding: 1% 1%;
   margin-bottom: 30px;
 }*/
 
-/*Finish video*/
+/*FINISH VIDEO*/
 
-/*Contact*/
+/*CONTACT*/
+.bg-contact-link {
+  display:block;
+  position:absolute;
+  height:100%;
+  width:100%;
+  left:0;
+  top:0;
+  z-index:0;
+  text-indent:-5000em;
+}
 
 .container-contact-main {
   position: relative;
@@ -1135,20 +1154,25 @@ padding: 1% 1%;
   background-position: center;  /* Internet Explorer 7/8 */
 }
 
-.bg-contact-link {
-  display:block;
-  height:100%;
-  width:100%;
-  position:absolute;
-  left:0;
-  top:0;
-  z-index:0;
-  text-indent:-5000em;
+.contact-headline {
+  text-align: center;
+  padding: 5% 0%;
+}
+
+.contact-headline p {
+  font-family: Roboto, sans-serif;;
+  margin: 0;
+  padding: 0;
+  color: #FDD73E;
+  font-size: 16px;
+  font-weight: 300;
 }
 
 .main-form {
-  background-color: #7B1FA2;
+  background-color: #424343;
   z-index: 10;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
 }
 
 .form-group {
@@ -1164,97 +1188,102 @@ padding: 1% 1%;
   border-radius: 0px;
 }
 
-.name-input:focus, .email-input:focus, .theme-input:focus {
-  border-bottom: 2px solid #4a148c !important;
+div.main-form form div.form-group input.contact-input {
+  color: #ffffff;
 }
 
-.name-input:focus, .email-input:focus, .theme-input:focus {
-  border-left: none !important;
-  border-right: none !important;
-  border-top: none !important;
+div.main-form form div.form-group input.contact-input:focus {
+  border-color: #000000;
+  box-shadow: none;
 }
 
-.message-input:focus {
-  border: 2px solid #4a148c;
+div.main-form form div.form-group textarea {
+  color: #ffffff;
+  margin: 0;
 }
 
-textarea {
-  max-width: 100%;
-  rows:6;
+div.main-form form div.form-group textarea:focus {
+  border-color: #000000;
+  box-shadow: none;
+}
+
+p.mainform-error {
+  color: red;
+  font-style: italic;
   font-size: 14px;
 }
 
-.help {
-  color: red;
-  font-style: italic;
-  font-size: 12px;
-}
-
 .button-input {
-  color: white;
-  background-color: #4A148C;
-  border-color: #4A148C;
+  color: #FDD73E;
+  background-color: #000000;
+  border-color: #000000;
   margin: 0px 0px 15px 15px;
 }
 
-.button-input:hover {
-  background-color: #4A148C;
+div.main-form form button.button-input:focus {
   color: white;
-  border: 1px solid white;
+  background-color: #090909;
+  border-color: #090909;
+  outline: thin dotted;
 }
 
-.contact-headline {
-  text-align: center;
-  padding-top: 50px;
-  padding-bottom: 40px;
+div.main-form form button.button-input:active {
+  background-color: #ffffff;
 }
 
-.contact-headline p {
-  font-family: Roboto, sans-serif;;
-  margin: 0;
-  padding: 0;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 300;
+div.main-form form button.button-input:hover {
+  color: #FDD73E;
+  background-color: #090909;
 }
 
-.frame-google-map {
-  display: none;
-}
-
-.contact-input {
-  color: #ffffff;
+@media screen and (max-width: 980px) {
+  div.main-form form div.form-group textarea {
+    padding: 0;
+  }
+  p.mainform-error {
+  font-size: 12px;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .container-contact-main {
     background-image: url('<%= asset_path("google_map_less_768.png") %>');
   }
+  .contact-headline p {
+  font-size: 14px;
+  }
+  .button-input {
+  font-size: 12px;
+  }
+  p.mainform-error {
+    font-size: 10px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-  .container-contact-main {
-    //background-image: none;
+  .contact-headline p {
+    font-size: 10px;
   }
-  .help {
-    font-size: 75%;
+  div.main-form form div.form-group input.contact-input {
+    font-size: 8px;
+    margin: 0;
   }
-  .contact-headline {
-    padding-top: 25px;
-    padding-bottom: 20px;
+  div.main-form form div.form-group textarea {
+    font-size: 8px;
   }
-  .frame-google-map {
-    display: none;
+  .button-input {
+    font-size: 10px;
+  }
+  p.mainform-error {
+    font-size: 8px;
   }
 }
+/*FINISH CONTACT*/
 
-/*Finish contact*/
-
-/*Footer*/
-
+/*FOOTER*/
 .container-footer {
   padding: 0px;
-  background-color: #6A1B9A;
+  background-color: #424343;
   text-align: center;
 }
 
@@ -1262,7 +1291,7 @@ textarea {
   font-family: Roboto, sans-serif;
   margin: 0;
   padding: 0;
-  color: #ffffff;
+  color: #FDD73E;
   font-size: 16px;
   font-weight: 300;
   margin-top: 7%;
@@ -1303,7 +1332,31 @@ textarea {
   color: #757575;
 }
 
-/*Finish footer*/
+@media screen and (max-width: 600px) {
+  .footer-headline {
+    font-size: 14px;
+  }
+  .footer-navigate {
+    font-size: 12px;
+  }  
+  .footer-reserved p {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-headline {
+    font-size: 12px;
+  }
+  .footer-navigate {
+    font-size: 10px;
+  }
+  .footer-reserved p {
+    font-size: 10px;
+  }
+}
+/*FINISH FOOTER*/
+
 
 /*Signup*/
 

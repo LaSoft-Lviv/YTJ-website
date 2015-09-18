@@ -1,7 +1,7 @@
 angular.module('services')
     .service('ContactFormService',['$http', function($http){
         return {
-            // private functions
+            
             handleSuccess: function(data) {
                 return data.data
             },

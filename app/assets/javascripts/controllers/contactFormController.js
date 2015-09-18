@@ -21,7 +21,7 @@ angular.module('controllers')
             });
         });
 
-            $scope.submitContact = function() {
+        $scope.submitContact = function() {
             var form = collectFormData();
             ContactFormService.sendMail(form).then(function (data) {
 
@@ -29,20 +29,19 @@ angular.module('controllers')
                    Materialize.toast($scope.succesMessage, 3000);
                 } else {
                     if (data.errors) {
-                        console.log(data.errors);
                         for (var error in data.errors) {
                             switch(error) {
                                     case 'name':
-                                    Materialize.toast(data.errors[error][0], 7000);
+                                    Materialize.toast(data.errors[error][0], 5000);
                                     break;
                                     case 'email':
-                                    Materialize.toast(data.errors[error][0], 7000);
+                                    Materialize.toast(data.errors[error][0], 5000);
                                     break;
-                                    case 'theme':
-                                    Materialize.toast(data.errors[error][0], 7000);
+                                    case 'subject':
+                                    Materialize.toast(data.errors[error][0], 5000);
                                     break;
-                                    case 'text':
-                                    Materialize.toast(data.errors[error][0], 7000);
+                                    case 'message':
+                                    Materialize.toast(data.errors[error][0], 5000);
                                     break;
                                 }
                         }
@@ -66,24 +65,44 @@ angular.module('controllers')
         $scope.getErrorName = function (error) {
             if (angular.isDefined(error)) {
                 if (error.required) {
-                  //return "Поле не повинно бути пустим";
-                } else if (error.pattern) {
-                    return "Введіть правильну назву";
-                  } else if (error.minlength) {
-                      return "Назва повинно містити не менше 3 символів";
-                    } else if (error.maxlength) {
-                        return "Назва повинно містити не більше 16 символів";
-                      }
+                    return "Поле не повинно бути пустим";
+                } else if (error.minlength) {
+                    return "Назва повинно містити не менше 3 символів";
+                } else if (error.maxlength) {
+                    return "Назва повинно містити не більше 16 символів";
+                }
             }
         }
 
         $scope.getErrorEmail = function (error) {
             if (angular.isDefined(error)) {
                 if (error.required) {
-                  //return "Поле не повинно бути пустим";
+                    return "Поле не повинно бути пустим";
                 } else if (error.email) {
                     return "Введіть правильний email";
-                  }
+                }
+            }
+        }
+
+        $scope.getErrorSubject = function (error) {
+            if (angular.isDefined(error)) {
+                if (error.required) {
+                    return "Поле не повинно бути пустим";
+                } else if (error.minlength) {
+                    return "Тема повинна містити не менше 3 символів";
+                } else if (error.maxlength) {
+                    return "Тема повинна містити не більше 100 символів";
+                }
+            }
+        }
+
+        $scope.getErrorMessage = function (error) {
+            if (angular.isDefined(error)) {
+                if (error.required) {
+                    return "Поле не повинно бути пустим";
+                }  else if (error.maxlength) {
+                    return "Повідомлення повинно містити не більше 1000 символів";
+                }
             }
         }
 

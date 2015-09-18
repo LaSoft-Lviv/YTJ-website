@@ -56,7 +56,7 @@ function placeOrder(form) {
 /* finish functions */
 
 /* Start Functions for change client form */
-function remoAttrRows() {
+/*function remoAttrRows() {
     if (document.body.clientWidth < 480) {
         var tag = document.getElementById('message-input');
         tag.removeAttribute('rows');
@@ -87,7 +87,7 @@ function getAttrBack() {
         att2.value = '6';
         tag2.setAttributeNode(att2);
     }
-}
+}*/
 /* finish functions */
 
 

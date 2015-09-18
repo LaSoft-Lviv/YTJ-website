@@ -46,67 +46,18 @@
 <!--Finish photo-->
 
 <!--Video-->
-<div class="container-fluid container-video-main" id="video-link">
-    <div class="row-fluid">
-        <div class="video-headline">
-            <p translate="VIDEO"></p>
-        </div>
-        <div class="container-video col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1">
-            <div class="video-iframe-box" ng-repeat="video in playListItems">
-                <youtube-embed width="{{video.snippet.thumbnails.medium.width}}px" height="{{video.snippet.thumbnails.medium.height}}px" id="{{video.contentDetails.videoId}}" image="{{video.snippet.thumbnails.medium.url}}">
-                </youtube-embed>
-                <p class="video-name-box">{{video.snippet.title}}</p>
-            </div>
-        </div>
-    </div>
+<div class="container-fluid container-video-main" id="video-link" video-directive="playListItems">
 </div>
 
 <!--finish video-->
 
 <!--Contact form-->
-<div class="container-fluid container-contact-main" id="contact-link">
-    <a href="https://www.google.com/maps/place/%D0%9C%D0%9E%D0%9B%D0%9E%D0%94%D0%AC+%D0%94%D0%9E+%D0%86%D0%A1%D0%A3%D0%A1%D0%90/@49.8422586,24.0230119,17z/data=!3m1!4b1!4m2!3m1!1s0x473add73c5664763:0x1c6af25550c0aa45" class="bg-contact-link" target="_blank"></a>
-    <div class="row-fluit" id="row-main-form">
-        <div class="col-sm-5 col-sm-offset-6  col-xs-8 col-xs-offset-2" id="id-col">
-            <div class="main-form" ng-controller="ContactFormController as contact_form">
-                <div class="contact-headline">
-                    <p translate="CONTACTUPPER"></p>
-                </div>
-                <form name="orderform" ng-submit="submitContact()" role="form">
-                    <div class="form-group">
-                        <input type="text" name="contactName" class="contact-input contact-name" ng-minlength="4" ng-maxlength="16" maxlength="100" ng-pattern="memberNamePattern" placeholder="{{nameMessage}}" required ng-model="contact_mail.name">
-                        <p class="error" ng-show="orderform.contactName.$invalid && orderform.contactName.$dirty">
-                        {{getErrorName(orderform.contactName.$error)}}
-                        </p>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="contactEmail" class="contact-input contact-email" ng-maxlength="30" ng-pattern="memberNamePattern" placeholder="{{emailMessage}}" required ng-model="contact_mail.email">
-                        <p class="error" ng-show="orderform.contactEmail.$invalid && orderform.contactEmail.$dirty">
-                        {{getErrorEmail(orderform.contactEmail.$error)}}
-                        </p>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="contactTheme" class="contact-input contact-theme" ng-minlength="3" maxlength="100" ng-pattern="memberNamePattern" placeholder="{{themeMessage}}" required ng-model="contact_mail.theme">
-                        <p class="error" ng-show="orderform.contactTheme.$invalid">
-                        {{getErrorName(orderform.contactTheme.$error)}}
-                        </p>
-                    </div>
-                    <div class="form-group message-text">
-                        <textarea name="contactText" class="materialize-textarea contact-input" ng-maxlength="1000" placeholder="{{textMessage}}" required ng-model="contact_mail.text"></textarea>
-                         <p class="error" ng-show="orderform.contactText.$invalid && orderform.contactText.$dirty">
-                        {{getErrorName(orderform.contactText.$error)}}
-                        </p>
-                    </div>
-                    <button type="submit" class="btn btn-default button-input">{{sendMessage}}</button>
-                </form>
-            </div>
-        </div>
-    </div>
+<div class="container-fluid container-contact-main" id="contact-link" contact-directive>
 </div>
 <!--Finish contact form-->
 
 <!-- Scroll button -->
-<div scroll-directive class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+<div scroll-directive class="fixed-action-btn scroll-button" style="bottom: 45px; right: 24px;">
     <a ng-click="gotoTop()" style="display:none;opacity:0.7" class="btn-floating btn-large grey darken-4 my-btn-floating">
         <i class="large material-icons">keyboard_arrow_up</i>
     </a>

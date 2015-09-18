@@ -10,7 +10,7 @@ angular.module('controllers')
                 $scope.slides = data.slides;
                 $scope.playListItems = data.playlistItems;
                 $scope.albums = data.albums;
-                console.log($scope.albums);
+                console.log($scope.playListItems);
                 $rootScope.$broadcast("dataLoad");
                 $rootScope.currentLang = $translate.use();
             });
