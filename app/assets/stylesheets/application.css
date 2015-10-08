@@ -11,10 +11,7 @@
  * file per style scope.
  *
 
-
-
  *= require bootstrap.min
-
  *= require material_icons
  *= require materialize
  *=require slick
